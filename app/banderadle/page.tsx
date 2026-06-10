@@ -193,6 +193,16 @@ export default function BanderadlePage() {
     const [showStats, setShowStats] = useState(false);
     const [stats, setStats] = useState<GameStats | null>(null);
     const [statsTab, setStatsTab] = useState<"normal" | "easy" | "global">("global");
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 640);
+        };
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const confettiAnimationRef = useRef<number | null>(null);
@@ -482,6 +492,16 @@ export default function BanderadlePage() {
     const activeStats = getActiveStats();
     const winRate = activeStats.played > 0 ? Math.round((activeStats.won / activeStats.played) * 100) : 0;
 
+    const getPlaceholder = () => {
+        if (!isMobile) return t.placeholderGuess;
+        if (gameLang === "es" || gameLang === "pt") return "País...";
+        if (gameLang === "de") return "Land...";
+        if (gameLang === "pl") return "Kraj...";
+        if (gameLang === "ru") return "Страна...";
+        if (gameLang === "la") return "Patria...";
+        return "País...";
+    };
+
     if (!mounted || !targetCountry) {
         return (
             <div className="flex h-screen items-center justify-center bg-slate-50 dark:bg-slate-950">
@@ -510,33 +530,60 @@ export default function BanderadlePage() {
             <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-50 w-full h-full" />
 
             {/* Corner menus (Absolute on Desktop, flow on Mobile) */}
-            <div className="w-full max-w-5xl flex flex-col gap-4 mt-2 mb-4 xl:contents">
+            <div className="w-full max-w-xl xl:max-w-5xl flex flex-col items-center gap-4 mt-2 mb-4 xl:contents">
                 {/* Select Mode */}
-                <div className="xl:absolute xl:top-6 xl:left-6 flex flex-row xl:flex-col gap-2 z-40 w-full xl:w-auto justify-center xl:justify-start" key="mode-selector">
-                    <button
-                        onClick={() => startNewGame("normal")}
-                        style={{
-                            backgroundColor: gameMode === "normal" ? activeStyle.accent : activeStyle.card,
-                            color: gameMode === "normal" ? activeStyle.btnText : activeStyle.text,
-                            borderColor: activeStyle.border,
-                        }}
-                        className={`px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl border text-xs sm:text-sm font-bold shadow-sm transition-all duration-300 hover:scale-102 active:scale-98 text-center xl:text-left ${gameMode === "normal" ? "shadow-md" : "hover:bg-opacity-90 cursor-pointer"
-                            }`}
-                    >
-                        {t.modeLabelNormal}
-                    </button>
-                    <button
-                        onClick={() => startNewGame("easy")}
-                        style={{
-                            backgroundColor: gameMode === "easy" ? activeStyle.accent : activeStyle.card,
-                            color: gameMode === "easy" ? activeStyle.btnText : activeStyle.text,
-                            borderColor: activeStyle.border,
-                        }}
-                        className={`px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl border text-xs sm:text-sm font-bold shadow-sm transition-all duration-300 hover:scale-102 active:scale-98 text-center xl:text-left ${gameMode === "easy" ? "shadow-md" : "hover:bg-opacity-90 cursor-pointer"
-                            }`}
-                    >
-                        {t.modeLabelEasy}
-                    </button>
+                <div className="xl:absolute xl:top-6 xl:left-6 z-40 w-full xl:w-auto flex flex-col items-center xl:items-start gap-2" key="mode-selector">
+                    {/* Segmented control for mobile (< xl) */}
+                    <div style={{ backgroundColor: activeStyle.card, borderColor: activeStyle.border }} className="flex xl:hidden p-1 rounded-xl border w-full max-w-[280px] select-none">
+                        <button
+                            onClick={() => startNewGame("normal")}
+                            style={{
+                                backgroundColor: gameMode === "normal" ? activeStyle.accent : "transparent",
+                                color: gameMode === "normal" ? activeStyle.btnText : activeStyle.text,
+                            }}
+                            className="flex-1 py-1.5 rounded-lg text-xs font-bold text-center transition-all cursor-pointer"
+                        >
+                            {t.modeLabelNormal}
+                        </button>
+                        <button
+                            onClick={() => startNewGame("easy")}
+                            style={{
+                                backgroundColor: gameMode === "easy" ? activeStyle.accent : "transparent",
+                                color: gameMode === "easy" ? activeStyle.btnText : activeStyle.text,
+                            }}
+                            className="flex-1 py-1.5 rounded-lg text-xs font-bold text-center transition-all cursor-pointer"
+                        >
+                            {t.modeLabelEasy}
+                        </button>
+                    </div>
+
+                    {/* Classic buttons for desktop (>= xl) */}
+                    <div className="hidden xl:flex xl:flex-col gap-2 w-full">
+                        <button
+                            onClick={() => startNewGame("normal")}
+                            style={{
+                                backgroundColor: gameMode === "normal" ? activeStyle.accent : activeStyle.card,
+                                color: gameMode === "normal" ? activeStyle.btnText : activeStyle.text,
+                                borderColor: activeStyle.border,
+                            }}
+                            className={`px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl border text-xs sm:text-sm font-bold shadow-sm transition-all duration-300 hover:scale-102 active:scale-98 text-center xl:text-left ${gameMode === "normal" ? "shadow-md" : "hover:bg-opacity-90 cursor-pointer"
+                                }`}
+                        >
+                            {t.modeLabelNormal}
+                        </button>
+                        <button
+                            onClick={() => startNewGame("easy")}
+                            style={{
+                                backgroundColor: gameMode === "easy" ? activeStyle.accent : activeStyle.card,
+                                color: gameMode === "easy" ? activeStyle.btnText : activeStyle.text,
+                                borderColor: activeStyle.border,
+                            }}
+                            className={`px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl border text-xs sm:text-sm font-bold shadow-sm transition-all duration-300 hover:scale-102 active:scale-98 text-center xl:text-left ${gameMode === "easy" ? "shadow-md" : "hover:bg-opacity-90 cursor-pointer"
+                                }`}
+                        >
+                            {t.modeLabelEasy}
+                        </button>
+                    </div>
                 </div>
 
                 {/* Info buttons */}
@@ -545,26 +592,29 @@ export default function BanderadlePage() {
                         <button
                             onClick={() => setShowHelp(true)}
                             style={{ backgroundColor: activeStyle.card, borderColor: activeStyle.border }}
-                            className="px-3.5 py-2 rounded-xl border shadow-sm text-xs font-bold hover:scale-105 active:scale-95 transition-all flex items-center gap-1.5 cursor-pointer"
+                            className="p-2.5 sm:px-3.5 sm:py-2 rounded-xl border shadow-sm text-xs font-bold hover:scale-105 active:scale-95 transition-all flex items-center gap-1.5 cursor-pointer"
+                            title={t.howToPlay}
                         >
                             <HelpCircle className="w-4 h-4" />
-                            <span>{t.howToPlay}</span>
+                            <span className="hidden sm:inline">{t.howToPlay}</span>
                         </button>
                         <button
                             onClick={() => setShowStats(true)}
                             style={{ backgroundColor: activeStyle.card, borderColor: activeStyle.border }}
-                            className="px-3.5 py-2 rounded-xl border shadow-sm text-xs font-bold hover:scale-105 active:scale-95 transition-all flex items-center gap-1.5 cursor-pointer"
+                            className="p-2.5 sm:px-3.5 sm:py-2 rounded-xl border shadow-sm text-xs font-bold hover:scale-105 active:scale-95 transition-all flex items-center gap-1.5 cursor-pointer"
+                            title={t.stats}
                         >
                             <BarChart2 className="w-4 h-4" />
-                            <span>{t.stats}</span>
+                            <span className="hidden sm:inline">{t.stats}</span>
                         </button>
                         <button
                             onClick={() => startNewGame()}
                             style={{ backgroundColor: activeStyle.card, borderColor: activeStyle.border }}
-                            className="px-3.5 py-2 rounded-xl border shadow-sm text-xs font-bold hover:scale-105 active:scale-95 transition-all flex items-center gap-1.5 cursor-pointer"
+                            className="p-2.5 sm:px-3.5 sm:py-2 rounded-xl border shadow-sm text-xs font-bold hover:scale-105 active:scale-95 transition-all flex items-center gap-1.5 cursor-pointer"
+                            title={t.reset}
                         >
                             <RefreshCw className="w-4 h-4" />
-                            <span>{t.reset}</span>
+                            <span className="hidden sm:inline">{t.reset}</span>
                         </button>
                     </div>
                 </div>
@@ -641,7 +691,7 @@ export default function BanderadlePage() {
                                 }}
                                 onFocus={() => setShowSuggestions(true)}
                                 onKeyDown={handleKeyDown}
-                                placeholder={t.placeholderGuess}
+                                placeholder={getPlaceholder()}
                                 className={`w-full pl-10 pr-24 py-3 rounded-2xl border text-sm sm:text-base font-semibold shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-300 ${shakeRowIndex === guesses.length ? "animate-shake" : ""
                                     }`}
                                 style={{
@@ -851,12 +901,12 @@ export default function BanderadlePage() {
 
             {/* Help / Instructions Modal */}
             {showHelp && (
-                <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center px-4">
+                <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
                     <div
                         style={{ backgroundColor: activeStyle.card, color: activeStyle.text }}
-                        className="w-full max-w-xl p-6 sm:p-8 rounded-3xl shadow-xl flex flex-col gap-4 relative animate-scale-in max-h-[85vh] overflow-y-auto"
+                        className="w-[calc(100vw-2rem)] max-w-xl p-4 sm:p-8 rounded-3xl shadow-xl flex flex-col gap-3 sm:gap-4 relative animate-scale-in max-h-[85dvh] overflow-y-auto overscroll-behavior-contain"
                     >
-                        <h2 className="text-xl sm:text-2xl font-black text-center border-b pb-3 flex items-center gap-2.5 justify-center">
+                        <h2 className="text-lg sm:text-2xl font-black text-center border-b pb-3 flex items-center gap-2.5 justify-center">
                             <HelpCircle style={{ color: activeStyle.accent }} />
                             <span>{t.helpTitle}</span>
                         </h2>
@@ -866,37 +916,37 @@ export default function BanderadlePage() {
                             {t.helpEasyMode}
                         </p>
 
-                        <div className="flex flex-col gap-2.5">
-                            <h3 className="text-xs sm:text-sm font-black uppercase tracking-wider opacity-70">{t.helpTableTitle}</h3>
+                        <div className="flex flex-col gap-2">
+                            <h3 className="text-[10px] sm:text-xs font-black uppercase tracking-wider opacity-70">{t.helpTableTitle}</h3>
 
-                            <div className="grid grid-cols-1 gap-2 text-xxs sm:text-xs">
-                                <div className="flex items-start gap-2.5">
-                                    <span className="px-2 py-0.5 rounded bg-emerald-500 text-white font-extrabold shrink-0">🟢</span>
+                            <div className="grid grid-cols-1 gap-2 text-[11px] sm:text-xs">
+                                <div className="flex items-start gap-2">
+                                    <span className="px-1.5 py-0.5 rounded bg-emerald-500 text-white font-extrabold shrink-0">🟢</span>
                                     <span>{t.helpContinente}</span>
                                 </div>
-                                <div className="flex items-start gap-2.5">
-                                    <span className="px-2 py-0.5 rounded bg-amber-500 text-white font-extrabold shrink-0">🟡</span>
+                                <div className="flex items-start gap-2">
+                                    <span className="px-1.5 py-0.5 rounded bg-amber-500 text-white font-extrabold shrink-0">🟡</span>
                                     <span>{t.helpFronterizo}</span>
                                 </div>
-                                <div className="flex items-start gap-2.5">
-                                    <span className="px-2 py-0.5 rounded bg-slate-500 text-white font-extrabold shrink-0">⬆️/⬇️</span>
+                                <div className="flex items-start gap-2">
+                                    <span className="px-1.5 py-0.5 rounded bg-slate-500 text-white font-extrabold shrink-0">⬆️/⬇️</span>
                                     <span>{t.helpSuperficie}</span>
                                 </div>
-                                <div className="flex items-start gap-2.5">
-                                    <span className="px-2 py-0.5 rounded bg-slate-500 text-white font-extrabold shrink-0">🧭</span>
+                                <div className="flex items-start gap-2">
+                                    <span className="px-1.5 py-0.5 rounded bg-slate-500 text-white font-extrabold shrink-0">🧭</span>
                                     <span>{t.helpDistancia}</span>
                                 </div>
                             </div>
                         </div>
 
-                        <p style={{ color: activeStyle.textMuted }} className="text-xs leading-relaxed italic border-t pt-3 mt-1 font-semibold">
+                        <p style={{ color: activeStyle.textMuted }} className="text-[11px] sm:text-xs leading-relaxed italic border-t pt-3 mt-1 font-semibold">
                             {t.helpFooter}
                         </p>
 
                         <button
                             onClick={() => setShowHelp(false)}
                             style={{ backgroundColor: activeStyle.accent, color: activeStyle.btnText }}
-                            className="mt-2 w-full py-2.5 sm:py-3 rounded-xl font-bold text-sm shadow-sm transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer"
+                            className="mt-2 w-full py-2 sm:py-3 rounded-xl font-bold text-sm shadow-sm transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer"
                         >
                             {t.btnUnderstood}
                         </button>
@@ -906,16 +956,16 @@ export default function BanderadlePage() {
 
             {/* Results Game Over Modal */}
             {showResultModal && (
-                <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center px-4">
+                <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
                     <div
                         style={{ backgroundColor: activeStyle.card, color: activeStyle.text }}
-                        className="w-full max-w-md p-6 sm:p-8 rounded-3xl shadow-xl flex flex-col gap-4 text-center relative animate-scale-in"
+                        className="w-[calc(100vw-2rem)] max-w-md p-4 sm:p-8 rounded-3xl shadow-xl flex flex-col gap-3 sm:gap-4 text-center relative animate-scale-in max-h-[85dvh] overflow-y-auto overscroll-behavior-contain"
                     >
-                        <h2 className="text-2xl sm:text-3xl font-black">
+                        <h2 className="text-xl sm:text-3xl font-black">
                             {gameStatus === "won" ? t.winTitle : t.loseTitle}
                         </h2>
 
-                        <p className="text-sm sm:text-base font-semibold leading-relaxed">
+                        <p className="text-xs sm:text-base font-semibold leading-relaxed">
                             {gameStatus === "won"
                                 ? t.winDesc(guesses.length)
                                 : t.loseDesc
@@ -923,15 +973,15 @@ export default function BanderadlePage() {
                         </p>
 
                         {/* Secret country card info */}
-                        <div className="flex flex-col items-center gap-2.5 my-4 bg-slate-100/50 dark:bg-slate-900/50 p-4 rounded-2xl border border-black/5">
-                            <span style={{ color: activeStyle.textMuted }} className="text-xs font-bold uppercase tracking-wider">{t.secretCountryWas}</span>
+                        <div className="flex flex-col items-center gap-1.5 sm:gap-2.5 my-2 sm:my-4 bg-slate-100/50 dark:bg-slate-900/50 p-3 sm:p-4 rounded-2xl border border-black/5">
+                            <span style={{ color: activeStyle.textMuted }} className="text-[10px] sm:text-xs font-bold uppercase tracking-wider">{t.secretCountryWas}</span>
                             <img
                                 src={`/${targetCountry.rutaBandera}`}
                                 alt={getCountryName(targetCountry)}
-                                className="w-32 h-20 object-cover rounded-lg border border-black/10 shadow-md"
+                                className="w-24 h-16 sm:w-32 sm:h-20 object-cover rounded-lg border border-black/10 shadow-md"
                             />
-                            <span className="text-xl font-black">{getCountryName(targetCountry)}</span>
-                            <span style={{ color: activeStyle.accent }} className="text-xs font-extrabold uppercase bg-black/5 dark:bg-white/5 px-2.5 py-1 rounded-md">
+                            <span className="text-lg sm:text-xl font-black">{getCountryName(targetCountry)}</span>
+                            <span style={{ color: activeStyle.accent }} className="text-[10px] sm:text-xs font-extrabold uppercase bg-black/5 dark:bg-white/5 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md">
                                 {getContinentName(targetCountry.continente)}
                             </span>
                         </div>
@@ -941,7 +991,7 @@ export default function BanderadlePage() {
                             <button
                                 onClick={handleShareResult}
                                 style={{ backgroundColor: activeStyle.accent, color: activeStyle.btnText }}
-                                className="w-full py-3 rounded-xl font-bold text-sm shadow-sm hover:scale-103 active:scale-97 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                                className="w-full py-2.5 sm:py-3 rounded-xl font-bold text-sm shadow-sm hover:scale-103 active:scale-97 transition-all flex items-center justify-center gap-2 cursor-pointer"
                             >
                                 <Share2 className="w-4 h-4" />
                                 <span>{t.share}</span>
@@ -952,7 +1002,7 @@ export default function BanderadlePage() {
                             <button
                                 onClick={() => startNewGame()}
                                 style={{ backgroundColor: activeStyle.card, borderColor: activeStyle.border }}
-                                className="w-full py-3 rounded-xl font-bold text-sm border shadow-sm hover:bg-black/5 dark:hover:bg-white/5 hover:scale-103 active:scale-97 transition-all cursor-pointer"
+                                className="w-full py-2.5 sm:py-3 rounded-xl font-bold text-sm border shadow-sm hover:bg-black/5 dark:hover:bg-white/5 hover:scale-103 active:scale-97 transition-all cursor-pointer"
                             >
                                 {t.playAgain}
                             </button>
@@ -971,10 +1021,10 @@ export default function BanderadlePage() {
 
             {/* Statistics Modal */}
             {showStats && (
-                <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center px-4">
+                <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
                     <div
                         style={{ backgroundColor: activeStyle.card, color: activeStyle.text }}
-                        className="w-full max-w-md p-6 sm:p-8 rounded-3xl shadow-xl flex flex-col gap-4 relative animate-scale-in max-h-[85vh] overflow-y-auto"
+                        className="w-[calc(100vw-2rem)] max-w-md p-4 sm:p-8 rounded-3xl shadow-xl flex flex-col gap-3 sm:gap-4 relative animate-scale-in max-h-[85dvh] overflow-y-auto overscroll-behavior-contain"
                     >
                         <h2 className="text-xl sm:text-2xl font-black text-center border-b pb-3 flex items-center gap-2 justify-center">
                             <BarChart2 style={{ color: activeStyle.accent }} />
@@ -1006,37 +1056,37 @@ export default function BanderadlePage() {
                         {activeStats.played > 0 ? (
                             <div className="flex flex-col gap-4">
                                 {/* Grid numbers */}
-                                <div className="grid grid-cols-4 gap-2 text-center">
-                                    <div className="bg-slate-100/50 dark:bg-slate-900/50 p-2.5 rounded-xl border border-black/5">
-                                        <div className="text-xl sm:text-2xl font-black">{activeStats.played}</div>
-                                        <div style={{ color: activeStyle.textMuted }} className="text-[10px] sm:text-xxs uppercase tracking-wider font-extrabold mt-0.5">{t.statsPlayed}</div>
+                                <div className="grid grid-cols-4 gap-1.5 sm:gap-2 text-center">
+                                    <div className="bg-slate-100/50 dark:bg-slate-900/50 p-2 sm:p-2.5 rounded-xl border border-black/5">
+                                        <div className="text-lg sm:text-2xl font-black">{activeStats.played}</div>
+                                        <div style={{ color: activeStyle.textMuted }} className="text-[8px] sm:text-xxs uppercase tracking-wider font-extrabold mt-0.5">{t.statsPlayed}</div>
                                     </div>
-                                    <div className="bg-slate-100/50 dark:bg-slate-900/50 p-2.5 rounded-xl border border-black/5">
-                                        <div className="text-xl sm:text-2xl font-black">{winRate}%</div>
-                                        <div style={{ color: activeStyle.textMuted }} className="text-[10px] sm:text-xxs uppercase tracking-wider font-extrabold mt-0.5">{t.statsWinRate}</div>
+                                    <div className="bg-slate-100/50 dark:bg-slate-900/50 p-2 sm:p-2.5 rounded-xl border border-black/5">
+                                        <div className="text-lg sm:text-2xl font-black">{winRate}%</div>
+                                        <div style={{ color: activeStyle.textMuted }} className="text-[8px] sm:text-xxs uppercase tracking-wider font-extrabold mt-0.5">{t.statsWinRate}</div>
                                     </div>
-                                    <div className="bg-slate-100/50 dark:bg-slate-900/50 p-2.5 rounded-xl border border-black/5">
-                                        <div className="text-xl sm:text-2xl font-black">{activeStats.currentStreak}</div>
-                                        <div style={{ color: activeStyle.textMuted }} className="text-[10px] sm:text-xxs uppercase tracking-wider font-extrabold mt-0.5">{t.statsCurrentStreak}</div>
+                                    <div className="bg-slate-100/50 dark:bg-slate-900/50 p-2 sm:p-2.5 rounded-xl border border-black/5">
+                                        <div className="text-lg sm:text-2xl font-black">{activeStats.currentStreak}</div>
+                                        <div style={{ color: activeStyle.textMuted }} className="text-[8px] sm:text-xxs uppercase tracking-wider font-extrabold mt-0.5">{t.statsCurrentStreak}</div>
                                     </div>
-                                    <div className="bg-slate-100/50 dark:bg-slate-900/50 p-2.5 rounded-xl border border-black/5">
-                                        <div className="text-xl sm:text-2xl font-black">{activeStats.maxStreak}</div>
-                                        <div style={{ color: activeStyle.textMuted }} className="text-[10px] sm:text-xxs uppercase tracking-wider font-extrabold mt-0.5">{t.statsMaxStreak}</div>
+                                    <div className="bg-slate-100/50 dark:bg-slate-900/50 p-2 sm:p-2.5 rounded-xl border border-black/5">
+                                        <div className="text-lg sm:text-2xl font-black">{activeStats.maxStreak}</div>
+                                        <div style={{ color: activeStyle.textMuted }} className="text-[8px] sm:text-xxs uppercase tracking-wider font-extrabold mt-0.5">{t.statsMaxStreak}</div>
                                     </div>
                                 </div>
 
                                 {/* Guesses distribution */}
-                                <div className="flex flex-col gap-2 mt-2">
+                                <div className="flex flex-col gap-1.5 sm:gap-2 mt-1 sm:mt-2">
                                     <h3 className="text-xs sm:text-sm font-black uppercase tracking-wider opacity-70 text-left">{t.statsDistribution}</h3>
 
-                                    <div className="flex flex-col gap-1.5">
+                                    <div className="flex flex-col gap-1 sm:gap-1.5">
                                         {activeStats.guessesDistribution.map((count, index) => {
                                             const maxCount = Math.max(...activeStats.guessesDistribution, 1);
                                             const widthPercent = (count / maxCount) * 100;
                                             return (
-                                                <div key={index} className="flex items-center gap-2 text-xs">
-                                                    <span className="w-3 font-bold opacity-60 text-right">{index + 1}</span>
-                                                    <div className="flex-1 bg-slate-100 dark:bg-slate-900 h-5 rounded-md overflow-hidden relative border border-black/5">
+                                                <div key={index} className="flex items-center gap-1.5 sm:gap-2 text-xs">
+                                                    <span className="w-3 font-bold opacity-60 text-right text-xxs sm:text-xs">{index + 1}</span>
+                                                    <div className="flex-1 bg-slate-100 dark:bg-slate-900 h-4.5 sm:h-5 rounded-md overflow-hidden relative border border-black/5">
                                                         <div
                                                             style={{
                                                                 width: `${Math.max(widthPercent, 8)}%`,
@@ -1045,7 +1095,7 @@ export default function BanderadlePage() {
                                                             className="h-full rounded-r flex items-center justify-end pr-2 transition-all duration-500 ease-out"
                                                         >
                                                             {count > 0 && (
-                                                                <span className="text-[10px] font-black text-white">{count}</span>
+                                                                <span className="text-[9px] sm:text-[10px] font-black text-white">{count}</span>
                                                             )}
                                                         </div>
                                                     </div>

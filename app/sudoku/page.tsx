@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { HelpCircle, RefreshCw, Share2, BarChart2, X, Clock, Pencil, Lightbulb, Eraser, Trophy } from "lucide-react";
+import { HelpCircle, RefreshCw, Share2, BarChart2, X, Clock, Pencil, Lightbulb, Eraser, Trophy, ChevronDown } from "lucide-react";
 import { useGameConfig } from "@/components/GameConfigContext";
 import { useLanguage } from "@/components/LanguageProvider";
 
@@ -273,6 +273,23 @@ export default function SudokuPage() {
     // Canvas Confetti
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const confettiAnimationRef = useRef<number | null>(null);
+
+    // Dropdown de dificultad en móvil
+    const diffMenuRef = useRef<HTMLDivElement>(null);
+    const [showDiffMenu, setShowDiffMenu] = useState<boolean>(false);
+
+    // Cerrar menú de dificultad al hacer click afuera
+    useEffect(() => {
+        function handleClickOutside(event: MouseEvent) {
+            if (diffMenuRef.current && !diffMenuRef.current.contains(event.target as Node)) {
+                setShowDiffMenu(false);
+            }
+        }
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
 
     // Set game launcher name
     useEffect(() => {
@@ -820,29 +837,80 @@ export default function SudokuPage() {
             <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-50 w-full h-full" />
 
             {/* Desktop and mobile action/selector layout wrapper */}
-            <div className="w-full max-w-xl flex flex-col gap-4 mt-2 mb-4 xl:mb-0 xl:contents">
+            <div className="w-full max-w-xl flex flex-col items-center gap-2.5 mt-1 mb-2 xl:mb-0 xl:contents">
                 {/* Selector of difficulty */}
-                <div className="xl:absolute xl:top-6 xl:left-6 flex flex-wrap xl:flex-col gap-1.5 z-40 w-full xl:w-auto justify-center xl:justify-start">
-                    {(Object.keys(DIFFICULTY_PRESETS) as Difficulty[]).map((diff) => {
-                        const isCurrent = difficulty === diff;
-                        const label = t[DIFFICULTY_PRESETS[diff].nameKey];
-                        return (
-                            <button
-                                key={diff}
-                                onClick={() => startNewGame(diff)}
+                <div className="xl:absolute xl:top-6 xl:left-6 z-40 w-full xl:w-auto flex flex-col items-center xl:items-start gap-1.5" ref={diffMenuRef}>
+                    {/* Dropdown in mobile/tablet (< xl) */}
+                    <div className="relative xl:hidden w-full max-w-[220px]">
+                        <button
+                            onClick={() => setShowDiffMenu(!showDiffMenu)}
+                            style={{
+                                backgroundColor: activeStyle.card,
+                                color: activeStyle.text,
+                                borderColor: activeStyle.border,
+                            }}
+                            className="w-full flex items-center justify-between px-3.5 py-2 rounded-xl border text-xs font-bold shadow-sm transition-all duration-200 cursor-pointer animate-mode-change"
+                        >
+                            <span>{t.difficultyLabel} <span style={{ color: activeStyle.accent }}>{t[DIFFICULTY_PRESETS[difficulty].nameKey]}</span></span>
+                            <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${showDiffMenu ? "rotate-180" : ""}`} />
+                        </button>
+
+                        {showDiffMenu && (
+                            <div
                                 style={{
-                                    backgroundColor: isCurrent ? activeStyle.accent : activeStyle.card,
-                                    color: isCurrent ? activeStyle.btnText : activeStyle.text,
+                                    backgroundColor: activeStyle.card,
                                     borderColor: activeStyle.border,
+                                    color: activeStyle.text,
                                 }}
-                                className={`px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-xl border text-xxs sm:text-xs font-bold shadow-sm transition-all duration-300 hover:scale-102 active:scale-98 text-center xl:text-left cursor-pointer ${
-                                    isCurrent ? "shadow-md" : "hover:bg-opacity-90"
-                                }`}
+                                className="absolute left-0 right-0 mt-1.5 rounded-xl border shadow-xl overflow-hidden flex flex-col py-1 z-50 animate-in fade-in slide-in-from-top-1 duration-150"
                             >
-                                {label}
-                            </button>
-                        );
-                    })}
+                                {(Object.keys(DIFFICULTY_PRESETS) as Difficulty[]).map((diff) => {
+                                    const isCurrent = difficulty === diff;
+                                    const label = t[DIFFICULTY_PRESETS[diff].nameKey];
+                                    return (
+                                        <button
+                                            key={diff}
+                                            onClick={() => {
+                                                startNewGame(diff);
+                                                setShowDiffMenu(false);
+                                            }}
+                                            style={{
+                                                backgroundColor: isCurrent ? `${activeStyle.accent}15` : "transparent",
+                                                color: isCurrent ? activeStyle.accent : activeStyle.text,
+                                            }}
+                                            className="px-4 py-2 text-xs font-bold text-left hover:bg-black/5 dark:hover:bg-white/5 transition-colors cursor-pointer w-full"
+                                        >
+                                            {label}
+                                        </button>
+                                    );
+                                })}
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Classic buttons for desktop (>= xl) */}
+                    <div className="hidden xl:flex xl:flex-col gap-1.5 w-full">
+                        {(Object.keys(DIFFICULTY_PRESETS) as Difficulty[]).map((diff) => {
+                            const isCurrent = difficulty === diff;
+                            const label = t[DIFFICULTY_PRESETS[diff].nameKey];
+                            return (
+                                <button
+                                    key={diff}
+                                    onClick={() => startNewGame(diff)}
+                                    style={{
+                                        backgroundColor: isCurrent ? activeStyle.accent : activeStyle.card,
+                                        color: isCurrent ? activeStyle.btnText : activeStyle.text,
+                                        borderColor: activeStyle.border,
+                                    }}
+                                    className={`px-3.5 py-2 rounded-xl border text-xs font-bold shadow-sm transition-all duration-300 hover:scale-102 active:scale-98 text-left cursor-pointer ${
+                                        isCurrent ? "shadow-md" : "hover:bg-opacity-90"
+                                    }`}
+                                >
+                                    {label}
+                                </button>
+                            );
+                        })}
+                    </div>
                 </div>
 
                 {/* Helper info options button */}
@@ -851,47 +919,50 @@ export default function SudokuPage() {
                         <button
                             onClick={() => setShowHelp(true)}
                             style={{ backgroundColor: activeStyle.card, borderColor: activeStyle.border }}
-                            className="px-3.5 py-2 rounded-xl border shadow-sm text-xs font-bold hover:scale-105 active:scale-95 transition-all flex items-center gap-1.5 cursor-pointer"
+                            className="p-2.5 sm:px-3.5 sm:py-2 rounded-xl border shadow-sm text-xs font-bold hover:scale-105 active:scale-95 transition-all flex items-center gap-1.5 cursor-pointer"
+                            title={t.howToPlay}
                         >
                             <HelpCircle className="w-4 h-4" />
-                            <span>{t.howToPlay}</span>
+                            <span className="hidden sm:inline">{t.howToPlay}</span>
                         </button>
                         <button
                             onClick={() => setShowStats(true)}
                             style={{ backgroundColor: activeStyle.card, borderColor: activeStyle.border }}
-                            className="px-3.5 py-2 rounded-xl border shadow-sm text-xs font-bold hover:scale-105 active:scale-95 transition-all flex items-center gap-1.5 cursor-pointer"
+                            className="p-2.5 sm:px-3.5 sm:py-2 rounded-xl border shadow-sm text-xs font-bold hover:scale-105 active:scale-95 transition-all flex items-center gap-1.5 cursor-pointer"
+                            title={t.stats}
                         >
                             <BarChart2 className="w-4 h-4" />
-                            <span>{t.stats}</span>
+                            <span className="hidden sm:inline">{t.stats}</span>
                         </button>
                         <button
                             onClick={() => startNewGame()}
                             style={{ backgroundColor: activeStyle.card, borderColor: activeStyle.border }}
-                            className="px-3.5 py-2 rounded-xl border shadow-sm text-xs font-bold hover:scale-105 active:scale-95 transition-all flex items-center gap-1.5 cursor-pointer"
+                            className="p-2.5 sm:px-3.5 sm:py-2 rounded-xl border shadow-sm text-xs font-bold hover:scale-105 active:scale-95 transition-all flex items-center gap-1.5 cursor-pointer"
+                            title={t.reset}
                         >
                             <RefreshCw className="w-4 h-4" />
-                            <span>{t.reset}</span>
+                            <span className="hidden sm:inline">{t.reset}</span>
                         </button>
                     </div>
                 </div>
             </div>
 
             {/* Header section with Timer info */}
-            <header className={`w-full max-w-xl flex flex-col items-center mb-3 mt-2 ${slideClass}`} key={`header-${difficulty}`}>
+            <header className={`w-full max-w-xl flex flex-col items-center mb-2 mt-1 xl:mb-3 xl:mt-2 ${slideClass}`} key={`header-${difficulty}`}>
                 <div className="text-center flex flex-col items-center">
-                    <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight select-none">
+                    <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight select-none">
                         {t.title}
                     </h1>
-                    <p style={{ color: activeStyle.textMuted }} className="text-xxs sm:text-sm font-medium max-w-sm mt-1 mb-2 px-2 leading-relaxed">
+                    <p style={{ color: activeStyle.textMuted }} className="text-xxs sm:text-sm font-medium max-w-sm mt-0.5 mb-1 px-2 leading-relaxed">
                         {t.subtitle}
                     </p>
 
                     {/* Timer visualization */}
                     <div
                         style={{ backgroundColor: activeStyle.card, borderColor: activeStyle.border }}
-                        className="flex items-center gap-2 px-4 py-1.5 rounded-full border shadow-sm text-xs sm:text-sm font-semibold select-none animate-soft-pulse mt-1"
+                        className="flex items-center gap-2 px-3 py-1 rounded-full border shadow-sm text-xs sm:text-sm font-semibold select-none animate-soft-pulse mt-0.5"
                     >
-                        <Clock className="w-4 h-4 opacity-75" />
+                        <Clock className="w-3.5 h-3.5 opacity-75" />
                         <span>{t.timeLabel}: <span className="font-bold tabular-nums">{formatTime(timeElapsed)}</span></span>
                     </div>
                 </div>
@@ -989,9 +1060,9 @@ export default function SudokuPage() {
             </main>
 
             {/* Controller Action Pad and Digit Pad */}
-            <footer className="w-full max-w-md flex flex-col gap-3.5 mt-auto">
+            <footer className="w-full max-w-md flex flex-col gap-2 sm:gap-3.5 mt-auto">
                 {/* Control Panel (Pencil Mode, Hint, Erase) */}
-                <div className="grid grid-cols-3 gap-2 sm:gap-3">
+                <div className="grid grid-cols-3 gap-1.5 sm:gap-3">
                     <button
                         onClick={() => setPencilMode(prev => !prev)}
                         style={{
@@ -999,10 +1070,10 @@ export default function SudokuPage() {
                             color: pencilMode ? activeStyle.btnText : activeStyle.text,
                             borderColor: activeStyle.border,
                         }}
-                        className="py-2.5 sm:py-3.5 rounded-2xl border font-bold text-xs sm:text-sm shadow-sm transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer hover:scale-102 active:scale-98"
+                        className="py-2 sm:py-3.5 rounded-xl sm:rounded-2xl border font-bold text-xs sm:text-sm shadow-sm transition-all duration-200 flex items-center justify-center gap-1 sm:gap-1.5 cursor-pointer hover:scale-102 active:scale-98"
                     >
-                        <Pencil className="w-4 h-4" />
-                        <span>{t.notesLabel} ({pencilMode ? "ON" : "OFF"})</span>
+                        <Pencil className="w-4 h-4 shrink-0" />
+                        <span className="truncate">{t.notesLabel} ({pencilMode ? "ON" : "OFF"})</span>
                     </button>
 
                     <button
@@ -1012,12 +1083,12 @@ export default function SudokuPage() {
                             color: activeStyle.text,
                             borderColor: activeStyle.border,
                         }}
-                        className={`py-2.5 sm:py-3.5 rounded-2xl border font-bold text-xs sm:text-sm shadow-sm transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer hover:scale-102 active:scale-98 ${
+                        className={`py-2 sm:py-3.5 rounded-xl sm:rounded-2xl border font-bold text-xs sm:text-sm shadow-sm transition-all duration-200 flex items-center justify-center gap-1 sm:gap-1.5 cursor-pointer hover:scale-102 active:scale-98 ${
                             hintsLeft <= 0 ? "opacity-50" : ""
                         }`}
                     >
-                        <Lightbulb className="w-4 h-4 text-amber-500" />
-                        <span>{t.hintsLabel} ({hintsLeft})</span>
+                        <Lightbulb className="w-4 h-4 text-amber-500 shrink-0" />
+                        <span className="truncate">{t.hintsLabel} ({hintsLeft})</span>
                     </button>
 
                     <button
@@ -1031,19 +1102,19 @@ export default function SudokuPage() {
                             color: activeStyle.text,
                             borderColor: activeStyle.border,
                         }}
-                        className="py-2.5 sm:py-3.5 rounded-2xl border font-bold text-xs sm:text-sm shadow-sm transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer hover:scale-102 active:scale-98"
+                        className="py-2 sm:py-3.5 rounded-xl sm:rounded-2xl border font-bold text-xs sm:text-sm shadow-sm transition-all duration-200 flex items-center justify-center gap-1 sm:gap-1.5 cursor-pointer hover:scale-102 active:scale-98"
                     >
-                        <Eraser className="w-4 h-4" />
-                        <span>{gameLang === "de" ? "Löschen" : gameLang === "la" ? "Delere" : gameLang === "ru" ? "Стереть" : gameLang === "pt" ? "Apagar" : gameLang === "pl" ? "Wyczyść" : "Borrar"}</span>
+                        <Eraser className="w-4 h-4 shrink-0" />
+                        <span className="truncate">{gameLang === "de" ? "Löschen" : gameLang === "la" ? "Delere" : gameLang === "ru" ? "Стереть" : gameLang === "pt" ? "Apagar" : gameLang === "pl" ? "Wyczyść" : "Borrar"}</span>
                     </button>
                 </div>
 
                 {/* Numerical inputs 1-9 */}
                 <div
                     style={{ backgroundColor: activeStyle.card, borderColor: activeStyle.border }}
-                    className="p-3.5 sm:p-4.5 rounded-3xl border shadow-sm flex flex-col gap-2.5 select-none"
+                    className="p-2 sm:p-4.5 rounded-2xl sm:rounded-3xl border shadow-sm flex flex-col gap-1.5 sm:gap-2.5 select-none"
                 >
-                    <div className="grid grid-cols-5 gap-2">
+                    <div className="grid grid-cols-5 gap-1.5 sm:gap-2">
                         {[1, 2, 3, 4, 5].map((num) => {
                             const completed = isNumberCompleted(num);
                             return (
@@ -1060,7 +1131,7 @@ export default function SudokuPage() {
                                         color: completed ? activeStyle.textMuted : activeStyle.text,
                                         borderColor: completed ? "transparent" : activeStyle.border,
                                     }}
-                                    className={`py-2.5 sm:py-3.5 rounded-2xl font-bold text-base sm:text-lg transition-all duration-200 shadow-sm ${
+                                    className={`py-2 sm:py-3.5 rounded-xl sm:rounded-2xl font-bold text-base sm:text-lg transition-all duration-200 shadow-sm ${
                                         completed 
                                             ? "opacity-35 cursor-not-allowed pointer-events-none border border-dashed" 
                                             : "hover:scale-105 active:scale-95 hover:bg-opacity-80 active:shadow-inner cursor-pointer"
@@ -1071,7 +1142,7 @@ export default function SudokuPage() {
                             );
                         })}
                     </div>
-                    <div className="grid grid-cols-4 gap-2">
+                    <div className="grid grid-cols-4 gap-1.5 sm:gap-2">
                         {[6, 7, 8, 9].map((num) => {
                             const completed = isNumberCompleted(num);
                             return (
@@ -1088,7 +1159,7 @@ export default function SudokuPage() {
                                         color: completed ? activeStyle.textMuted : activeStyle.text,
                                         borderColor: completed ? "transparent" : activeStyle.border,
                                     }}
-                                    className={`py-2.5 sm:py-3.5 rounded-2xl font-bold text-base sm:text-lg transition-all duration-200 shadow-sm ${
+                                    className={`py-2 sm:py-3.5 rounded-xl sm:rounded-2xl font-bold text-base sm:text-lg transition-all duration-200 shadow-sm ${
                                         completed 
                                             ? "opacity-35 cursor-not-allowed pointer-events-none border border-dashed" 
                                             : "hover:scale-105 active:scale-95 hover:bg-opacity-80 active:shadow-inner cursor-pointer"
@@ -1104,12 +1175,12 @@ export default function SudokuPage() {
 
             {/* Help/Tutorial Modal */}
             {showHelp && (
-                <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center px-4">
+                <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
                     <div
                         style={{ backgroundColor: activeStyle.card, color: activeStyle.text }}
-                        className="w-full max-w-lg p-6 sm:p-8 rounded-3xl shadow-2xl flex flex-col gap-4 relative animate-scale-in"
+                        className="w-[calc(100vw-2rem)] max-w-lg p-4 sm:p-8 rounded-3xl shadow-2xl flex flex-col gap-3 sm:gap-4 relative animate-scale-in max-h-[85dvh] overflow-y-auto overscroll-behavior-contain"
                     >
-                        <h2 className="text-xl sm:text-3xl font-extrabold text-center border-b pb-3.5">
+                        <h2 className="text-lg sm:text-3xl font-extrabold text-center border-b pb-3">
                             {t.helpTitle}
                         </h2>
                         <p className="text-xs sm:text-sm leading-relaxed">{t.helpIntro}</p>
@@ -1129,7 +1200,7 @@ export default function SudokuPage() {
                         <button
                             onClick={() => setShowHelp(false)}
                             style={{ backgroundColor: activeStyle.accent, color: activeStyle.btnText }}
-                            className="mt-4 w-full py-3 rounded-xl font-bold text-sm shadow-sm transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer"
+                            className="mt-2 w-full py-2.5 rounded-xl font-bold text-sm shadow-sm transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer"
                         >
                             {gameLang === "de" ? "Verstanden!" : gameLang === "la" ? "Intellectum!" : gameLang === "ru" ? "Понятно" : gameLang === "pt" ? "Entendido!" : gameLang === "pl" ? "Rozumiem!" : "¡Entendido!"}
                         </button>
@@ -1139,32 +1210,32 @@ export default function SudokuPage() {
 
             {/* Statistics Modal */}
             {showStats && (
-                <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center px-4">
+                <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
                     <div
                         style={{ backgroundColor: activeStyle.card, color: activeStyle.text }}
-                        className="w-full max-w-xl p-6 sm:p-8 rounded-3xl shadow-2xl flex flex-col gap-4 relative animate-scale-in max-h-[90vh] overflow-y-auto"
+                        className="w-[calc(100vw-2rem)] max-w-xl p-4 sm:p-8 rounded-3xl shadow-2xl flex flex-col gap-3 sm:gap-4 relative animate-scale-in max-h-[85dvh] overflow-y-auto overscroll-behavior-contain"
                     >
                         <button
                             onClick={() => setShowStats(false)}
-                            className="absolute top-4 right-4 p-1 hover:opacity-75 transition-opacity cursor-pointer"
+                            className="absolute top-4 right-4 p-1 hover:opacity-75 transition-opacity cursor-pointer z-10"
                         >
-                            <X className="w-6 h-6" />
+                            <X className="w-5 h-5 sm:w-6 sm:h-6" />
                         </button>
 
-                        <h2 className="text-xl sm:text-3xl font-extrabold text-center flex items-center justify-center gap-2 border-b pb-3.5">
-                            <Trophy className="w-7 h-7 text-amber-500" />
+                        <h2 className="text-lg sm:text-3xl font-extrabold text-center flex items-center justify-center gap-2 border-b pb-3">
+                            <Trophy className="w-6 h-6 sm:w-7 sm:h-7 text-amber-500" />
                             <span>{t.stats}</span>
                         </h2>
 
                         {/* Tabs by Difficulty */}
-                        <div className="flex flex-wrap gap-1 justify-center border-b pb-3">
+                        <div className="flex flex-wrap gap-1 justify-center border-b pb-2.5">
                             <button
                                 onClick={() => setStatsTab("global")}
                                 style={{
                                     backgroundColor: statsTab === "global" ? activeStyle.accent : "transparent",
                                     color: statsTab === "global" ? activeStyle.btnText : activeStyle.text,
                                 }}
-                                className="px-2.5 py-1 rounded-lg text-xxs font-extrabold transition-all"
+                                className="px-2 py-0.5 rounded bg-black/5 dark:bg-white/5 text-[10px] font-extrabold transition-all cursor-pointer"
                             >
                                 {gameLang === "de" ? "Global" : gameLang === "la" ? "Universale" : gameLang === "ru" ? "Общий" : gameLang === "pt" ? "Global" : gameLang === "pl" ? "Ogólne" : "Global"}
                             </button>
@@ -1176,7 +1247,7 @@ export default function SudokuPage() {
                                         backgroundColor: statsTab === k ? activeStyle.accent : "transparent",
                                         color: statsTab === k ? activeStyle.btnText : activeStyle.text,
                                     }}
-                                    className="px-2.5 py-1 rounded-lg text-xxs font-extrabold transition-all"
+                                    className="px-2 py-0.5 rounded bg-black/5 dark:bg-white/5 text-[10px] font-extrabold transition-all cursor-pointer"
                                 >
                                     {t[DIFFICULTY_PRESETS[k].nameKey]}
                                 </button>
@@ -1185,49 +1256,49 @@ export default function SudokuPage() {
 
                         {/* Aggregate Statistics Render */}
                         {activeStats.played > 0 ? (
-                            <div className="flex flex-col gap-6 py-2">
-                                <div className="grid grid-cols-3 gap-2.5 text-center">
-                                    <div style={{ backgroundColor: activeStyle.keyBg }} className="p-3.5 rounded-2xl flex flex-col">
-                                        <span className="text-xl sm:text-2xl font-black">{activeStats.played}</span>
-                                        <span style={{ color: activeStyle.textMuted }} className="text-xxs sm:text-xs font-bold uppercase mt-1">{t.statsPlayed}</span>
+                            <div className="flex flex-col gap-4 sm:gap-6 py-1">
+                                <div className="grid grid-cols-3 gap-1.5 sm:gap-2.5 text-center">
+                                    <div style={{ backgroundColor: activeStyle.keyBg }} className="p-2 sm:p-3.5 rounded-xl flex flex-col justify-center">
+                                        <span className="text-base sm:text-2xl font-black">{activeStats.played}</span>
+                                        <span style={{ color: activeStyle.textMuted }} className="text-[9px] sm:text-xs font-bold uppercase mt-0.5 sm:mt-1">{t.statsPlayed}</span>
                                     </div>
-                                    <div style={{ backgroundColor: activeStyle.keyBg }} className="p-3.5 rounded-2xl flex flex-col">
-                                        <span className="text-xl sm:text-2xl font-black">{activeStats.won}</span>
-                                        <span style={{ color: activeStyle.textMuted }} className="text-xxs sm:text-xs font-bold uppercase mt-1">{t.statsWon}</span>
+                                    <div style={{ backgroundColor: activeStyle.keyBg }} className="p-2 sm:p-3.5 rounded-xl flex flex-col justify-center">
+                                        <span className="text-base sm:text-2xl font-black">{activeStats.won}</span>
+                                        <span style={{ color: activeStyle.textMuted }} className="text-[9px] sm:text-xs font-bold uppercase mt-0.5 sm:mt-1">{t.statsWon}</span>
                                     </div>
-                                    <div style={{ backgroundColor: activeStyle.keyBg }} className="p-3.5 rounded-2xl flex flex-col">
-                                        <span className="text-xl sm:text-2xl font-black">{winRate}%</span>
-                                        <span style={{ color: activeStyle.textMuted }} className="text-xxs sm:text-xs font-bold uppercase mt-1">{t.statsWinRate}</span>
-                                    </div>
-                                </div>
-
-                                <div className="grid grid-cols-2 gap-2.5 text-center">
-                                    <div style={{ backgroundColor: activeStyle.keyBg }} className="p-3.5 rounded-2xl flex flex-col">
-                                        <span className="text-xl sm:text-2xl font-black">{activeStats.currentStreak}</span>
-                                        <span style={{ color: activeStyle.textMuted }} className="text-xxs sm:text-xs font-bold uppercase mt-1">{t.statsCurrentStreak}</span>
-                                    </div>
-                                    <div style={{ backgroundColor: activeStyle.keyBg }} className="p-3.5 rounded-2xl flex flex-col">
-                                        <span className="text-xl sm:text-2xl font-black">{activeStats.maxStreak}</span>
-                                        <span style={{ color: activeStyle.textMuted }} className="text-xxs sm:text-xs font-bold uppercase mt-1">{t.statsMaxStreak}</span>
+                                    <div style={{ backgroundColor: activeStyle.keyBg }} className="p-2 sm:p-3.5 rounded-xl flex flex-col justify-center">
+                                        <span className="text-base sm:text-2xl font-black">{winRate}%</span>
+                                        <span style={{ color: activeStyle.textMuted }} className="text-[9px] sm:text-xs font-bold uppercase mt-0.5 sm:mt-1">{t.statsWinRate}</span>
                                     </div>
                                 </div>
 
-                                <div className="grid grid-cols-2 gap-2.5 text-center">
-                                    <div style={{ backgroundColor: activeStyle.keyBg }} className="p-3.5 rounded-2xl flex flex-col">
-                                        <span className="text-base sm:text-lg font-black">{activeStats.bestTime !== null ? formatTime(activeStats.bestTime) : "-"}</span>
-                                        <span style={{ color: activeStyle.textMuted }} className="text-xxs sm:text-xs font-bold uppercase mt-1">{t.bestTime}</span>
+                                <div className="grid grid-cols-2 gap-1.5 sm:gap-2.5 text-center">
+                                    <div style={{ backgroundColor: activeStyle.keyBg }} className="p-2 sm:p-3.5 rounded-xl flex flex-col justify-center">
+                                        <span className="text-base sm:text-2xl font-black">{activeStats.currentStreak}</span>
+                                        <span style={{ color: activeStyle.textMuted }} className="text-[9px] sm:text-xs font-bold uppercase mt-0.5 sm:mt-1">{t.statsCurrentStreak}</span>
                                     </div>
-                                    <div style={{ backgroundColor: activeStyle.keyBg }} className="p-3.5 rounded-2xl flex flex-col">
-                                        <span className="text-base sm:text-lg font-black">{activeStats.won > 0 ? formatTime(Math.round(activeStats.totalTime / activeStats.won)) : "-"}</span>
-                                        <span style={{ color: activeStyle.textMuted }} className="text-xxs sm:text-xs font-bold uppercase mt-1">{t.avgTime}</span>
+                                    <div style={{ backgroundColor: activeStyle.keyBg }} className="p-2 sm:p-3.5 rounded-xl flex flex-col justify-center">
+                                        <span className="text-base sm:text-2xl font-black">{activeStats.maxStreak}</span>
+                                        <span style={{ color: activeStyle.textMuted }} className="text-[9px] sm:text-xs font-bold uppercase mt-0.5 sm:mt-1">{t.statsMaxStreak}</span>
                                     </div>
                                 </div>
 
-                                <div className="flex gap-2.5 mt-2">
+                                <div className="grid grid-cols-2 gap-1.5 sm:gap-2.5 text-center">
+                                    <div style={{ backgroundColor: activeStyle.keyBg }} className="p-2 sm:p-3.5 rounded-xl flex flex-col justify-center">
+                                        <span className="text-sm sm:text-lg font-black">{activeStats.bestTime !== null ? formatTime(activeStats.bestTime) : "-"}</span>
+                                        <span style={{ color: activeStyle.textMuted }} className="text-[9px] sm:text-xs font-bold uppercase mt-0.5 sm:mt-1">{t.bestTime}</span>
+                                    </div>
+                                    <div style={{ backgroundColor: activeStyle.keyBg }} className="p-2 sm:p-3.5 rounded-xl flex flex-col justify-center">
+                                        <span className="text-sm sm:text-lg font-black">{activeStats.won > 0 ? formatTime(Math.round(activeStats.totalTime / activeStats.won)) : "-"}</span>
+                                        <span style={{ color: activeStyle.textMuted }} className="text-[9px] sm:text-xs font-bold uppercase mt-0.5 sm:mt-1">{t.avgTime}</span>
+                                    </div>
+                                </div>
+
+                                <div className="flex gap-2.5 mt-1 sm:mt-2">
                                     <button
                                         onClick={handleResetStats}
                                         style={{ borderColor: activeStyle.border }}
-                                        className="flex-1 py-2.5 border rounded-xl font-bold text-xs text-red-500 hover:bg-red-50/10 active:scale-98 transition-all cursor-pointer"
+                                        className="flex-1 py-2 border rounded-xl font-bold text-xs text-red-500 hover:bg-red-50/10 active:scale-98 transition-all cursor-pointer"
                                     >
                                         {t.statsResetBtn}
                                     </button>
@@ -1244,19 +1315,19 @@ export default function SudokuPage() {
 
             {/* Winning results summary / Sharing modal */}
             {showResultModal && (
-                <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center px-4">
+                <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
                     <div
                         style={{ backgroundColor: activeStyle.card, color: activeStyle.text }}
-                        className="w-full max-w-md p-6 sm:p-8 rounded-3xl shadow-2xl flex flex-col gap-4 relative text-center animate-scale-in"
+                        className="w-[calc(100vw-2rem)] max-w-md p-4 sm:p-8 rounded-3xl shadow-2xl flex flex-col gap-3 sm:gap-4 relative text-center animate-scale-in max-h-[85dvh] overflow-y-auto overscroll-behavior-contain"
                     >
                         <button
                             onClick={() => setShowResultModal(false)}
-                            className="absolute top-4 right-4 p-1 hover:opacity-75 transition-opacity cursor-pointer"
+                            className="absolute top-4 right-4 p-1 hover:opacity-75 transition-opacity cursor-pointer z-10"
                         >
-                            <X className="w-6 h-6" />
+                            <X className="w-5 h-5 sm:w-6 sm:h-6" />
                         </button>
 
-                        <h2 className="text-2xl sm:text-4xl font-extrabold text-indigo-500 mt-2 select-none">
+                        <h2 className="text-xl sm:text-4xl font-extrabold text-indigo-500 mt-2 select-none">
                             {t.winTitle}
                         </h2>
                         
@@ -1265,10 +1336,10 @@ export default function SudokuPage() {
                         </p>
 
                         {/* Completed score statistics overview card */}
-                        <div style={{ backgroundColor: activeStyle.keyBg }} className="p-4 sm:p-5 rounded-2xl border flex flex-col gap-3 my-2 text-left shadow-xs">
+                        <div style={{ backgroundColor: activeStyle.keyBg }} className="p-3.5 sm:p-5 rounded-2xl border flex flex-col gap-2.5 sm:gap-3 my-1.5 text-left shadow-xs">
                             <div className="flex justify-between items-center text-xs sm:text-sm font-bold">
                                 <span>{t.timeSpent}</span>
-                                <span className="text-base sm:text-lg font-black tabular-nums">{formatTime(timeElapsed)}</span>
+                                <span className="text-sm sm:text-lg font-black tabular-nums">{formatTime(timeElapsed)}</span>
                             </div>
                             <div className="flex justify-between items-center text-xs sm:text-sm font-medium border-t pt-2">
                                 <span>{t.bestTime}</span>
@@ -1277,11 +1348,11 @@ export default function SudokuPage() {
                         </div>
 
                         {/* Actions block */}
-                        <div className="flex flex-col gap-2 mt-2">
+                        <div className="flex flex-col gap-2 mt-1 sm:mt-2">
                             <button
                                 onClick={handleShareResult}
                                 style={{ backgroundColor: activeStyle.accent, color: activeStyle.btnText }}
-                                className="w-full py-3 rounded-xl font-bold text-sm shadow-md hover:scale-102 active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                                className="w-full py-2.5 sm:py-3 rounded-xl font-bold text-xs sm:text-sm shadow-md hover:scale-102 active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer"
                             >
                                 <Share2 className="w-4 h-4" />
                                 <span>{copySuccess ? t.copied : t.share}</span>
@@ -1290,7 +1361,7 @@ export default function SudokuPage() {
                             <button
                                 onClick={() => startNewGame(difficulty)}
                                 style={{ borderColor: activeStyle.border }}
-                                className="w-full py-3 border rounded-xl font-bold text-sm hover:bg-black/5 dark:hover:bg-white/5 active:scale-98 transition-all cursor-pointer"
+                                className="w-full py-2.5 sm:py-3 border rounded-xl font-bold text-xs sm:text-sm hover:bg-black/5 dark:hover:bg-white/5 active:scale-98 transition-all cursor-pointer"
                             >
                                 {t.playAgain}
                             </button>

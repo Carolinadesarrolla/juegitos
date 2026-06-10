@@ -433,7 +433,7 @@ export default function ColorlePage() {
                                         borderColor: isCurrent && colIndex === currentGuess.length ? activeStyle.accent : activeStyle.border,
                                         color: activeStyle.text,
                                     }}
-                                    className={`w-9 h-9 xs:w-10 xs:h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-lg sm:rounded-2xl border-2 flex items-center justify-center font-bold text-sm sm:text-xl shadow-sm transition-all duration-300 ${isSubmitted ? "animate-flip" : isCurrent && char ? "scale-105" : ""
+                                    className={`w-8 h-8 min-[380px]:w-9 min-[380px]:h-9 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-lg sm:rounded-2xl border-2 flex items-center justify-center font-bold text-xs min-[380px]:text-sm sm:text-xl shadow-sm transition-all duration-300 ${isSubmitted ? "animate-flip" : isCurrent && char ? "scale-105" : ""
                                         }`}
                                 >
                                     {char}
@@ -456,18 +456,18 @@ export default function ColorlePage() {
                     {isSubmitted ? (
                         <div
                             style={{ backgroundColor: `#${rowGuess}` }}
-                            className="w-18 h-9 xs:w-20 xs:h-10 sm:w-28 sm:h-14 md:w-32 md:h-16 rounded-lg sm:rounded-2xl border border-black/15 shadow-sm transform hover:scale-105 transition-transform duration-300 flex-shrink-0"
+                            className="w-8 h-8 min-[380px]:w-9 min-[380px]:h-9 sm:w-28 sm:h-14 md:w-32 md:h-16 rounded-lg sm:rounded-2xl border border-black/15 shadow-sm transform hover:scale-105 transition-transform duration-300 flex-shrink-0"
                             title={`#${rowGuess}`}
                         />
                     ) : isCurrent && currentGuess.length === 6 ? (
                         <div
                             style={{ backgroundColor: `#${currentGuess}` }}
-                            className="w-18 h-9 xs:w-20 xs:h-10 sm:w-28 sm:h-14 md:w-32 md:h-16 rounded-lg sm:rounded-2xl border-2 border-dashed shadow-sm animate-pulse flex-shrink-0"
+                            className="w-8 h-8 min-[380px]:w-9 min-[380px]:h-9 sm:w-28 sm:h-14 md:w-32 md:h-16 rounded-lg sm:rounded-2xl border-2 border-dashed shadow-sm animate-pulse flex-shrink-0"
                         />
                     ) : (
                         <div
                             style={{ borderColor: activeStyle.border }}
-                            className="w-18 h-9 xs:w-20 xs:h-10 sm:w-28 sm:h-14 md:w-32 md:h-16 rounded-lg sm:rounded-2xl border-2 border-dashed bg-transparent shadow-none flex-shrink-0"
+                            className="w-8 h-8 min-[380px]:w-9 min-[380px]:h-9 sm:w-28 sm:h-14 md:w-32 md:h-16 rounded-lg sm:rounded-2xl border-2 border-dashed bg-transparent shadow-none flex-shrink-0"
                         />
                     )}
                 </div>
@@ -551,33 +551,60 @@ export default function ColorlePage() {
             <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-50 w-full h-full" />
 
             {/* Contenedor responsivo superior para Controles (Flujo vertical en móvil, absoluto en desktop) */}
-            <div className="w-full max-w-xl flex flex-col gap-4 mt-2 mb-4 xl:mb-0 xl:contents">
+            <div className="w-full max-w-xl flex flex-col items-center gap-2.5 mt-1 mb-2 xl:mb-0 xl:contents">
                 {/* Selector de Modo de Juego */}
-                <div className="xl:absolute xl:top-6 xl:left-6 flex flex-row xl:flex-col gap-2 z-40 w-full xl:w-auto justify-center xl:justify-start" key="mode-selector-corner animate-mode-change">
-                    <button
-                        onClick={() => startNewGame("ojo-de-aguila")}
-                        style={{
-                            backgroundColor: gameMode === "ojo-de-aguila" ? activeStyle.accent : activeStyle.card,
-                            color: gameMode === "ojo-de-aguila" ? activeStyle.btnText : activeStyle.text,
-                            borderColor: activeStyle.border,
-                        }}
-                        className={`px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl border text-xs sm:text-sm font-bold shadow-sm transition-all duration-300 hover:scale-102 active:scale-98 text-center xl:text-left ${gameMode === "ojo-de-aguila" ? "shadow-md" : "hover:bg-opacity-90"
-                            }`}
-                    >
-                        {t.modeLabelEagleEye}
-                    </button>
-                    <button
-                        onClick={() => startNewGame("clasico")}
-                        style={{
-                            backgroundColor: gameMode === "clasico" ? activeStyle.accent : activeStyle.card,
-                            color: gameMode === "clasico" ? activeStyle.btnText : activeStyle.text,
-                            borderColor: activeStyle.border,
-                        }}
-                        className={`px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl border text-xs sm:text-sm font-bold shadow-sm transition-all duration-300 hover:scale-102 active:scale-98 text-center xl:text-left ${gameMode === "clasico" ? "shadow-md" : "hover:bg-opacity-90"
-                            }`}
-                    >
-                        {t.modeLabelClassic}
-                    </button>
+                <div className="xl:absolute xl:top-6 xl:left-6 z-40 w-full xl:w-auto flex flex-col items-center xl:items-start gap-2" key="mode-selector-corner">
+                    {/* Segmented control for mobile (< xl) */}
+                    <div style={{ backgroundColor: activeStyle.card, borderColor: activeStyle.border }} className="flex xl:hidden p-1 rounded-xl border w-full max-w-[280px] select-none">
+                        <button
+                            onClick={() => startNewGame("ojo-de-aguila")}
+                            style={{
+                                backgroundColor: gameMode === "ojo-de-aguila" ? activeStyle.accent : "transparent",
+                                color: gameMode === "ojo-de-aguila" ? activeStyle.btnText : activeStyle.text,
+                            }}
+                            className="flex-1 py-1.5 rounded-lg text-xs font-bold text-center transition-all cursor-pointer"
+                        >
+                            {t.modeLabelEagleEye}
+                        </button>
+                        <button
+                            onClick={() => startNewGame("clasico")}
+                            style={{
+                                backgroundColor: gameMode === "clasico" ? activeStyle.accent : "transparent",
+                                color: gameMode === "clasico" ? activeStyle.btnText : activeStyle.text,
+                            }}
+                            className="flex-1 py-1.5 rounded-lg text-xs font-bold text-center transition-all cursor-pointer"
+                        >
+                            {t.modeLabelClassic}
+                        </button>
+                    </div>
+
+                    {/* Classic buttons for desktop (>= xl) */}
+                    <div className="hidden xl:flex xl:flex-col gap-2 w-full">
+                        <button
+                            onClick={() => startNewGame("ojo-de-aguila")}
+                            style={{
+                                backgroundColor: gameMode === "ojo-de-aguila" ? activeStyle.accent : activeStyle.card,
+                                color: gameMode === "ojo-de-aguila" ? activeStyle.btnText : activeStyle.text,
+                                borderColor: activeStyle.border,
+                            }}
+                            className={`px-4 py-2.5 rounded-xl border text-sm font-bold shadow-sm transition-all duration-300 hover:scale-102 active:scale-98 text-left cursor-pointer ${gameMode === "ojo-de-aguila" ? "shadow-md" : "hover:bg-opacity-90"
+                                }`}
+                        >
+                            {t.modeLabelEagleEye}
+                        </button>
+                        <button
+                            onClick={() => startNewGame("clasico")}
+                            style={{
+                                backgroundColor: gameMode === "clasico" ? activeStyle.accent : activeStyle.card,
+                                color: gameMode === "clasico" ? activeStyle.btnText : activeStyle.text,
+                                borderColor: activeStyle.border,
+                            }}
+                            className={`px-4 py-2.5 rounded-xl border text-sm font-bold shadow-sm transition-all duration-300 hover:scale-102 active:scale-98 text-left cursor-pointer ${gameMode === "clasico" ? "shadow-md" : "hover:bg-opacity-90"
+                                }`}
+                        >
+                            {t.modeLabelClassic}
+                        </button>
+                    </div>
                 </div>
 
                 {/* Botones de Ayuda, Estadísticas y Reset específicos del Juego */}
@@ -586,38 +613,41 @@ export default function ColorlePage() {
                         <button
                             onClick={() => setShowHelp(true)}
                             style={{ backgroundColor: activeStyle.card, borderColor: activeStyle.border }}
-                            className="px-3.5 py-2 rounded-xl border shadow-sm text-xs font-bold hover:scale-105 active:scale-95 transition-all flex items-center gap-1.5 cursor-pointer"
+                            className="p-2.5 sm:px-3.5 sm:py-2 rounded-xl border shadow-sm text-xs font-bold hover:scale-105 active:scale-95 transition-all flex items-center gap-1.5 cursor-pointer"
+                            title={t.howToPlay}
                         >
                             <HelpCircle className="w-4 h-4" />
-                            <span>{t.howToPlay}</span>
+                            <span className="hidden sm:inline">{t.howToPlay}</span>
                         </button>
                         <button
                             onClick={() => setShowStats(true)}
                             style={{ backgroundColor: activeStyle.card, borderColor: activeStyle.border }}
-                            className="px-3.5 py-2 rounded-xl border shadow-sm text-xs font-bold hover:scale-105 active:scale-95 transition-all flex items-center gap-1.5 cursor-pointer"
+                            className="p-2.5 sm:px-3.5 sm:py-2 rounded-xl border shadow-sm text-xs font-bold hover:scale-105 active:scale-95 transition-all flex items-center gap-1.5 cursor-pointer"
+                            title={t.stats}
                         >
                             <BarChart2 className="w-4 h-4" />
-                            <span>{t.stats}</span>
+                            <span className="hidden sm:inline">{t.stats}</span>
                         </button>
                         <button
                             onClick={() => startNewGame()}
                             style={{ backgroundColor: activeStyle.card, borderColor: activeStyle.border }}
-                            className="px-3.5 py-2 rounded-xl border shadow-sm text-xs font-bold hover:scale-105 active:scale-95 transition-all flex items-center gap-1.5 cursor-pointer"
+                            className="p-2.5 sm:px-3.5 sm:py-2 rounded-xl border shadow-sm text-xs font-bold hover:scale-105 active:scale-95 transition-all flex items-center gap-1.5 cursor-pointer"
+                            title={t.reset}
                         >
                             <RefreshCw className="w-4 h-4" />
-                            <span>{t.reset}</span>
+                            <span className="hidden sm:inline">{t.reset}</span>
                         </button>
                     </div>
                 </div>
             </div>
 
             {/* Contenido Superior (Título y Descripción adaptados dinámicamente) */}
-            <header className={`w-full max-w-xl flex flex-col items-center mb-4 mt-2 ${slideClass}`} key={`header-${gameMode}-${targetColor}`}>
+            <header className={`w-full max-w-xl flex flex-col items-center mb-2 mt-1 xl:mb-4 xl:mt-2 ${slideClass}`} key={`header-${gameMode}-${targetColor}`}>
                 <div className="text-center">
-                    <h1 className="text-4xl sm:text-6xl font-bold tracking-tight select-none">
+                    <h1 className="text-3xl sm:text-6xl font-bold tracking-tight select-none">
                         {gameMode === "ojo-de-aguila" ? t.titleEagleEye : t.titleClassic}
                     </h1>
-                    <p style={{ color: activeStyle.textMuted }} className="text-sm sm:text-xl font-medium max-w-lg text-center mt-2 mx-auto leading-relaxed px-2">
+                    <p style={{ color: activeStyle.textMuted }} className="text-xs sm:text-lg font-medium max-w-lg text-center mt-1 mx-auto leading-relaxed px-2">
                         {gameMode === "ojo-de-aguila" ? t.subtitleEagleEye : t.subtitleClassic}
                     </p>
                 </div>
@@ -745,37 +775,37 @@ export default function ColorlePage() {
 
             {/* Modal de Ayuda / Instrucciones */}
             {showHelp && (
-                <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center px-4">
+                <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
                     <div
                         style={{ backgroundColor: activeStyle.card, color: activeStyle.text }}
-                        className="w-full max-w-lg p-6 sm:p-8 rounded-3xl shadow-xl flex flex-col gap-4 sm:gap-5 relative animate-scale-in"
+                        className="w-[calc(100vw-2rem)] max-w-lg p-4 sm:p-8 rounded-3xl shadow-xl flex flex-col gap-3 sm:gap-5 relative animate-scale-in max-h-[85dvh] overflow-y-auto overscroll-behavior-contain"
                     >
-                        <h2 className="text-xl sm:text-3xl font-bold text-center border-b pb-3">
+                        <h2 className="text-lg sm:text-3xl font-bold text-center border-b pb-3">
                             {t.helpTitle}
                         </h2>
-                        <p className="text-xs sm:text-lg leading-relaxed">{t.helpIntro}</p>
-                        <p className="text-xs sm:text-lg leading-relaxed">{t.helpRGB}</p>
+                        <p className="text-xs sm:text-base leading-relaxed">{t.helpIntro}</p>
+                        <p className="text-xs sm:text-base leading-relaxed">{t.helpRGB}</p>
 
-                        <div className="flex flex-col gap-2.5 sm:gap-3.5 mt-1">
+                        <div className="flex flex-col gap-2 sm:gap-3.5 mt-1">
                             <p className="text-xs sm:text-sm font-bold">{t.helpArrows}</p>
-                            <div className="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm leading-none">
-                                <span className="w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-gray-100 dark:bg-gray-800 border flex items-center justify-center font-bold text-amber-500 flex-shrink-0">▲▲</span>
+                            <div className="flex items-center gap-2 sm:gap-4 text-xs sm:text-sm leading-none">
+                                <span className="w-6 h-6 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-gray-100 dark:bg-gray-800 border flex items-center justify-center font-bold text-amber-500 flex-shrink-0 text-xxs sm:text-xs">▲▲</span>
                                 <span className="flex-1">{t.helpArrowDoubleUp}</span>
                             </div>
-                            <div className="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm leading-none">
-                                <span className="w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-gray-100 dark:bg-gray-800 border flex items-center justify-center font-bold text-amber-400 flex-shrink-0">▲</span>
+                            <div className="flex items-center gap-2 sm:gap-4 text-xs sm:text-sm leading-none">
+                                <span className="w-6 h-6 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-gray-100 dark:bg-gray-800 border flex items-center justify-center font-bold text-amber-400 flex-shrink-0 text-xxs sm:text-xs">▲</span>
                                 <span className="flex-1">{t.helpArrowSingleUp}</span>
                             </div>
-                            <div className="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm leading-none">
-                                <span className="w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-gray-100 dark:bg-gray-800 border flex items-center justify-center font-bold text-indigo-400 flex-shrink-0">▼</span>
+                            <div className="flex items-center gap-2 sm:gap-4 text-xs sm:text-sm leading-none">
+                                <span className="w-6 h-6 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-gray-100 dark:bg-gray-800 border flex items-center justify-center font-bold text-indigo-400 flex-shrink-0 text-xxs sm:text-xs">▼</span>
                                 <span className="flex-1">{t.helpArrowSingleDown}</span>
                             </div>
-                            <div className="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm leading-none">
-                                <span className="w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-gray-100 dark:bg-gray-800 border flex items-center justify-center font-bold text-indigo-500 flex-shrink-0">▼▼</span>
+                            <div className="flex items-center gap-2 sm:gap-4 text-xs sm:text-sm leading-none">
+                                <span className="w-6 h-6 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-gray-100 dark:bg-gray-800 border flex items-center justify-center font-bold text-indigo-500 flex-shrink-0 text-xxs sm:text-xs">▼▼</span>
                                 <span className="flex-1">{t.helpArrowDoubleDown}</span>
                             </div>
-                            <div className="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm leading-none">
-                                <span className="w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-gray-100 dark:bg-gray-800 border flex items-center justify-center font-bold text-emerald-500 flex-shrink-0">✓</span>
+                            <div className="flex items-center gap-2 sm:gap-4 text-xs sm:text-sm leading-none">
+                                <span className="w-6 h-6 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl bg-gray-100 dark:bg-gray-800 border flex items-center justify-center font-bold text-emerald-500 flex-shrink-0 text-xxs sm:text-xs">✓</span>
                                 <span className="flex-1">{t.helpArrowCheck}</span>
                             </div>
                         </div>
@@ -787,7 +817,7 @@ export default function ColorlePage() {
                         <button
                             onClick={() => setShowHelp(false)}
                             style={{ backgroundColor: activeStyle.accent, color: activeStyle.btnText }}
-                            className="mt-2 w-full py-2.5 sm:py-3 rounded-xl font-bold text-sm sm:text-base shadow-sm transition-all duration-200 hover:scale-105 active:scale-95"
+                            className="mt-2 w-full py-2.5 rounded-xl font-bold text-sm sm:text-base shadow-sm transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer"
                         >
                             {gameLang === "de" ? "Verstanden!" : gameLang === "la" ? "Intellectum!" : gameLang === "ru" ? "Понятно" : gameLang === "pt" ? "Entendido!" : gameLang === "pl" ? "Rozumiem!" : "¡Entendido!"}
                         </button>
@@ -797,16 +827,16 @@ export default function ColorlePage() {
 
             {/* Modal de Fin de Partida */}
             {showResultModal && (
-                <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center px-4">
+                <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
                     <div
                         style={{ backgroundColor: activeStyle.card, color: activeStyle.text }}
-                        className="w-full max-w-md p-6 sm:p-8 rounded-3xl shadow-xl flex flex-col items-center gap-4 sm:gap-5 relative animate-scale-in"
+                        className="w-[calc(100vw-2rem)] max-w-md p-4 sm:p-8 rounded-3xl shadow-xl flex flex-col items-center gap-3 sm:gap-5 relative animate-scale-in max-h-[85dvh] overflow-y-auto overscroll-behavior-contain"
                     >
-                        <h2 className="text-2xl sm:text-3xl font-bold text-center">
+                        <h2 className="text-xl sm:text-3xl font-bold text-center">
                             {gameStatus === "won" ? t.winTitle : t.loseTitle}
                         </h2>
 
-                        <p className="text-center text-sm sm:text-base">
+                        <p className="text-center text-xs sm:text-base">
                             {gameStatus === "won" ? t.winDesc(guesses.length) : t.loseDesc}
                         </p>
 
@@ -819,7 +849,7 @@ export default function ColorlePage() {
                                     style={{ backgroundColor: `#${targetColor}` }}
                                     className="w-7 h-7 sm:w-9 sm:h-9 rounded-full border shadow-md animate-bounce"
                                 />
-                                <span className="font-mono text-lg sm:text-2xl font-bold tracking-widest">
+                                <span className="font-mono text-base sm:text-2xl font-bold tracking-widest">
                                     #{targetColor}
                                 </span>
                             </div>
@@ -829,7 +859,7 @@ export default function ColorlePage() {
                             <button
                                 onClick={handleShareResult}
                                 style={{ backgroundColor: activeStyle.card, borderColor: activeStyle.border }}
-                                className="w-full py-2.5 sm:py-3 rounded-xl border font-bold text-sm sm:text-base flex items-center justify-center gap-2 transition-all duration-200 hover:scale-105 active:scale-95 shadow-sm"
+                                className="w-full py-2.5 sm:py-3 rounded-xl border font-bold text-xs sm:text-base flex items-center justify-center gap-2 transition-all duration-200 hover:scale-105 active:scale-95 shadow-sm cursor-pointer"
                             >
                                 <Share2 className="w-4 h-4" />
                                 {copySuccess ? t.copied : t.share}
@@ -837,7 +867,7 @@ export default function ColorlePage() {
                             <button
                                 onClick={() => setShowStats(true)}
                                 style={{ backgroundColor: activeStyle.card, borderColor: activeStyle.border }}
-                                className="w-full py-2.5 sm:py-3 rounded-xl border font-bold text-sm sm:text-base flex items-center justify-center gap-2 transition-all duration-200 hover:scale-105 active:scale-95 shadow-sm"
+                                className="w-full py-2.5 sm:py-3 rounded-xl border font-bold text-xs sm:text-base flex items-center justify-center gap-2 transition-all duration-200 hover:scale-105 active:scale-95 shadow-sm cursor-pointer"
                             >
                                 <BarChart2 className="w-4 h-4" />
                                 {t.stats}
@@ -845,7 +875,7 @@ export default function ColorlePage() {
                             <button
                                 onClick={() => startNewGame()}
                                 style={{ backgroundColor: activeStyle.accent, color: activeStyle.btnText }}
-                                className="w-full py-2.5 sm:py-3 rounded-xl font-bold text-sm sm:text-base transition-all duration-200 hover:scale-105 active:scale-95 shadow-sm"
+                                className="w-full py-2.5 sm:py-3 rounded-xl font-bold text-xs sm:text-base transition-all duration-200 hover:scale-105 active:scale-95 shadow-sm cursor-pointer"
                             >
                                 {t.playAgain}
                             </button>
@@ -856,21 +886,21 @@ export default function ColorlePage() {
 
             {/* Modal de Estadísticas */}
             {showStats && (
-                <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center px-4">
+                <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
                     <div
                         style={{ backgroundColor: activeStyle.card, color: activeStyle.text }}
-                        className="w-full max-w-lg p-6 sm:p-8 rounded-3xl shadow-xl flex flex-col gap-4 sm:gap-5 relative animate-scale-in max-h-[90vh] overflow-y-auto"
+                        className="w-[calc(100vw-2rem)] max-w-lg p-4 sm:p-8 rounded-3xl shadow-xl flex flex-col gap-3 sm:gap-5 relative animate-scale-in max-h-[85dvh] overflow-y-auto overscroll-behavior-contain"
                     >
                         {/* Botón de cerrar en la esquina superior derecha */}
                         <button
                             onClick={() => setShowStats(false)}
-                            className="absolute top-4 right-4 p-1 rounded-full hover:bg-black/10 dark:hover:bg-white/10 transition-colors"
+                            className="absolute top-4 right-4 p-1 rounded-full hover:bg-black/10 dark:hover:bg-white/10 transition-colors z-10 cursor-pointer"
                             aria-label="Cerrar estadísticas"
                         >
-                            <X className="w-6 h-6" />
+                            <X className="w-5 h-5 sm:w-6 h-6" />
                         </button>
 
-                        <h2 className="text-2xl sm:text-3xl font-bold text-center border-b pb-3 flex items-center justify-center gap-2">
+                        <h2 className="text-lg sm:text-3xl font-bold text-center border-b pb-3 flex items-center justify-center gap-2">
                             <BarChart2 className="w-6 h-6" />
                             {t.stats}
                         </h2>
@@ -885,7 +915,7 @@ export default function ColorlePage() {
                                         backgroundColor: statsTab === tab ? activeStyle.accent : "transparent",
                                         color: statsTab === tab ? activeStyle.btnText : activeStyle.text,
                                     }}
-                                    className="flex-1 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all duration-300"
+                                    className="flex-1 py-1 rounded-lg text-[10px] sm:text-sm font-bold transition-all duration-300 cursor-pointer"
                                 >
                                     {tab === "global" ? t.statsModeAll : tab === "ojo-de-aguila" ? t.statsModeEagle : t.statsModeClassic}
                                 </button>
@@ -893,38 +923,38 @@ export default function ColorlePage() {
                         </div>
 
                         {/* Grid de métricas principales */}
-                        <div className="grid grid-cols-4 gap-2 text-center">
-                            <div className="bg-black/5 dark:bg-white/5 p-2 rounded-2xl border border-black/5 dark:border-white/5">
-                                <span className="block text-xl sm:text-2xl font-bold">
+                        <div className="grid grid-cols-4 gap-1.5 sm:gap-2 text-center">
+                            <div className="bg-black/5 dark:bg-white/5 p-1.5 sm:p-2 rounded-2xl border border-black/5 dark:border-white/5 flex flex-col justify-center">
+                                <span className="block text-base sm:text-2xl font-bold">
                                     {new Intl.NumberFormat("es-ES").format(activeStats.played)}
                                 </span>
-                                <span style={{ color: activeStyle.textMuted }} className="text-[10px] sm:text-xs font-bold uppercase tracking-wider">
+                                <span style={{ color: activeStyle.textMuted }} className="text-[9px] sm:text-xs font-bold uppercase tracking-wider">
                                     {t.statsPlayed}
                                 </span>
                             </div>
-                            <div className="bg-black/5 dark:bg-white/5 p-2 rounded-2xl border border-black/5 dark:border-white/5">
-                                <span className="block text-xl sm:text-2xl font-bold">
+                            <div className="bg-black/5 dark:bg-white/5 p-1.5 sm:p-2 rounded-2xl border border-black/5 dark:border-white/5 flex flex-col justify-center">
+                                <span className="block text-base sm:text-2xl font-bold">
                                     {new Intl.NumberFormat("es-ES", { maximumFractionDigits: 1 }).format(
                                         activeStats.played > 0 ? (activeStats.won / activeStats.played) * 100 : 0
                                     ) + "%"}
                                 </span>
-                                <span style={{ color: activeStyle.textMuted }} className="text-[10px] sm:text-xs font-bold uppercase tracking-wider">
+                                <span style={{ color: activeStyle.textMuted }} className="text-[9px] sm:text-xs font-bold uppercase tracking-wider">
                                     {t.statsWinRate}
                                 </span>
                             </div>
-                            <div className="bg-black/5 dark:bg-white/5 p-2 rounded-2xl border border-black/5 dark:border-white/5">
-                                <span className="block text-xl sm:text-2xl font-bold">
+                            <div className="bg-black/5 dark:bg-white/5 p-1.5 sm:p-2 rounded-2xl border border-black/5 dark:border-white/5 flex flex-col justify-center">
+                                <span className="block text-base sm:text-2xl font-bold">
                                     {new Intl.NumberFormat("es-ES").format(activeStats.currentStreak)}
                                 </span>
-                                <span style={{ color: activeStyle.textMuted }} className="text-[10px] sm:text-xs font-bold uppercase tracking-wider">
+                                <span style={{ color: activeStyle.textMuted }} className="text-[9px] sm:text-xs font-bold uppercase tracking-wider">
                                     {t.statsCurrentStreak}
                                 </span>
                             </div>
-                            <div className="bg-black/5 dark:bg-white/5 p-2 rounded-2xl border border-black/5 dark:border-white/5">
-                                <span className="block text-xl sm:text-2xl font-bold">
+                            <div className="bg-black/5 dark:bg-white/5 p-1.5 sm:p-2 rounded-2xl border border-black/5 dark:border-white/5 flex flex-col justify-center">
+                                <span className="block text-base sm:text-2xl font-bold">
                                     {new Intl.NumberFormat("es-ES").format(activeStats.maxStreak)}
                                 </span>
-                                <span style={{ color: activeStyle.textMuted }} className="text-[10px] sm:text-xs font-bold uppercase tracking-wider">
+                                <span style={{ color: activeStyle.textMuted }} className="text-[9px] sm:text-xs font-bold uppercase tracking-wider">
                                     {t.statsMaxStreak}
                                 </span>
                             </div>
@@ -932,7 +962,7 @@ export default function ColorlePage() {
 
                         {/* Distribución de Intentos */}
                         <div className="flex flex-col gap-2 mt-1">
-                            <h3 className="text-sm font-bold uppercase tracking-wider border-b pb-1">
+                            <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider border-b pb-1 text-left">
                                 {t.statsDistribution}
                             </h3>
                             <div className="flex flex-col gap-1.5">
@@ -941,9 +971,9 @@ export default function ColorlePage() {
                                     const maxVal = Math.max(...activeStats.guessesDistribution, 1);
                                     const percentage = (val / maxVal) * 100;
                                     return (
-                                        <div key={i} className="flex items-center gap-2 text-xs sm:text-sm">
+                                        <div key={i} className="flex items-center gap-2 text-xs">
                                             <span className="w-3 font-bold">{i + 1}</span>
-                                            <div className="flex-1 bg-black/5 dark:bg-white/5 rounded-full overflow-hidden h-5 sm:h-6 flex items-center">
+                                            <div className="flex-1 bg-black/5 dark:bg-white/5 rounded-full overflow-hidden h-4.5 sm:h-6 flex items-center">
                                                 <div
                                                     style={{
                                                         width: `${Math.max(percentage, 8)}%`,
@@ -962,17 +992,17 @@ export default function ColorlePage() {
                         </div>
 
                         {/* Patrones y Curiosidades */}
-                        <div className="flex flex-col gap-2 mt-1 text-xs sm:text-sm">
-                            <h3 className="text-sm font-bold uppercase tracking-wider border-b pb-1">
+                        <div className="flex flex-col gap-2 mt-1 text-xs">
+                            <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider border-b pb-1 text-left">
                                 {t.statsFunTitle}
                             </h3>
-                            <div className="grid grid-cols-2 gap-3">
-                                <div className="flex flex-col bg-black/5 dark:bg-white/5 p-3 rounded-2xl border border-black/5 dark:border-white/5 gap-0.5">
-                                    <span style={{ color: activeStyle.textMuted }} className="text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+                                <div className="flex flex-col bg-black/5 dark:bg-white/5 p-2.5 sm:p-3 rounded-xl border border-black/5 dark:border-white/5 gap-0.5 text-left">
+                                    <span style={{ color: activeStyle.textMuted }} className="text-[9px] font-bold uppercase tracking-wider flex items-center gap-1">
                                         <Trophy className="w-3 h-3 text-amber-500" />
                                         {t.statsPersonality}
                                     </span>
-                                    <span className="font-semibold mt-1">
+                                    <span className="font-semibold mt-0.5">
                                         {activeStats.played > 0
                                             ? (() => {
                                                 const { up, down } = activeStats.directionClues;
@@ -985,30 +1015,30 @@ export default function ColorlePage() {
                                     </span>
                                 </div>
 
-                                <div className="flex flex-col bg-black/5 dark:bg-white/5 p-3 rounded-2xl border border-black/5 dark:border-white/5 gap-0.5">
-                                    <span style={{ color: activeStyle.textMuted }} className="text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">
+                                <div className="flex flex-col bg-black/5 dark:bg-white/5 p-2.5 sm:p-3 rounded-xl border border-black/5 dark:border-white/5 gap-0.5 text-left">
+                                    <span style={{ color: activeStyle.textMuted }} className="text-[9px] font-bold uppercase tracking-wider flex items-center gap-1">
                                         <Clock className="w-3 h-3 text-indigo-500" />
                                         {t.statsFavTime}
                                     </span>
-                                    <span className="font-semibold mt-1">
+                                    <span className="font-semibold mt-0.5">
                                         {getFavoriteTimeOfDay(activeStats.timeOfDay)}
                                     </span>
                                 </div>
 
-                                <div className="flex flex-col bg-black/5 dark:bg-white/5 p-3 rounded-2xl border border-black/5 dark:border-white/5 gap-0.5">
-                                    <span style={{ color: activeStyle.textMuted }} className="text-[10px] font-bold uppercase tracking-wider">
+                                <div className="flex flex-col bg-black/5 dark:bg-white/5 p-2.5 sm:p-3 rounded-xl border border-black/5 dark:border-white/5 gap-0.5 text-left">
+                                    <span style={{ color: activeStyle.textMuted }} className="text-[9px] font-bold uppercase tracking-wider">
                                         {t.statsPerfectWins}
                                     </span>
-                                    <span className="font-bold text-base mt-1 text-emerald-500">
+                                    <span className="font-bold text-sm sm:text-base mt-0.5 text-emerald-500">
                                         {new Intl.NumberFormat("es-ES").format(activeStats.guessesDistribution[0] || 0)}
                                     </span>
                                 </div>
 
-                                <div className="flex flex-col bg-black/5 dark:bg-white/5 p-3 rounded-2xl border border-black/5 dark:border-white/5 gap-0.5">
-                                    <span style={{ color: activeStyle.textMuted }} className="text-[10px] font-bold uppercase tracking-wider">
+                                <div className="flex flex-col bg-black/5 dark:bg-white/5 p-2.5 sm:p-3 rounded-xl border border-black/5 dark:border-white/5 gap-0.5 text-left">
+                                    <span style={{ color: activeStyle.textMuted }} className="text-[9px] font-bold uppercase tracking-wider">
                                         {t.statsLastChanceWins}
                                     </span>
-                                    <span className="font-bold text-base mt-1 text-rose-500">
+                                    <span className="font-bold text-sm sm:text-base mt-0.5 text-rose-500">
                                         {new Intl.NumberFormat("es-ES").format(
                                             statsTab === "ojo-de-aguila"
                                                 ? activeStats.guessesDistribution[4] || 0
@@ -1021,9 +1051,9 @@ export default function ColorlePage() {
                             </div>
 
                             {/* Promedio de intentos */}
-                            <div className="flex items-center justify-between bg-black/5 dark:bg-white/5 px-4 py-2.5 rounded-2xl border border-black/5 dark:border-white/5 mt-1">
+                            <div className="flex items-center justify-between bg-black/5 dark:bg-white/5 px-4 py-2 rounded-xl border border-black/5 dark:border-white/5 mt-1">
                                 <span className="font-bold">{t.statsAvgGuesses}</span>
-                                <span className="font-bold text-base">
+                                <span className="font-bold text-sm sm:text-base">
                                     {new Intl.NumberFormat("es-ES", { maximumFractionDigits: 2 }).format(
                                         activeStats.played > 0 ? activeStats.totalGuesses / activeStats.played : 0
                                     )}
@@ -1032,7 +1062,7 @@ export default function ColorlePage() {
                         </div>
 
                         {/* Restablecer estadísticas */}
-                        <div className="flex justify-center mt-2 border-t pt-3">
+                        <div className="flex justify-center mt-1 border-t pt-2.5">
                             <button
                                 onClick={handleResetStats}
                                 className="text-xs font-bold opacity-60 hover:opacity-100 hover:text-red-500 transition-all flex items-center gap-1 py-1 px-3 rounded-lg hover:bg-red-500/10 cursor-pointer"
