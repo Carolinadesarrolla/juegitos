@@ -1,0 +1,4814 @@
+[
+  {
+    "id": "AFG",
+    "nombre": "Afganistán",
+    "continente": "Asia",
+    "superficie": 652230,
+    "rutaBandera": "assets/banderas/af.svg",
+    "fronteras": [
+      "IRN",
+      "PAK",
+      "TKM",
+      "UZB",
+      "TJK",
+      "CHN"
+    ],
+    "latitud": 33,
+    "longitud": 65,
+    "translations": {
+      "de": "Afghanistan",
+      "pl": "Afganistan",
+      "ru": "Афганистан",
+      "pt": "Afeganistão"
+    }
+  },
+  {
+    "id": "ALA",
+    "nombre": "Alandia",
+    "continente": "Europa",
+    "superficie": 1580,
+    "rutaBandera": "assets/banderas/ax.svg",
+    "fronteras": [],
+    "latitud": 60.116667,
+    "longitud": 19.9,
+    "translations": {
+      "de": "Åland",
+      "pl": "Wyspy Alandzkie",
+      "ru": "Аландские острова",
+      "pt": "Alândia"
+    }
+  },
+  {
+    "id": "ALB",
+    "nombre": "Albania",
+    "continente": "Europa",
+    "superficie": 28748,
+    "rutaBandera": "assets/banderas/al.svg",
+    "fronteras": [
+      "MNE",
+      "GRC",
+      "MKD",
+      "UNK"
+    ],
+    "latitud": 41,
+    "longitud": 20,
+    "translations": {
+      "de": "Albanien",
+      "pl": "Albania",
+      "ru": "Албания",
+      "pt": "Albânia"
+    }
+  },
+  {
+    "id": "DEU",
+    "nombre": "Alemania",
+    "continente": "Europa",
+    "superficie": 357114,
+    "rutaBandera": "assets/banderas/de.svg",
+    "fronteras": [
+      "AUT",
+      "BEL",
+      "CZE",
+      "DNK",
+      "FRA",
+      "LUX",
+      "NLD",
+      "POL",
+      "CHE"
+    ],
+    "latitud": 51,
+    "longitud": 9,
+    "translations": {
+      "de": "Deutschland",
+      "pl": "Niemcy",
+      "ru": "Германия",
+      "pt": "Alemanha"
+    }
+  },
+  {
+    "id": "AND",
+    "nombre": "Andorra",
+    "continente": "Europa",
+    "superficie": 468,
+    "rutaBandera": "assets/banderas/ad.svg",
+    "fronteras": [
+      "FRA",
+      "ESP"
+    ],
+    "latitud": 42.5,
+    "longitud": 1.5,
+    "translations": {
+      "de": "Andorra",
+      "pl": "Andora",
+      "ru": "Андорра",
+      "pt": "Andorra"
+    }
+  },
+  {
+    "id": "AGO",
+    "nombre": "Angola",
+    "continente": "África",
+    "superficie": 1246700,
+    "rutaBandera": "assets/banderas/ao.svg",
+    "fronteras": [
+      "COG",
+      "COD",
+      "ZMB",
+      "NAM"
+    ],
+    "latitud": -12.5,
+    "longitud": 18.5,
+    "translations": {
+      "de": "Angola",
+      "pl": "Angola",
+      "ru": "Ангола",
+      "pt": "Angola"
+    }
+  },
+  {
+    "id": "AIA",
+    "nombre": "Anguilla",
+    "continente": "América",
+    "superficie": 91,
+    "rutaBandera": "assets/banderas/ai.svg",
+    "fronteras": [],
+    "latitud": 18.25,
+    "longitud": -63.16666666,
+    "translations": {
+      "de": "Anguilla",
+      "pl": "Anguilla",
+      "ru": "Ангилья",
+      "pt": "Anguilla"
+    }
+  },
+  {
+    "id": "ATA",
+    "nombre": "Antártida",
+    "continente": "Antártida",
+    "superficie": 14000000,
+    "rutaBandera": "assets/banderas/aq.svg",
+    "fronteras": [],
+    "latitud": -90,
+    "longitud": 0,
+    "translations": {
+      "de": "Antarktis",
+      "pl": "Antarktyka",
+      "ru": "Антарктида",
+      "pt": "Antártida"
+    }
+  },
+  {
+    "id": "ATG",
+    "nombre": "Antigua y Barbuda",
+    "continente": "América",
+    "superficie": 442,
+    "rutaBandera": "assets/banderas/ag.svg",
+    "fronteras": [],
+    "latitud": 17.05,
+    "longitud": -61.8,
+    "translations": {
+      "de": "Antigua und Barbuda",
+      "pl": "Antigua i Barbuda",
+      "ru": "Антигуа и Барбуда",
+      "pt": "Antígua e Barbuda"
+    }
+  },
+  {
+    "id": "SAU",
+    "nombre": "Arabia Saudí",
+    "continente": "Asia",
+    "superficie": 2149690,
+    "rutaBandera": "assets/banderas/sa.svg",
+    "fronteras": [
+      "IRQ",
+      "JOR",
+      "KWT",
+      "OMN",
+      "QAT",
+      "ARE",
+      "YEM"
+    ],
+    "latitud": 25,
+    "longitud": 45,
+    "translations": {
+      "de": "Saudi-Arabien",
+      "pl": "Arabia Saudyjska",
+      "ru": "Саудовская Аравия",
+      "pt": "Arábia Saudita"
+    }
+  },
+  {
+    "id": "DZA",
+    "nombre": "Argelia",
+    "continente": "África",
+    "superficie": 2381741,
+    "rutaBandera": "assets/banderas/dz.svg",
+    "fronteras": [
+      "TUN",
+      "LBY",
+      "NER",
+      "ESH",
+      "MRT",
+      "MLI",
+      "MAR"
+    ],
+    "latitud": 28,
+    "longitud": 3,
+    "translations": {
+      "de": "Algerien",
+      "pl": "Algieria",
+      "ru": "Алжир",
+      "pt": "Argélia"
+    }
+  },
+  {
+    "id": "ARG",
+    "nombre": "Argentina",
+    "continente": "América",
+    "superficie": 2780400,
+    "rutaBandera": "assets/banderas/ar.svg",
+    "fronteras": [
+      "BOL",
+      "BRA",
+      "CHL",
+      "PRY",
+      "URY"
+    ],
+    "latitud": -34,
+    "longitud": -64,
+    "translations": {
+      "de": "Argentinien",
+      "pl": "Argentyna",
+      "ru": "Аргентина",
+      "pt": "Argentina"
+    }
+  },
+  {
+    "id": "ARM",
+    "nombre": "Armenia",
+    "continente": "Asia",
+    "superficie": 29743,
+    "rutaBandera": "assets/banderas/am.svg",
+    "fronteras": [
+      "AZE",
+      "GEO",
+      "IRN",
+      "TUR"
+    ],
+    "latitud": 40,
+    "longitud": 45,
+    "translations": {
+      "de": "Armenien",
+      "pl": "Armenia",
+      "ru": "Армения",
+      "pt": "Arménia"
+    }
+  },
+  {
+    "id": "ABW",
+    "nombre": "Aruba",
+    "continente": "América",
+    "superficie": 180,
+    "rutaBandera": "assets/banderas/aw.svg",
+    "fronteras": [],
+    "latitud": 12.5,
+    "longitud": -69.96666666,
+    "translations": {
+      "de": "Aruba",
+      "pl": "Aruba",
+      "ru": "Аруба",
+      "pt": "Aruba"
+    }
+  },
+  {
+    "id": "AUS",
+    "nombre": "Australia",
+    "continente": "Oceanía",
+    "superficie": 7692024,
+    "rutaBandera": "assets/banderas/au.svg",
+    "fronteras": [],
+    "latitud": -27,
+    "longitud": 133,
+    "translations": {
+      "de": "Australien",
+      "pl": "Australia",
+      "ru": "Австралия",
+      "pt": "Austrália"
+    }
+  },
+  {
+    "id": "AUT",
+    "nombre": "Austria",
+    "continente": "Europa",
+    "superficie": 83871,
+    "rutaBandera": "assets/banderas/at.svg",
+    "fronteras": [
+      "CZE",
+      "DEU",
+      "HUN",
+      "ITA",
+      "LIE",
+      "SVK",
+      "SVN",
+      "CHE"
+    ],
+    "latitud": 47.33333333,
+    "longitud": 13.33333333,
+    "translations": {
+      "de": "Österreich",
+      "pl": "Austria",
+      "ru": "Австрия",
+      "pt": "Áustria"
+    }
+  },
+  {
+    "id": "AZE",
+    "nombre": "Azerbaiyán",
+    "continente": "Europa",
+    "superficie": 86600,
+    "rutaBandera": "assets/banderas/az.svg",
+    "fronteras": [
+      "ARM",
+      "GEO",
+      "IRN",
+      "RUS",
+      "TUR"
+    ],
+    "latitud": 40.5,
+    "longitud": 47.5,
+    "translations": {
+      "de": "Aserbaidschan",
+      "pl": "Azerbejdżan",
+      "ru": "Азербайджан",
+      "pt": "Azerbeijão"
+    }
+  },
+  {
+    "id": "BHS",
+    "nombre": "Bahamas",
+    "continente": "América",
+    "superficie": 13943,
+    "rutaBandera": "assets/banderas/bs.svg",
+    "fronteras": [],
+    "latitud": 25.0343,
+    "longitud": -77.3963,
+    "translations": {
+      "de": "Bahamas",
+      "pl": "Bahamy",
+      "ru": "Багамские Острова",
+      "pt": "Bahamas"
+    }
+  },
+  {
+    "id": "BHR",
+    "nombre": "Bahrein",
+    "continente": "Asia",
+    "superficie": 765,
+    "rutaBandera": "assets/banderas/bh.svg",
+    "fronteras": [],
+    "latitud": 26,
+    "longitud": 50.55,
+    "translations": {
+      "de": "Bahrain",
+      "pl": "Bahrajn",
+      "ru": "Бахрейн",
+      "pt": "Bahrein"
+    }
+  },
+  {
+    "id": "BGD",
+    "nombre": "Bangladesh",
+    "continente": "Asia",
+    "superficie": 147570,
+    "rutaBandera": "assets/banderas/bd.svg",
+    "fronteras": [
+      "MMR",
+      "IND"
+    ],
+    "latitud": 24,
+    "longitud": 90,
+    "translations": {
+      "de": "Bangladesch",
+      "pl": "Bangladesz",
+      "ru": "Бангладеш",
+      "pt": "Bangladesh"
+    }
+  },
+  {
+    "id": "BRB",
+    "nombre": "Barbados",
+    "continente": "América",
+    "superficie": 430,
+    "rutaBandera": "assets/banderas/bb.svg",
+    "fronteras": [],
+    "latitud": 13.16666666,
+    "longitud": -59.53333333,
+    "translations": {
+      "de": "Barbados",
+      "pl": "Barbados",
+      "ru": "Барбадос",
+      "pt": "Barbados"
+    }
+  },
+  {
+    "id": "BEL",
+    "nombre": "Bélgica",
+    "continente": "Europa",
+    "superficie": 30528,
+    "rutaBandera": "assets/banderas/be.svg",
+    "fronteras": [
+      "FRA",
+      "DEU",
+      "LUX",
+      "NLD"
+    ],
+    "latitud": 50.83333333,
+    "longitud": 4,
+    "translations": {
+      "de": "Belgien",
+      "pl": "Belgia",
+      "ru": "Бельгия",
+      "pt": "Bélgica"
+    }
+  },
+  {
+    "id": "BLZ",
+    "nombre": "Belice",
+    "continente": "América",
+    "superficie": 22966,
+    "rutaBandera": "assets/banderas/bz.svg",
+    "fronteras": [
+      "GTM",
+      "MEX"
+    ],
+    "latitud": 17.25,
+    "longitud": -88.75,
+    "translations": {
+      "de": "Belize",
+      "pl": "Belize",
+      "ru": "Белиз",
+      "pt": "Belize"
+    }
+  },
+  {
+    "id": "BEN",
+    "nombre": "Benín",
+    "continente": "África",
+    "superficie": 112622,
+    "rutaBandera": "assets/banderas/bj.svg",
+    "fronteras": [
+      "BFA",
+      "NER",
+      "NGA",
+      "TGO"
+    ],
+    "latitud": 9.5,
+    "longitud": 2.25,
+    "translations": {
+      "de": "Benin",
+      "pl": "Benin",
+      "ru": "Бенин",
+      "pt": "Benin"
+    }
+  },
+  {
+    "id": "BMU",
+    "nombre": "Bermudas",
+    "continente": "América",
+    "superficie": 54,
+    "rutaBandera": "assets/banderas/bm.svg",
+    "fronteras": [],
+    "latitud": 32.33333333,
+    "longitud": -64.75,
+    "translations": {
+      "de": "Bermuda",
+      "pl": "Bermudy",
+      "ru": "Бермудские Острова",
+      "pt": "Bermudas"
+    }
+  },
+  {
+    "id": "BLR",
+    "nombre": "Bielorrusia",
+    "continente": "Europa",
+    "superficie": 207600,
+    "rutaBandera": "assets/banderas/by.svg",
+    "fronteras": [
+      "LVA",
+      "LTU",
+      "POL",
+      "RUS",
+      "UKR"
+    ],
+    "latitud": 53,
+    "longitud": 28,
+    "translations": {
+      "de": "Weißrussland",
+      "pl": "Białoruś",
+      "ru": "Беларусь",
+      "pt": "Bielorússia"
+    }
+  },
+  {
+    "id": "BOL",
+    "nombre": "Bolivia",
+    "continente": "América",
+    "superficie": 1098581,
+    "rutaBandera": "assets/banderas/bo.svg",
+    "fronteras": [
+      "ARG",
+      "BRA",
+      "CHL",
+      "PRY",
+      "PER"
+    ],
+    "latitud": -17,
+    "longitud": -65,
+    "translations": {
+      "de": "Bolivien",
+      "pl": "Boliwia",
+      "ru": "Боливия",
+      "pt": "Bolívia"
+    }
+  },
+  {
+    "id": "BIH",
+    "nombre": "Bosnia y Herzegovina",
+    "continente": "Europa",
+    "superficie": 51209,
+    "rutaBandera": "assets/banderas/ba.svg",
+    "fronteras": [
+      "HRV",
+      "MNE",
+      "SRB"
+    ],
+    "latitud": 44,
+    "longitud": 18,
+    "translations": {
+      "de": "Bosnien und Herzegowina",
+      "pl": "Bośnia i Hercegowina",
+      "ru": "Босния и Герцеговина",
+      "pt": "Bósnia e Herzegovina"
+    }
+  },
+  {
+    "id": "BWA",
+    "nombre": "Botswana",
+    "continente": "África",
+    "superficie": 582000,
+    "rutaBandera": "assets/banderas/bw.svg",
+    "fronteras": [
+      "NAM",
+      "ZAF",
+      "ZMB",
+      "ZWE"
+    ],
+    "latitud": -22,
+    "longitud": 24,
+    "translations": {
+      "de": "Botswana",
+      "pl": "Botswana",
+      "ru": "Ботсвана",
+      "pt": "Botswana"
+    }
+  },
+  {
+    "id": "BRA",
+    "nombre": "Brasil",
+    "continente": "América",
+    "superficie": 8515767,
+    "rutaBandera": "assets/banderas/br.svg",
+    "fronteras": [
+      "ARG",
+      "BOL",
+      "COL",
+      "GUF",
+      "GUY",
+      "PRY",
+      "PER",
+      "SUR",
+      "URY",
+      "VEN"
+    ],
+    "latitud": -10,
+    "longitud": -55,
+    "translations": {
+      "de": "Brasilien",
+      "pl": "Brazylia",
+      "ru": "Бразилия",
+      "pt": "Brasil"
+    }
+  },
+  {
+    "id": "BRN",
+    "nombre": "Brunei",
+    "continente": "Asia",
+    "superficie": 5765,
+    "rutaBandera": "assets/banderas/bn.svg",
+    "fronteras": [
+      "MYS"
+    ],
+    "latitud": 4.5,
+    "longitud": 114.66666666,
+    "translations": {
+      "de": "Brunei",
+      "pl": "Brunei",
+      "ru": "Бруней",
+      "pt": "Brunei"
+    }
+  },
+  {
+    "id": "BGR",
+    "nombre": "Bulgaria",
+    "continente": "Europa",
+    "superficie": 110879,
+    "rutaBandera": "assets/banderas/bg.svg",
+    "fronteras": [
+      "GRC",
+      "MKD",
+      "ROU",
+      "SRB",
+      "TUR"
+    ],
+    "latitud": 43,
+    "longitud": 25,
+    "translations": {
+      "de": "Bulgarien",
+      "pl": "Bułgaria",
+      "ru": "Болгария",
+      "pt": "Bulgária"
+    }
+  },
+  {
+    "id": "BFA",
+    "nombre": "Burkina Faso",
+    "continente": "África",
+    "superficie": 272967,
+    "rutaBandera": "assets/banderas/bf.svg",
+    "fronteras": [
+      "BEN",
+      "CIV",
+      "GHA",
+      "MLI",
+      "NER",
+      "TGO"
+    ],
+    "latitud": 13,
+    "longitud": -2,
+    "translations": {
+      "de": "Burkina Faso",
+      "pl": "Burkina Faso",
+      "ru": "Буркина-Фасо",
+      "pt": "Burkina Faso"
+    }
+  },
+  {
+    "id": "BDI",
+    "nombre": "Burundi",
+    "continente": "África",
+    "superficie": 27834,
+    "rutaBandera": "assets/banderas/bi.svg",
+    "fronteras": [
+      "COD",
+      "RWA",
+      "TZA"
+    ],
+    "latitud": -3.5,
+    "longitud": 30,
+    "translations": {
+      "de": "Burundi",
+      "pl": "Burundi",
+      "ru": "Бурунди",
+      "pt": "Burundi"
+    }
+  },
+  {
+    "id": "BTN",
+    "nombre": "Bután",
+    "continente": "Asia",
+    "superficie": 38394,
+    "rutaBandera": "assets/banderas/bt.svg",
+    "fronteras": [
+      "CHN",
+      "IND"
+    ],
+    "latitud": 27.5,
+    "longitud": 90.5,
+    "translations": {
+      "de": "Bhutan",
+      "pl": "Bhutan",
+      "ru": "Бутан",
+      "pt": "Butão"
+    }
+  },
+  {
+    "id": "CPV",
+    "nombre": "Cabo Verde",
+    "continente": "África",
+    "superficie": 4033,
+    "rutaBandera": "assets/banderas/cv.svg",
+    "fronteras": [],
+    "latitud": 16.5388,
+    "longitud": -23.0418,
+    "translations": {
+      "de": "Kap Verde",
+      "pl": "Republika Zielonego Przylądka",
+      "ru": "Кабо-Верде",
+      "pt": "Cabo Verde"
+    }
+  },
+  {
+    "id": "KHM",
+    "nombre": "Camboya",
+    "continente": "Asia",
+    "superficie": 181035,
+    "rutaBandera": "assets/banderas/kh.svg",
+    "fronteras": [
+      "LAO",
+      "THA",
+      "VNM"
+    ],
+    "latitud": 13,
+    "longitud": 105,
+    "translations": {
+      "de": "Kambodscha",
+      "pl": "Kambodża",
+      "ru": "Камбоджа",
+      "pt": "Camboja"
+    }
+  },
+  {
+    "id": "CMR",
+    "nombre": "Camerún",
+    "continente": "África",
+    "superficie": 475442,
+    "rutaBandera": "assets/banderas/cm.svg",
+    "fronteras": [
+      "CAF",
+      "TCD",
+      "COG",
+      "GNQ",
+      "GAB",
+      "NGA"
+    ],
+    "latitud": 6,
+    "longitud": 12,
+    "translations": {
+      "de": "Kamerun",
+      "pl": "Kamerun",
+      "ru": "Камерун",
+      "pt": "Camarões"
+    }
+  },
+  {
+    "id": "CAN",
+    "nombre": "Canadá",
+    "continente": "América",
+    "superficie": 9984670,
+    "rutaBandera": "assets/banderas/ca.svg",
+    "fronteras": [
+      "USA"
+    ],
+    "latitud": 60,
+    "longitud": -95,
+    "translations": {
+      "de": "Kanada",
+      "pl": "Kanada",
+      "ru": "Канада",
+      "pt": "Canadá"
+    }
+  },
+  {
+    "id": "BES",
+    "nombre": "Caribe Neerlandés",
+    "continente": "América",
+    "superficie": 328,
+    "rutaBandera": "assets/banderas/bq.svg",
+    "fronteras": [],
+    "latitud": 12.18,
+    "longitud": -68.25,
+    "translations": {
+      "de": "Karibische Niederlande",
+      "pl": "Antyle Holenderskie",
+      "ru": "Карибские Нидерланды",
+      "pt": "Países Baixos Caribenhos"
+    }
+  },
+  {
+    "id": "QAT",
+    "nombre": "Catar",
+    "continente": "Asia",
+    "superficie": 11586,
+    "rutaBandera": "assets/banderas/qa.svg",
+    "fronteras": [
+      "SAU"
+    ],
+    "latitud": 25.5,
+    "longitud": 51.25,
+    "translations": {
+      "de": "Katar",
+      "pl": "Katar",
+      "ru": "Катар",
+      "pt": "Catar"
+    }
+  },
+  {
+    "id": "TCD",
+    "nombre": "Chad",
+    "continente": "África",
+    "superficie": 1284000,
+    "rutaBandera": "assets/banderas/td.svg",
+    "fronteras": [
+      "CMR",
+      "CAF",
+      "LBY",
+      "NER",
+      "NGA",
+      "SDN"
+    ],
+    "latitud": 15,
+    "longitud": 19,
+    "translations": {
+      "de": "Tschad",
+      "pl": "Czad",
+      "ru": "Чад",
+      "pt": "Chade"
+    }
+  },
+  {
+    "id": "CZE",
+    "nombre": "Chequia",
+    "continente": "Europa",
+    "superficie": 78865,
+    "rutaBandera": "assets/banderas/cz.svg",
+    "fronteras": [
+      "AUT",
+      "DEU",
+      "POL",
+      "SVK"
+    ],
+    "latitud": 49.75,
+    "longitud": 15.5,
+    "translations": {
+      "de": "Tschechien",
+      "pl": "Czechy",
+      "ru": "Чехия",
+      "pt": "Chéquia"
+    }
+  },
+  {
+    "id": "CHL",
+    "nombre": "Chile",
+    "continente": "América",
+    "superficie": 756102,
+    "rutaBandera": "assets/banderas/cl.svg",
+    "fronteras": [
+      "ARG",
+      "BOL",
+      "PER"
+    ],
+    "latitud": -30,
+    "longitud": -71,
+    "translations": {
+      "de": "Chile",
+      "pl": "Chile",
+      "ru": "Чили",
+      "pt": "Chile"
+    }
+  },
+  {
+    "id": "CHN",
+    "nombre": "China",
+    "continente": "Asia",
+    "superficie": 9706961,
+    "rutaBandera": "assets/banderas/cn.svg",
+    "fronteras": [
+      "AFG",
+      "BTN",
+      "MMR",
+      "HKG",
+      "IND",
+      "KAZ",
+      "NPL",
+      "PRK",
+      "KGZ",
+      "LAO",
+      "MAC",
+      "MNG",
+      "PAK",
+      "RUS",
+      "TJK",
+      "VNM"
+    ],
+    "latitud": 35,
+    "longitud": 105,
+    "translations": {
+      "de": "China",
+      "pl": "Chiny",
+      "ru": "Китай",
+      "pt": "China"
+    }
+  },
+  {
+    "id": "CYP",
+    "nombre": "Chipre",
+    "continente": "Europa",
+    "superficie": 9251,
+    "rutaBandera": "assets/banderas/cy.svg",
+    "fronteras": [],
+    "latitud": 35,
+    "longitud": 33,
+    "translations": {
+      "de": "Zypern",
+      "pl": "Cypr",
+      "ru": "Кипр",
+      "pt": "Chipre"
+    }
+  },
+  {
+    "id": "VAT",
+    "nombre": "Ciudad del Vaticano",
+    "continente": "Europa",
+    "superficie": 0.49,
+    "rutaBandera": "assets/banderas/va.svg",
+    "fronteras": [
+      "ITA"
+    ],
+    "latitud": 41.9,
+    "longitud": 12.45,
+    "translations": {
+      "de": "Vatikanstadt",
+      "pl": "Watykan",
+      "ru": "Ватикан",
+      "pt": "Cidade do Vaticano"
+    }
+  },
+  {
+    "id": "COL",
+    "nombre": "Colombia",
+    "continente": "América",
+    "superficie": 1141748,
+    "rutaBandera": "assets/banderas/co.svg",
+    "fronteras": [
+      "BRA",
+      "ECU",
+      "PAN",
+      "PER",
+      "VEN"
+    ],
+    "latitud": 4,
+    "longitud": -72,
+    "translations": {
+      "de": "Kolumbien",
+      "pl": "Kolumbia",
+      "ru": "Колумбия",
+      "pt": "Colômbia"
+    }
+  },
+  {
+    "id": "COM",
+    "nombre": "Comoras",
+    "continente": "África",
+    "superficie": 1862,
+    "rutaBandera": "assets/banderas/km.svg",
+    "fronteras": [],
+    "latitud": -12.16666666,
+    "longitud": 44.25,
+    "translations": {
+      "de": "Komoren",
+      "pl": "Komory",
+      "ru": "Коморы",
+      "pt": "Comores"
+    }
+  },
+  {
+    "id": "COG",
+    "nombre": "Congo",
+    "continente": "África",
+    "superficie": 342000,
+    "rutaBandera": "assets/banderas/cg.svg",
+    "fronteras": [
+      "AGO",
+      "CMR",
+      "CAF",
+      "COD",
+      "GAB"
+    ],
+    "latitud": -1,
+    "longitud": 15,
+    "translations": {
+      "de": "Kongo",
+      "pl": "Kongo",
+      "ru": "Республика Конго",
+      "pt": "Congo"
+    }
+  },
+  {
+    "id": "COD",
+    "nombre": "Congo (Rep. Dem.)",
+    "continente": "África",
+    "superficie": 2344858,
+    "rutaBandera": "assets/banderas/cd.svg",
+    "fronteras": [
+      "AGO",
+      "BDI",
+      "CAF",
+      "COG",
+      "RWA",
+      "SSD",
+      "TZA",
+      "UGA",
+      "ZMB"
+    ],
+    "latitud": 0,
+    "longitud": 25,
+    "translations": {
+      "de": "Kongo (Dem. Rep.)",
+      "pl": "Demokratyczna Republika Konga",
+      "ru": "Демократическая Республика Конго",
+      "pt": "República Democrática do Congo"
+    }
+  },
+  {
+    "id": "PRK",
+    "nombre": "Corea del Norte",
+    "continente": "Asia",
+    "superficie": 120538,
+    "rutaBandera": "assets/banderas/kp.svg",
+    "fronteras": [
+      "CHN",
+      "KOR",
+      "RUS"
+    ],
+    "latitud": 40,
+    "longitud": 127,
+    "translations": {
+      "de": "Nordkorea",
+      "pl": "Korea Północna",
+      "ru": "Северная Корея",
+      "pt": "Coreia do Norte"
+    }
+  },
+  {
+    "id": "KOR",
+    "nombre": "Corea del Sur",
+    "continente": "Asia",
+    "superficie": 100210,
+    "rutaBandera": "assets/banderas/kr.svg",
+    "fronteras": [
+      "PRK"
+    ],
+    "latitud": 37,
+    "longitud": 127.5,
+    "translations": {
+      "de": "Südkorea",
+      "pl": "Korea Południowa",
+      "ru": "Южная Корея",
+      "pt": "Coreia do Sul"
+    }
+  },
+  {
+    "id": "CIV",
+    "nombre": "Costa de Marfil",
+    "continente": "África",
+    "superficie": 322463,
+    "rutaBandera": "assets/banderas/ci.svg",
+    "fronteras": [
+      "BFA",
+      "GHA",
+      "GIN",
+      "LBR",
+      "MLI"
+    ],
+    "latitud": 8,
+    "longitud": -5,
+    "translations": {
+      "de": "Elfenbeinküste",
+      "pl": "WybrzeŻe Kości Słoniowej",
+      "ru": "Кот-д’Ивуар",
+      "pt": "Costa do Marfim"
+    }
+  },
+  {
+    "id": "CRI",
+    "nombre": "Costa Rica",
+    "continente": "América",
+    "superficie": 51100,
+    "rutaBandera": "assets/banderas/cr.svg",
+    "fronteras": [
+      "NIC",
+      "PAN"
+    ],
+    "latitud": 10,
+    "longitud": -84,
+    "translations": {
+      "de": "Costa Rica",
+      "pl": "Kostaryka",
+      "ru": "Коста-Рика",
+      "pt": "Costa Rica"
+    }
+  },
+  {
+    "id": "HRV",
+    "nombre": "Croacia",
+    "continente": "Europa",
+    "superficie": 56594,
+    "rutaBandera": "assets/banderas/hr.svg",
+    "fronteras": [
+      "BIH",
+      "HUN",
+      "MNE",
+      "SRB",
+      "SVN"
+    ],
+    "latitud": 45.16666666,
+    "longitud": 15.5,
+    "translations": {
+      "de": "Kroatien",
+      "pl": "Chorwacja",
+      "ru": "Хорватия",
+      "pt": "Croácia"
+    }
+  },
+  {
+    "id": "CUB",
+    "nombre": "Cuba",
+    "continente": "América",
+    "superficie": 109884,
+    "rutaBandera": "assets/banderas/cu.svg",
+    "fronteras": [],
+    "latitud": 21.5,
+    "longitud": -80,
+    "translations": {
+      "de": "Kuba",
+      "pl": "Kuba",
+      "ru": "Куба",
+      "pt": "Cuba"
+    }
+  },
+  {
+    "id": "CUW",
+    "nombre": "Curazao",
+    "continente": "América",
+    "superficie": 444,
+    "rutaBandera": "assets/banderas/cw.svg",
+    "fronteras": [],
+    "latitud": 12.116667,
+    "longitud": -68.933333,
+    "translations": {
+      "de": "Curaçao",
+      "pl": "Curaçao",
+      "ru": "Кюрасао",
+      "pt": "ilha da Curação"
+    }
+  },
+  {
+    "id": "DNK",
+    "nombre": "Dinamarca",
+    "continente": "Europa",
+    "superficie": 43094,
+    "rutaBandera": "assets/banderas/dk.svg",
+    "fronteras": [
+      "DEU"
+    ],
+    "latitud": 56,
+    "longitud": 10,
+    "translations": {
+      "de": "Dänemark",
+      "pl": "Dania",
+      "ru": "Дания",
+      "pt": "Dinamarca"
+    }
+  },
+  {
+    "id": "DJI",
+    "nombre": "Djibouti",
+    "continente": "África",
+    "superficie": 23200,
+    "rutaBandera": "assets/banderas/dj.svg",
+    "fronteras": [
+      "ERI",
+      "ETH",
+      "SOM"
+    ],
+    "latitud": 11.5,
+    "longitud": 43,
+    "translations": {
+      "de": "Dschibuti",
+      "pl": "Dżibuti",
+      "ru": "Джибути",
+      "pt": "Djibouti"
+    }
+  },
+  {
+    "id": "DMA",
+    "nombre": "Dominica",
+    "continente": "América",
+    "superficie": 751,
+    "rutaBandera": "assets/banderas/dm.svg",
+    "fronteras": [],
+    "latitud": 15.41666666,
+    "longitud": -61.33333333,
+    "translations": {
+      "de": "Dominica",
+      "pl": "Dominika",
+      "ru": "Доминика",
+      "pt": "Dominica"
+    }
+  },
+  {
+    "id": "ECU",
+    "nombre": "Ecuador",
+    "continente": "América",
+    "superficie": 276841,
+    "rutaBandera": "assets/banderas/ec.svg",
+    "fronteras": [
+      "COL",
+      "PER"
+    ],
+    "latitud": -2,
+    "longitud": -77.5,
+    "translations": {
+      "de": "Ecuador",
+      "pl": "Ekwador",
+      "ru": "Эквадор",
+      "pt": "Equador"
+    }
+  },
+  {
+    "id": "EGY",
+    "nombre": "Egipto",
+    "continente": "África",
+    "superficie": 1002450,
+    "rutaBandera": "assets/banderas/eg.svg",
+    "fronteras": [
+      "ISR",
+      "LBY",
+      "PSE",
+      "SDN"
+    ],
+    "latitud": 27,
+    "longitud": 30,
+    "translations": {
+      "de": "Ägypten",
+      "pl": "Egipt",
+      "ru": "Египет",
+      "pt": "Egito"
+    }
+  },
+  {
+    "id": "SLV",
+    "nombre": "El Salvador",
+    "continente": "América",
+    "superficie": 21041,
+    "rutaBandera": "assets/banderas/sv.svg",
+    "fronteras": [
+      "GTM",
+      "HND"
+    ],
+    "latitud": 13.83333333,
+    "longitud": -88.91666666,
+    "translations": {
+      "de": "El Salvador",
+      "pl": "Salwador",
+      "ru": "Сальвадор",
+      "pt": "El Salvador"
+    }
+  },
+  {
+    "id": "ARE",
+    "nombre": "Emiratos Árabes Unidos",
+    "continente": "Asia",
+    "superficie": 83600,
+    "rutaBandera": "assets/banderas/ae.svg",
+    "fronteras": [
+      "OMN",
+      "SAU"
+    ],
+    "latitud": 24,
+    "longitud": 54,
+    "translations": {
+      "de": "Vereinigte Arabische Emirate",
+      "pl": "Emiraty Arabskie",
+      "ru": "Объединённые Арабские Эмираты",
+      "pt": "Emirados Árabes Unidos"
+    }
+  },
+  {
+    "id": "ERI",
+    "nombre": "Eritrea",
+    "continente": "África",
+    "superficie": 117600,
+    "rutaBandera": "assets/banderas/er.svg",
+    "fronteras": [
+      "DJI",
+      "ETH",
+      "SDN"
+    ],
+    "latitud": 15,
+    "longitud": 39,
+    "translations": {
+      "de": "Eritrea",
+      "pl": "Erytrea",
+      "ru": "Эритрея",
+      "pt": "Eritreia"
+    }
+  },
+  {
+    "id": "SVN",
+    "nombre": "Eslovenia",
+    "continente": "Europa",
+    "superficie": 20273,
+    "rutaBandera": "assets/banderas/si.svg",
+    "fronteras": [
+      "AUT",
+      "HRV",
+      "ITA",
+      "HUN"
+    ],
+    "latitud": 46.11666666,
+    "longitud": 14.81666666,
+    "translations": {
+      "de": "Slowenien",
+      "pl": "Słowenia",
+      "ru": "Словения",
+      "pt": "Eslovénia"
+    }
+  },
+  {
+    "id": "ESP",
+    "nombre": "España",
+    "continente": "Europa",
+    "superficie": 505992,
+    "rutaBandera": "assets/banderas/es.svg",
+    "fronteras": [
+      "AND",
+      "FRA",
+      "GIB",
+      "PRT",
+      "MAR"
+    ],
+    "latitud": 40,
+    "longitud": -4,
+    "translations": {
+      "de": "Spanien",
+      "pl": "Hiszpania",
+      "ru": "Испания",
+      "pt": "Espanha"
+    }
+  },
+  {
+    "id": "USA",
+    "nombre": "Estados Unidos",
+    "continente": "América",
+    "superficie": 9525067,
+    "rutaBandera": "assets/banderas/us.svg",
+    "fronteras": [
+      "CAN",
+      "MEX"
+    ],
+    "latitud": 38,
+    "longitud": -97,
+    "translations": {
+      "de": "Vereinigte Staaten",
+      "pl": "Stany Zjednoczone",
+      "ru": "Соединённые Штаты Америки",
+      "pt": "Estados Unidos"
+    }
+  },
+  {
+    "id": "EST",
+    "nombre": "Estonia",
+    "continente": "Europa",
+    "superficie": 45227,
+    "rutaBandera": "assets/banderas/ee.svg",
+    "fronteras": [
+      "LVA",
+      "RUS"
+    ],
+    "latitud": 59,
+    "longitud": 26,
+    "translations": {
+      "de": "Estland",
+      "pl": "Estonia",
+      "ru": "Эстония",
+      "pt": "Estónia"
+    }
+  },
+  {
+    "id": "ETH",
+    "nombre": "Etiopía",
+    "continente": "África",
+    "superficie": 1104300,
+    "rutaBandera": "assets/banderas/et.svg",
+    "fronteras": [
+      "DJI",
+      "ERI",
+      "KEN",
+      "SOM",
+      "SSD",
+      "SDN"
+    ],
+    "latitud": 8,
+    "longitud": 38,
+    "translations": {
+      "de": "Äthiopien",
+      "pl": "Etiopia",
+      "ru": "Эфиопия",
+      "pt": "Etiópia"
+    }
+  },
+  {
+    "id": "PHL",
+    "nombre": "Filipinas",
+    "continente": "Asia",
+    "superficie": 342353,
+    "rutaBandera": "assets/banderas/ph.svg",
+    "fronteras": [],
+    "latitud": 13,
+    "longitud": 122,
+    "translations": {
+      "de": "Philippinen",
+      "pl": "Filipiny",
+      "ru": "Филиппины",
+      "pt": "Filipinas"
+    }
+  },
+  {
+    "id": "FIN",
+    "nombre": "Finlandia",
+    "continente": "Europa",
+    "superficie": 338455,
+    "rutaBandera": "assets/banderas/fi.svg",
+    "fronteras": [
+      "NOR",
+      "SWE",
+      "RUS"
+    ],
+    "latitud": 64,
+    "longitud": 26,
+    "translations": {
+      "de": "Finnland",
+      "pl": "Finlandia",
+      "ru": "Финляндия",
+      "pt": "Finlândia"
+    }
+  },
+  {
+    "id": "FJI",
+    "nombre": "Fiyi",
+    "continente": "Oceanía",
+    "superficie": 18272,
+    "rutaBandera": "assets/banderas/fj.svg",
+    "fronteras": [],
+    "latitud": -17.7134,
+    "longitud": 178.065,
+    "translations": {
+      "de": "Fidschi",
+      "pl": "Fidżi",
+      "ru": "Фиджи",
+      "pt": "Fiji"
+    }
+  },
+  {
+    "id": "FRA",
+    "nombre": "Francia",
+    "continente": "Europa",
+    "superficie": 543908,
+    "rutaBandera": "assets/banderas/fr.svg",
+    "fronteras": [
+      "AND",
+      "BEL",
+      "DEU",
+      "ITA",
+      "LUX",
+      "MCO",
+      "ESP",
+      "CHE"
+    ],
+    "latitud": 46,
+    "longitud": 2,
+    "translations": {
+      "de": "Frankreich",
+      "pl": "Francja",
+      "ru": "Франция",
+      "pt": "França"
+    }
+  },
+  {
+    "id": "GAB",
+    "nombre": "Gabón",
+    "continente": "África",
+    "superficie": 267668,
+    "rutaBandera": "assets/banderas/ga.svg",
+    "fronteras": [
+      "CMR",
+      "COG",
+      "GNQ"
+    ],
+    "latitud": -1,
+    "longitud": 11.75,
+    "translations": {
+      "de": "Gabun",
+      "pl": "Gabon",
+      "ru": "Габон",
+      "pt": "Gabão"
+    }
+  },
+  {
+    "id": "GMB",
+    "nombre": "Gambia",
+    "continente": "África",
+    "superficie": 10689,
+    "rutaBandera": "assets/banderas/gm.svg",
+    "fronteras": [
+      "SEN"
+    ],
+    "latitud": 13.46666666,
+    "longitud": -16.56666666,
+    "translations": {
+      "de": "Gambia",
+      "pl": "Gambia",
+      "ru": "Гамбия",
+      "pt": "Gâmbia"
+    }
+  },
+  {
+    "id": "GEO",
+    "nombre": "Georgia",
+    "continente": "Asia",
+    "superficie": 69700,
+    "rutaBandera": "assets/banderas/ge.svg",
+    "fronteras": [
+      "ARM",
+      "AZE",
+      "RUS",
+      "TUR"
+    ],
+    "latitud": 42,
+    "longitud": 43.5,
+    "translations": {
+      "de": "Georgien",
+      "pl": "Gruzja",
+      "ru": "Грузия",
+      "pt": "Geórgia"
+    }
+  },
+  {
+    "id": "GHA",
+    "nombre": "Ghana",
+    "continente": "África",
+    "superficie": 238533,
+    "rutaBandera": "assets/banderas/gh.svg",
+    "fronteras": [
+      "BFA",
+      "CIV",
+      "TGO"
+    ],
+    "latitud": 8,
+    "longitud": -2,
+    "translations": {
+      "de": "Ghana",
+      "pl": "Ghana",
+      "ru": "Гана",
+      "pt": "Gana"
+    }
+  },
+  {
+    "id": "GIB",
+    "nombre": "Gibraltar",
+    "continente": "Europa",
+    "superficie": 6,
+    "rutaBandera": "assets/banderas/gi.svg",
+    "fronteras": [
+      "ESP"
+    ],
+    "latitud": 36.13333333,
+    "longitud": -5.35,
+    "translations": {
+      "de": "Gibraltar",
+      "pl": "Gibraltar",
+      "ru": "Гибралтар",
+      "pt": "Gibraltar"
+    }
+  },
+  {
+    "id": "GRC",
+    "nombre": "Grecia",
+    "continente": "Europa",
+    "superficie": 131990,
+    "rutaBandera": "assets/banderas/gr.svg",
+    "fronteras": [
+      "ALB",
+      "BGR",
+      "TUR",
+      "MKD"
+    ],
+    "latitud": 39,
+    "longitud": 22,
+    "translations": {
+      "de": "Griechenland",
+      "pl": "Grecja",
+      "ru": "Греция",
+      "pt": "Grécia"
+    }
+  },
+  {
+    "id": "GRD",
+    "nombre": "Grenada",
+    "continente": "América",
+    "superficie": 344,
+    "rutaBandera": "assets/banderas/gd.svg",
+    "fronteras": [],
+    "latitud": 12.11666666,
+    "longitud": -61.66666666,
+    "translations": {
+      "de": "Grenada",
+      "pl": "Grenada",
+      "ru": "Гренада",
+      "pt": "Granada"
+    }
+  },
+  {
+    "id": "GRL",
+    "nombre": "Groenlandia",
+    "continente": "América",
+    "superficie": 2166086,
+    "rutaBandera": "assets/banderas/gl.svg",
+    "fronteras": [],
+    "latitud": 72,
+    "longitud": -40,
+    "translations": {
+      "de": "Grönland",
+      "pl": "Grenlandia",
+      "ru": "Гренландия",
+      "pt": "Gronelândia"
+    }
+  },
+  {
+    "id": "GLP",
+    "nombre": "Guadalupe",
+    "continente": "América",
+    "superficie": 1628,
+    "rutaBandera": "assets/banderas/gp.svg",
+    "fronteras": [],
+    "latitud": 16.25,
+    "longitud": -61.583333,
+    "translations": {
+      "de": "Guadeloupe",
+      "pl": "Gwadelupa",
+      "ru": "Гваделупа",
+      "pt": "Guadalupe"
+    }
+  },
+  {
+    "id": "GUM",
+    "nombre": "Guam",
+    "continente": "Oceanía",
+    "superficie": 549,
+    "rutaBandera": "assets/banderas/gu.svg",
+    "fronteras": [],
+    "latitud": 13.46666666,
+    "longitud": 144.78333333,
+    "translations": {
+      "de": "Guam",
+      "pl": "Guam",
+      "ru": "Гуам",
+      "pt": "Guam"
+    }
+  },
+  {
+    "id": "GTM",
+    "nombre": "Guatemala",
+    "continente": "América",
+    "superficie": 108889,
+    "rutaBandera": "assets/banderas/gt.svg",
+    "fronteras": [
+      "BLZ",
+      "SLV",
+      "HND",
+      "MEX"
+    ],
+    "latitud": 15.5,
+    "longitud": -90.25,
+    "translations": {
+      "de": "Guatemala",
+      "pl": "Gwatemala",
+      "ru": "Гватемала",
+      "pt": "Guatemala"
+    }
+  },
+  {
+    "id": "GUF",
+    "nombre": "Guayana Francesa",
+    "continente": "América",
+    "superficie": 83534,
+    "rutaBandera": "assets/banderas/gf.svg",
+    "fronteras": [
+      "BRA",
+      "SUR"
+    ],
+    "latitud": 4,
+    "longitud": -53,
+    "translations": {
+      "de": "Französisch-Guayana",
+      "pl": "Gujana Francuska",
+      "ru": "Французская Гвиана",
+      "pt": "Guiana Francesa"
+    }
+  },
+  {
+    "id": "GGY",
+    "nombre": "Guernsey",
+    "continente": "Europa",
+    "superficie": 78,
+    "rutaBandera": "assets/banderas/gg.svg",
+    "fronteras": [],
+    "latitud": 49.46666666,
+    "longitud": -2.58333333,
+    "translations": {
+      "de": "Guernsey",
+      "pl": "Guernsey",
+      "ru": "Гернси",
+      "pt": "Guernsey"
+    }
+  },
+  {
+    "id": "GIN",
+    "nombre": "Guinea",
+    "continente": "África",
+    "superficie": 245857,
+    "rutaBandera": "assets/banderas/gn.svg",
+    "fronteras": [
+      "CIV",
+      "GNB",
+      "LBR",
+      "MLI",
+      "SEN",
+      "SLE"
+    ],
+    "latitud": 11,
+    "longitud": -10,
+    "translations": {
+      "de": "Guinea",
+      "pl": "Gwinea",
+      "ru": "Гвинея",
+      "pt": "Guiné"
+    }
+  },
+  {
+    "id": "GNQ",
+    "nombre": "Guinea Ecuatorial",
+    "continente": "África",
+    "superficie": 28051,
+    "rutaBandera": "assets/banderas/gq.svg",
+    "fronteras": [
+      "CMR",
+      "GAB"
+    ],
+    "latitud": 2,
+    "longitud": 10,
+    "translations": {
+      "de": "Äquatorialguinea",
+      "pl": "Gwinea Równikowa",
+      "ru": "Экваториальная Гвинея",
+      "pt": "Guiné Equatorial"
+    }
+  },
+  {
+    "id": "GNB",
+    "nombre": "Guinea-Bisáu",
+    "continente": "África",
+    "superficie": 36125,
+    "rutaBandera": "assets/banderas/gw.svg",
+    "fronteras": [
+      "GIN",
+      "SEN"
+    ],
+    "latitud": 12,
+    "longitud": -15,
+    "translations": {
+      "de": "Guinea-Bissau",
+      "pl": "Gwinea Bissau",
+      "ru": "Гвинея-Бисау",
+      "pt": "Guiné-Bissau"
+    }
+  },
+  {
+    "id": "GUY",
+    "nombre": "Guyana",
+    "continente": "América",
+    "superficie": 214969,
+    "rutaBandera": "assets/banderas/gy.svg",
+    "fronteras": [
+      "BRA",
+      "SUR",
+      "VEN"
+    ],
+    "latitud": 5,
+    "longitud": -59,
+    "translations": {
+      "de": "Guyana",
+      "pl": "Gujana",
+      "ru": "Гайана",
+      "pt": "Guiana"
+    }
+  },
+  {
+    "id": "HTI",
+    "nombre": "Haití",
+    "continente": "América",
+    "superficie": 27750,
+    "rutaBandera": "assets/banderas/ht.svg",
+    "fronteras": [
+      "DOM"
+    ],
+    "latitud": 19,
+    "longitud": -72.41666666,
+    "translations": {
+      "de": "Haiti",
+      "pl": "Haiti",
+      "ru": "Гаити",
+      "pt": "Haiti"
+    }
+  },
+  {
+    "id": "HND",
+    "nombre": "Honduras",
+    "continente": "América",
+    "superficie": 112492,
+    "rutaBandera": "assets/banderas/hn.svg",
+    "fronteras": [
+      "GTM",
+      "SLV",
+      "NIC"
+    ],
+    "latitud": 15,
+    "longitud": -86.5,
+    "translations": {
+      "de": "Honduras",
+      "pl": "Honduras",
+      "ru": "Гондурас",
+      "pt": "Honduras"
+    }
+  },
+  {
+    "id": "HKG",
+    "nombre": "Hong Kong",
+    "continente": "Asia",
+    "superficie": 1104,
+    "rutaBandera": "assets/banderas/hk.svg",
+    "fronteras": [
+      "CHN"
+    ],
+    "latitud": 22.267,
+    "longitud": 114.188,
+    "translations": {
+      "de": "Hongkong",
+      "pl": "Hongkong",
+      "ru": "Гонконг",
+      "pt": "Hong Kong"
+    }
+  },
+  {
+    "id": "HUN",
+    "nombre": "Hungría",
+    "continente": "Europa",
+    "superficie": 93028,
+    "rutaBandera": "assets/banderas/hu.svg",
+    "fronteras": [
+      "AUT",
+      "HRV",
+      "ROU",
+      "SRB",
+      "SVK",
+      "SVN",
+      "UKR"
+    ],
+    "latitud": 47,
+    "longitud": 20,
+    "translations": {
+      "de": "Ungarn",
+      "pl": "Węgry",
+      "ru": "Венгрия",
+      "pt": "Hungria"
+    }
+  },
+  {
+    "id": "IND",
+    "nombre": "India",
+    "continente": "Asia",
+    "superficie": 3287263,
+    "rutaBandera": "assets/banderas/in.svg",
+    "fronteras": [
+      "BGD",
+      "BTN",
+      "MMR",
+      "CHN",
+      "NPL",
+      "PAK"
+    ],
+    "latitud": 20,
+    "longitud": 77,
+    "translations": {
+      "de": "Indien",
+      "pl": "Indie",
+      "ru": "Индия",
+      "pt": "Índia"
+    }
+  },
+  {
+    "id": "IDN",
+    "nombre": "Indonesia",
+    "continente": "Asia",
+    "superficie": 1904569,
+    "rutaBandera": "assets/banderas/id.svg",
+    "fronteras": [
+      "TLS",
+      "MYS",
+      "PNG"
+    ],
+    "latitud": -5,
+    "longitud": 120,
+    "translations": {
+      "de": "Indonesien",
+      "pl": "Indonezja",
+      "ru": "Индонезия",
+      "pt": "Indonésia"
+    }
+  },
+  {
+    "id": "IRQ",
+    "nombre": "Irak",
+    "continente": "Asia",
+    "superficie": 438317,
+    "rutaBandera": "assets/banderas/iq.svg",
+    "fronteras": [
+      "IRN",
+      "JOR",
+      "KWT",
+      "SAU",
+      "SYR",
+      "TUR"
+    ],
+    "latitud": 33,
+    "longitud": 44,
+    "translations": {
+      "de": "Irak",
+      "pl": "Irak",
+      "ru": "Ирак",
+      "pt": "Iraque"
+    }
+  },
+  {
+    "id": "IRN",
+    "nombre": "Iran",
+    "continente": "Asia",
+    "superficie": 1648195,
+    "rutaBandera": "assets/banderas/ir.svg",
+    "fronteras": [
+      "AFG",
+      "ARM",
+      "AZE",
+      "IRQ",
+      "PAK",
+      "TUR",
+      "TKM"
+    ],
+    "latitud": 32,
+    "longitud": 53,
+    "translations": {
+      "de": "Iran",
+      "pl": "Iran",
+      "ru": "Иран",
+      "pt": "Irão"
+    }
+  },
+  {
+    "id": "IRL",
+    "nombre": "Irlanda",
+    "continente": "Europa",
+    "superficie": 70273,
+    "rutaBandera": "assets/banderas/ie.svg",
+    "fronteras": [
+      "GBR"
+    ],
+    "latitud": 53,
+    "longitud": -8,
+    "translations": {
+      "de": "Irland",
+      "pl": "Irlandia",
+      "ru": "Ирландия",
+      "pt": "Irlanda"
+    }
+  },
+  {
+    "id": "BVT",
+    "nombre": "Isla Bouvet",
+    "continente": "Antártida",
+    "superficie": 49,
+    "rutaBandera": "assets/banderas/bv.svg",
+    "fronteras": [],
+    "latitud": -54.4208,
+    "longitud": 3.3464,
+    "translations": {
+      "de": "Bouvetinsel",
+      "pl": "Wyspa Bouveta",
+      "ru": "Остров Буве",
+      "pt": "Ilha Bouvet"
+    }
+  },
+  {
+    "id": "IMN",
+    "nombre": "Isla de Man",
+    "continente": "Europa",
+    "superficie": 572,
+    "rutaBandera": "assets/banderas/im.svg",
+    "fronteras": [],
+    "latitud": 54.25,
+    "longitud": -4.5,
+    "translations": {
+      "de": "Insel Man",
+      "pl": "Wyspa Man",
+      "ru": "Остров Мэн",
+      "pt": "Ilha de Man"
+    }
+  },
+  {
+    "id": "CXR",
+    "nombre": "Isla de Navidad",
+    "continente": "Asia",
+    "superficie": 135,
+    "rutaBandera": "assets/banderas/cx.svg",
+    "fronteras": [],
+    "latitud": -10.5,
+    "longitud": 105.66666666,
+    "translations": {
+      "de": "Weihnachtsinsel",
+      "pl": "Wyspa Bożego Narodzenia",
+      "ru": "Остров Рождества",
+      "pt": "Ilha do Natal"
+    }
+  },
+  {
+    "id": "NFK",
+    "nombre": "Isla de Norfolk",
+    "continente": "Oceanía",
+    "superficie": 36,
+    "rutaBandera": "assets/banderas/nf.svg",
+    "fronteras": [],
+    "latitud": -29.03333333,
+    "longitud": 167.95,
+    "translations": {
+      "de": "Norfolkinsel",
+      "pl": "Wyspa Norfolk",
+      "ru": "Норфолк",
+      "pt": "Ilha Norfolk"
+    }
+  },
+  {
+    "id": "ISL",
+    "nombre": "Islandia",
+    "continente": "Europa",
+    "superficie": 103000,
+    "rutaBandera": "assets/banderas/is.svg",
+    "fronteras": [],
+    "latitud": 65,
+    "longitud": -18,
+    "translations": {
+      "de": "Island",
+      "pl": "Islandia",
+      "ru": "Исландия",
+      "pt": "Islândia"
+    }
+  },
+  {
+    "id": "CYM",
+    "nombre": "Islas Caimán",
+    "continente": "América",
+    "superficie": 264,
+    "rutaBandera": "assets/banderas/ky.svg",
+    "fronteras": [],
+    "latitud": 19.3133,
+    "longitud": -81.2546,
+    "translations": {
+      "de": "Kaimaninseln",
+      "pl": "Kajmany",
+      "ru": "Каймановы острова",
+      "pt": "Ilhas Caimão"
+    }
+  },
+  {
+    "id": "CCK",
+    "nombre": "Islas Cocos o Islas Keeling",
+    "continente": "Asia",
+    "superficie": 14,
+    "rutaBandera": "assets/banderas/cc.svg",
+    "fronteras": [],
+    "latitud": -12.1642,
+    "longitud": 96.871,
+    "translations": {
+      "de": "Kokosinseln",
+      "pl": "Wyspy Kokosowe",
+      "ru": "Кокосовые острова",
+      "pt": "Ilhas Cocos (Keeling)"
+    }
+  },
+  {
+    "id": "COK",
+    "nombre": "Islas Cook",
+    "continente": "Oceanía",
+    "superficie": 236,
+    "rutaBandera": "assets/banderas/ck.svg",
+    "fronteras": [],
+    "latitud": -21.23333333,
+    "longitud": -159.76666666,
+    "translations": {
+      "de": "Cookinseln",
+      "pl": "Wyspy Cooka",
+      "ru": "Острова Кука",
+      "pt": "Ilhas Cook"
+    }
+  },
+  {
+    "id": "FRO",
+    "nombre": "Islas Faroe",
+    "continente": "Europa",
+    "superficie": 1393,
+    "rutaBandera": "assets/banderas/fo.svg",
+    "fronteras": [],
+    "latitud": 62,
+    "longitud": -7,
+    "translations": {
+      "de": "Färöer-Inseln",
+      "pl": "Wyspy Owcze",
+      "ru": "Фарерские острова",
+      "pt": "Ilhas Faroé"
+    }
+  },
+  {
+    "id": "SGS",
+    "nombre": "Islas Georgias del Sur y Sandwich del Sur",
+    "continente": "Antártida",
+    "superficie": 3903,
+    "rutaBandera": "assets/banderas/gs.svg",
+    "fronteras": [],
+    "latitud": -54.5,
+    "longitud": -37,
+    "translations": {
+      "de": "Südgeorgien und die Südlichen Sandwichinseln",
+      "pl": "Georgia Południowa i Sandwich Południowy",
+      "ru": "Южная Георгия и Южные Сандвичевы острова",
+      "pt": "Ilhas Geórgia do Sul e Sandwich do Sul"
+    }
+  },
+  {
+    "id": "HMD",
+    "nombre": "Islas Heard y McDonald",
+    "continente": "Antártida",
+    "superficie": 412,
+    "rutaBandera": "assets/banderas/hm.svg",
+    "fronteras": [],
+    "latitud": -53.0818,
+    "longitud": 73.5042,
+    "translations": {
+      "de": "Heard und die McDonaldinseln",
+      "pl": "Wyspy Heard i McDonalda",
+      "ru": "Остров Херд и острова Макдональд",
+      "pt": "Ilha Heard e Ilhas McDonald"
+    }
+  },
+  {
+    "id": "FLK",
+    "nombre": "Islas Malvinas",
+    "continente": "América",
+    "superficie": 12173,
+    "rutaBandera": "assets/banderas/fk.svg",
+    "fronteras": [],
+    "latitud": -51.75,
+    "longitud": -59,
+    "translations": {
+      "de": "Falklandinseln",
+      "pl": "Falklandy",
+      "ru": "Фолклендские острова",
+      "pt": "Ilhas Malvinas"
+    }
+  },
+  {
+    "id": "MNP",
+    "nombre": "Islas Marianas del Norte",
+    "continente": "Oceanía",
+    "superficie": 464,
+    "rutaBandera": "assets/banderas/mp.svg",
+    "fronteras": [],
+    "latitud": 15.2,
+    "longitud": 145.75,
+    "translations": {
+      "de": "Nördliche Marianen",
+      "pl": "Mariany Północne",
+      "ru": "Северные Марианские острова",
+      "pt": "Marianas Setentrionais"
+    }
+  },
+  {
+    "id": "MHL",
+    "nombre": "Islas Marshall",
+    "continente": "Oceanía",
+    "superficie": 181,
+    "rutaBandera": "assets/banderas/mh.svg",
+    "fronteras": [],
+    "latitud": 9,
+    "longitud": 168,
+    "translations": {
+      "de": "Marshallinseln",
+      "pl": "Wyspy Marshalla",
+      "ru": "Маршалловы Острова",
+      "pt": "Ilhas Marshall"
+    }
+  },
+  {
+    "id": "PCN",
+    "nombre": "Islas Pitcairn",
+    "continente": "Oceanía",
+    "superficie": 47,
+    "rutaBandera": "assets/banderas/pn.svg",
+    "fronteras": [],
+    "latitud": -25.06666666,
+    "longitud": -130.1,
+    "translations": {
+      "de": "Pitcairninseln",
+      "pl": "Pitcairn",
+      "ru": "Острова Питкэрн",
+      "pt": "Ilhas Pitcairn"
+    }
+  },
+  {
+    "id": "SLB",
+    "nombre": "Islas Salomón",
+    "continente": "Oceanía",
+    "superficie": 28896,
+    "rutaBandera": "assets/banderas/sb.svg",
+    "fronteras": [],
+    "latitud": -8,
+    "longitud": 159,
+    "translations": {
+      "de": "Salomonen",
+      "pl": "Wyspy Salomona",
+      "ru": "Соломоновы Острова",
+      "pt": "Ilhas Salomão"
+    }
+  },
+  {
+    "id": "SJM",
+    "nombre": "Islas Svalbard y Jan Mayen",
+    "continente": "Europa",
+    "superficie": 61399,
+    "rutaBandera": "assets/banderas/sj.svg",
+    "fronteras": [],
+    "latitud": 78,
+    "longitud": 20,
+    "translations": {
+      "de": "Spitzbergen und Jan Mayen",
+      "pl": "Svalbard i Jan Mayen",
+      "ru": "Шпицберген и Ян-Майен",
+      "pt": "Ilhas Svalbard e Jan Mayen"
+    }
+  },
+  {
+    "id": "TKL",
+    "nombre": "Islas Tokelau",
+    "continente": "Oceanía",
+    "superficie": 12,
+    "rutaBandera": "assets/banderas/tk.svg",
+    "fronteras": [],
+    "latitud": -9,
+    "longitud": -172,
+    "translations": {
+      "de": "Tokelau",
+      "pl": "Tokelau",
+      "ru": "Токелау",
+      "pt": "Tokelau"
+    }
+  },
+  {
+    "id": "TCA",
+    "nombre": "Islas Turks y Caicos",
+    "continente": "América",
+    "superficie": 948,
+    "rutaBandera": "assets/banderas/tc.svg",
+    "fronteras": [],
+    "latitud": 21.75,
+    "longitud": -71.58333333,
+    "translations": {
+      "de": "Turks-und Caicosinseln",
+      "pl": "Turks i Caicos",
+      "ru": "Теркс и Кайкос",
+      "pt": "Ilhas Turks e Caicos"
+    }
+  },
+  {
+    "id": "UMI",
+    "nombre": "Islas Ultramarinas Menores de Estados Unidos",
+    "continente": "Oceanía",
+    "superficie": 34.2,
+    "rutaBandera": "assets/banderas/um.svg",
+    "fronteras": [],
+    "latitud": 19.3,
+    "longitud": 166.633333,
+    "translations": {
+      "de": "Kleinere Inselbesitzungen der Vereinigten Staaten",
+      "pl": "Dalekie Wyspy Mniejsze Stanów Zjednoczonych",
+      "ru": "Внешние малые острова США",
+      "pt": "Ilhas Menores Distantes dos Estados Unidos"
+    }
+  },
+  {
+    "id": "VIR",
+    "nombre": "Islas Vírgenes de los Estados Unidos",
+    "continente": "América",
+    "superficie": 347,
+    "rutaBandera": "assets/banderas/vi.svg",
+    "fronteras": [],
+    "latitud": 18.35,
+    "longitud": -64.933333,
+    "translations": {
+      "de": "Amerikanische Jungferninseln",
+      "pl": "Wyspy Dziewicze Stanów Zjednoczonych",
+      "ru": "Виргинские Острова",
+      "pt": "Ilhas Virgens dos Estados Unidos"
+    }
+  },
+  {
+    "id": "VGB",
+    "nombre": "Islas Vírgenes del Reino Unido",
+    "continente": "América",
+    "superficie": 151,
+    "rutaBandera": "assets/banderas/vg.svg",
+    "fronteras": [],
+    "latitud": 18.431383,
+    "longitud": -64.62305,
+    "translations": {
+      "de": "Britische Jungferninseln",
+      "pl": "Brytyjskie Wyspy Dziewicze",
+      "ru": "Британские Виргинские острова",
+      "pt": "Ilhas Virgens"
+    }
+  },
+  {
+    "id": "ISR",
+    "nombre": "Israel",
+    "continente": "Asia",
+    "superficie": 21937,
+    "rutaBandera": "assets/banderas/il.svg",
+    "fronteras": [
+      "EGY",
+      "JOR",
+      "LBN",
+      "PSE",
+      "SYR"
+    ],
+    "latitud": 31.47,
+    "longitud": 35.13,
+    "translations": {
+      "de": "Israel",
+      "pl": "Izrael",
+      "ru": "Израиль",
+      "pt": "Israel"
+    }
+  },
+  {
+    "id": "ITA",
+    "nombre": "Italia",
+    "continente": "Europa",
+    "superficie": 301336,
+    "rutaBandera": "assets/banderas/it.svg",
+    "fronteras": [
+      "AUT",
+      "FRA",
+      "SMR",
+      "SVN",
+      "CHE",
+      "VAT"
+    ],
+    "latitud": 42.83333333,
+    "longitud": 12.83333333,
+    "translations": {
+      "de": "Italien",
+      "pl": "Włochy",
+      "ru": "Италия",
+      "pt": "Itália"
+    }
+  },
+  {
+    "id": "JAM",
+    "nombre": "Jamaica",
+    "continente": "América",
+    "superficie": 10991,
+    "rutaBandera": "assets/banderas/jm.svg",
+    "fronteras": [],
+    "latitud": 18.25,
+    "longitud": -77.5,
+    "translations": {
+      "de": "Jamaika",
+      "pl": "Jamajka",
+      "ru": "Ямайка",
+      "pt": "Jamaica"
+    }
+  },
+  {
+    "id": "JPN",
+    "nombre": "Japón",
+    "continente": "Asia",
+    "superficie": 377930,
+    "rutaBandera": "assets/banderas/jp.svg",
+    "fronteras": [],
+    "latitud": 36,
+    "longitud": 138,
+    "translations": {
+      "de": "Japan",
+      "pl": "Japonia",
+      "ru": "Япония",
+      "pt": "Japão"
+    }
+  },
+  {
+    "id": "JEY",
+    "nombre": "Jersey",
+    "continente": "Europa",
+    "superficie": 116,
+    "rutaBandera": "assets/banderas/je.svg",
+    "fronteras": [],
+    "latitud": 49.25,
+    "longitud": -2.16666666,
+    "translations": {
+      "de": "Jersey",
+      "pl": "Jersey",
+      "ru": "Джерси",
+      "pt": "Jersey"
+    }
+  },
+  {
+    "id": "JOR",
+    "nombre": "Jordania",
+    "continente": "Asia",
+    "superficie": 89342,
+    "rutaBandera": "assets/banderas/jo.svg",
+    "fronteras": [
+      "IRQ",
+      "ISR",
+      "PSE",
+      "SAU",
+      "SYR"
+    ],
+    "latitud": 31,
+    "longitud": 36,
+    "translations": {
+      "de": "Jordanien",
+      "pl": "Jordania",
+      "ru": "Иордания",
+      "pt": "Jordânia"
+    }
+  },
+  {
+    "id": "KAZ",
+    "nombre": "Kazajistán",
+    "continente": "Asia",
+    "superficie": 2724900,
+    "rutaBandera": "assets/banderas/kz.svg",
+    "fronteras": [
+      "CHN",
+      "KGZ",
+      "RUS",
+      "TKM",
+      "UZB"
+    ],
+    "latitud": 48.0196,
+    "longitud": 66.9237,
+    "translations": {
+      "de": "Kasachstan",
+      "pl": "Kazachstan",
+      "ru": "Казахстан",
+      "pt": "Cazaquistão"
+    }
+  },
+  {
+    "id": "KEN",
+    "nombre": "Kenia",
+    "continente": "África",
+    "superficie": 580367,
+    "rutaBandera": "assets/banderas/ke.svg",
+    "fronteras": [
+      "ETH",
+      "SOM",
+      "SSD",
+      "TZA",
+      "UGA"
+    ],
+    "latitud": 1,
+    "longitud": 38,
+    "translations": {
+      "de": "Kenia",
+      "pl": "Kenia",
+      "ru": "Кения",
+      "pt": "Quénia"
+    }
+  },
+  {
+    "id": "KGZ",
+    "nombre": "Kirguizistán",
+    "continente": "Asia",
+    "superficie": 199951,
+    "rutaBandera": "assets/banderas/kg.svg",
+    "fronteras": [
+      "CHN",
+      "KAZ",
+      "TJK",
+      "UZB"
+    ],
+    "latitud": 41,
+    "longitud": 75,
+    "translations": {
+      "de": "Kirgisistan",
+      "pl": "Kirgistan",
+      "ru": "Киргизия",
+      "pt": "Quirguistão"
+    }
+  },
+  {
+    "id": "KIR",
+    "nombre": "Kiribati",
+    "continente": "Oceanía",
+    "superficie": 811,
+    "rutaBandera": "assets/banderas/ki.svg",
+    "fronteras": [],
+    "latitud": 1.41666666,
+    "longitud": 173,
+    "translations": {
+      "de": "Kiribati",
+      "pl": "Kiribati",
+      "ru": "Кирибати",
+      "pt": "Kiribati"
+    }
+  },
+  {
+    "id": "UNK",
+    "nombre": "Kosovo",
+    "continente": "Europa",
+    "superficie": 10908,
+    "rutaBandera": "https://flagcdn.com/xk.svg",
+    "fronteras": [
+      "ALB",
+      "MKD",
+      "MNE",
+      "SRB"
+    ],
+    "latitud": 42.666667,
+    "longitud": 21.166667,
+    "translations": {
+      "de": "Kosovo",
+      "pl": "Kosowo",
+      "ru": "Республика Косово",
+      "pt": "Kosovo"
+    }
+  },
+  {
+    "id": "KWT",
+    "nombre": "Kuwait",
+    "continente": "Asia",
+    "superficie": 17818,
+    "rutaBandera": "assets/banderas/kw.svg",
+    "fronteras": [
+      "IRQ",
+      "SAU"
+    ],
+    "latitud": 29.5,
+    "longitud": 45.75,
+    "translations": {
+      "de": "Kuwait",
+      "pl": "Kuwejt",
+      "ru": "Кувейт",
+      "pt": "Kuwait"
+    }
+  },
+  {
+    "id": "LAO",
+    "nombre": "Laos",
+    "continente": "Asia",
+    "superficie": 236800,
+    "rutaBandera": "assets/banderas/la.svg",
+    "fronteras": [
+      "MMR",
+      "KHM",
+      "CHN",
+      "THA",
+      "VNM"
+    ],
+    "latitud": 18,
+    "longitud": 105,
+    "translations": {
+      "de": "Laos",
+      "pl": "Laos",
+      "ru": "Лаос",
+      "pt": "Laos"
+    }
+  },
+  {
+    "id": "LSO",
+    "nombre": "Lesotho",
+    "continente": "África",
+    "superficie": 30355,
+    "rutaBandera": "assets/banderas/ls.svg",
+    "fronteras": [
+      "ZAF"
+    ],
+    "latitud": -29.5,
+    "longitud": 28.5,
+    "translations": {
+      "de": "Lesotho",
+      "pl": "Lesotho",
+      "ru": "Лесото",
+      "pt": "Lesoto"
+    }
+  },
+  {
+    "id": "LVA",
+    "nombre": "Letonia",
+    "continente": "Europa",
+    "superficie": 64559,
+    "rutaBandera": "assets/banderas/lv.svg",
+    "fronteras": [
+      "BLR",
+      "EST",
+      "LTU",
+      "RUS"
+    ],
+    "latitud": 57,
+    "longitud": 25,
+    "translations": {
+      "de": "Lettland",
+      "pl": "Łotwa",
+      "ru": "Латвия",
+      "pt": "Letónia"
+    }
+  },
+  {
+    "id": "LBN",
+    "nombre": "Líbano",
+    "continente": "Asia",
+    "superficie": 10452,
+    "rutaBandera": "assets/banderas/lb.svg",
+    "fronteras": [
+      "ISR",
+      "SYR"
+    ],
+    "latitud": 33.83333333,
+    "longitud": 35.83333333,
+    "translations": {
+      "de": "Libanon",
+      "pl": "Liban",
+      "ru": "Ливан",
+      "pt": "Líbano"
+    }
+  },
+  {
+    "id": "LBR",
+    "nombre": "Liberia",
+    "continente": "África",
+    "superficie": 111369,
+    "rutaBandera": "assets/banderas/lr.svg",
+    "fronteras": [
+      "GIN",
+      "CIV",
+      "SLE"
+    ],
+    "latitud": 6.5,
+    "longitud": -9.5,
+    "translations": {
+      "de": "Liberia",
+      "pl": "Liberia",
+      "ru": "Либерия",
+      "pt": "Libéria"
+    }
+  },
+  {
+    "id": "LBY",
+    "nombre": "Libia",
+    "continente": "África",
+    "superficie": 1759540,
+    "rutaBandera": "assets/banderas/ly.svg",
+    "fronteras": [
+      "DZA",
+      "TCD",
+      "EGY",
+      "NER",
+      "SDN",
+      "TUN"
+    ],
+    "latitud": 25,
+    "longitud": 17,
+    "translations": {
+      "de": "Libyen",
+      "pl": "Libia",
+      "ru": "Ливия",
+      "pt": "Líbia"
+    }
+  },
+  {
+    "id": "LIE",
+    "nombre": "Liechtenstein",
+    "continente": "Europa",
+    "superficie": 160,
+    "rutaBandera": "assets/banderas/li.svg",
+    "fronteras": [
+      "AUT",
+      "CHE"
+    ],
+    "latitud": 47.26666666,
+    "longitud": 9.53333333,
+    "translations": {
+      "de": "Liechtenstein",
+      "pl": "Liechtenstein",
+      "ru": "Лихтенштейн",
+      "pt": "Liechtenstein"
+    }
+  },
+  {
+    "id": "LTU",
+    "nombre": "Lituania",
+    "continente": "Europa",
+    "superficie": 65300,
+    "rutaBandera": "assets/banderas/lt.svg",
+    "fronteras": [
+      "BLR",
+      "LVA",
+      "POL",
+      "RUS"
+    ],
+    "latitud": 56,
+    "longitud": 24,
+    "translations": {
+      "de": "Litauen",
+      "pl": "Litwa",
+      "ru": "Литва",
+      "pt": "Lituânia"
+    }
+  },
+  {
+    "id": "LUX",
+    "nombre": "Luxemburgo",
+    "continente": "Europa",
+    "superficie": 2586,
+    "rutaBandera": "assets/banderas/lu.svg",
+    "fronteras": [
+      "BEL",
+      "FRA",
+      "DEU"
+    ],
+    "latitud": 49.75,
+    "longitud": 6.16666666,
+    "translations": {
+      "de": "Luxemburg",
+      "pl": "Luksemburg",
+      "ru": "Люксембург",
+      "pt": "Luxemburgo"
+    }
+  },
+  {
+    "id": "MAC",
+    "nombre": "Macao",
+    "continente": "Asia",
+    "superficie": 30,
+    "rutaBandera": "assets/banderas/mo.svg",
+    "fronteras": [
+      "CHN"
+    ],
+    "latitud": 22.16666666,
+    "longitud": 113.55,
+    "translations": {
+      "de": "Macao",
+      "pl": "Makau",
+      "ru": "Макао",
+      "pt": "Macau"
+    }
+  },
+  {
+    "id": "MKD",
+    "nombre": "Macedonia del Norte",
+    "continente": "Europa",
+    "superficie": 25713,
+    "rutaBandera": "assets/banderas/mk.svg",
+    "fronteras": [
+      "ALB",
+      "BGR",
+      "GRC",
+      "UNK",
+      "SRB"
+    ],
+    "latitud": 41.83333333,
+    "longitud": 22,
+    "translations": {
+      "de": "Nordmazedonien",
+      "pl": "Macedonia Północna",
+      "ru": "Северная Македония",
+      "pt": "Macedónia do Norte"
+    }
+  },
+  {
+    "id": "MDG",
+    "nombre": "Madagascar",
+    "continente": "África",
+    "superficie": 587041,
+    "rutaBandera": "assets/banderas/mg.svg",
+    "fronteras": [],
+    "latitud": -20,
+    "longitud": 47,
+    "translations": {
+      "de": "Madagaskar",
+      "pl": "Madagaskar",
+      "ru": "Мадагаскар",
+      "pt": "Madagáscar"
+    }
+  },
+  {
+    "id": "MYS",
+    "nombre": "Malasia",
+    "continente": "Asia",
+    "superficie": 330803,
+    "rutaBandera": "assets/banderas/my.svg",
+    "fronteras": [
+      "BRN",
+      "IDN",
+      "THA"
+    ],
+    "latitud": 2.5,
+    "longitud": 112.5,
+    "translations": {
+      "de": "Malaysia",
+      "pl": "Malezja",
+      "ru": "Малайзия",
+      "pt": "Malásia"
+    }
+  },
+  {
+    "id": "MWI",
+    "nombre": "Malawi",
+    "continente": "África",
+    "superficie": 118484,
+    "rutaBandera": "assets/banderas/mw.svg",
+    "fronteras": [
+      "MOZ",
+      "TZA",
+      "ZMB"
+    ],
+    "latitud": -13.5,
+    "longitud": 34,
+    "translations": {
+      "de": "Malawi",
+      "pl": "Malawi",
+      "ru": "Малави",
+      "pt": "Malawi"
+    }
+  },
+  {
+    "id": "MDV",
+    "nombre": "Maldivas",
+    "continente": "Asia",
+    "superficie": 300,
+    "rutaBandera": "assets/banderas/mv.svg",
+    "fronteras": [],
+    "latitud": 3.25,
+    "longitud": 73,
+    "translations": {
+      "de": "Malediven",
+      "pl": "Malediwy",
+      "ru": "Мальдивы",
+      "pt": "Maldivas"
+    }
+  },
+  {
+    "id": "MLI",
+    "nombre": "Mali",
+    "continente": "África",
+    "superficie": 1240192,
+    "rutaBandera": "assets/banderas/ml.svg",
+    "fronteras": [
+      "DZA",
+      "BFA",
+      "GIN",
+      "CIV",
+      "MRT",
+      "NER",
+      "SEN"
+    ],
+    "latitud": 17,
+    "longitud": -4,
+    "translations": {
+      "de": "Mali",
+      "pl": "Mali",
+      "ru": "Мали",
+      "pt": "Mali"
+    }
+  },
+  {
+    "id": "MLT",
+    "nombre": "Malta",
+    "continente": "Europa",
+    "superficie": 316,
+    "rutaBandera": "assets/banderas/mt.svg",
+    "fronteras": [],
+    "latitud": 35.9375,
+    "longitud": 14.3754,
+    "translations": {
+      "de": "Malta",
+      "pl": "Malta",
+      "ru": "Мальта",
+      "pt": "Malta"
+    }
+  },
+  {
+    "id": "MAR",
+    "nombre": "Marruecos",
+    "continente": "África",
+    "superficie": 446550,
+    "rutaBandera": "assets/banderas/ma.svg",
+    "fronteras": [
+      "DZA",
+      "ESH",
+      "ESP"
+    ],
+    "latitud": 32,
+    "longitud": -5,
+    "translations": {
+      "de": "Marokko",
+      "pl": "Maroko",
+      "ru": "Марокко",
+      "pt": "Marrocos"
+    }
+  },
+  {
+    "id": "MTQ",
+    "nombre": "Martinica",
+    "continente": "América",
+    "superficie": 1128,
+    "rutaBandera": "assets/banderas/mq.svg",
+    "fronteras": [],
+    "latitud": 14.666667,
+    "longitud": -61,
+    "translations": {
+      "de": "Martinique",
+      "pl": "Martynika",
+      "ru": "Мартиника",
+      "pt": "Martinica"
+    }
+  },
+  {
+    "id": "MUS",
+    "nombre": "Mauricio",
+    "continente": "África",
+    "superficie": 2040,
+    "rutaBandera": "assets/banderas/mu.svg",
+    "fronteras": [],
+    "latitud": -20.28333333,
+    "longitud": 57.55,
+    "translations": {
+      "de": "Mauritius",
+      "pl": "Mauritius",
+      "ru": "Маврикий",
+      "pt": "Maurício"
+    }
+  },
+  {
+    "id": "MRT",
+    "nombre": "Mauritania",
+    "continente": "África",
+    "superficie": 1030700,
+    "rutaBandera": "assets/banderas/mr.svg",
+    "fronteras": [
+      "DZA",
+      "MLI",
+      "SEN",
+      "ESH"
+    ],
+    "latitud": 20,
+    "longitud": -12,
+    "translations": {
+      "de": "Mauretanien",
+      "pl": "Mauretania",
+      "ru": "Мавритания",
+      "pt": "Mauritânia"
+    }
+  },
+  {
+    "id": "MYT",
+    "nombre": "Mayotte",
+    "continente": "África",
+    "superficie": 374,
+    "rutaBandera": "assets/banderas/yt.svg",
+    "fronteras": [],
+    "latitud": -12.83333333,
+    "longitud": 45.16666666,
+    "translations": {
+      "de": "Mayotte",
+      "pl": "Majotta",
+      "ru": "Майотта",
+      "pt": "Mayotte"
+    }
+  },
+  {
+    "id": "MEX",
+    "nombre": "México",
+    "continente": "América",
+    "superficie": 1964375,
+    "rutaBandera": "assets/banderas/mx.svg",
+    "fronteras": [
+      "BLZ",
+      "GTM",
+      "USA"
+    ],
+    "latitud": 23,
+    "longitud": -102,
+    "translations": {
+      "de": "Mexiko",
+      "pl": "Meksyk",
+      "ru": "Мексика",
+      "pt": "México"
+    }
+  },
+  {
+    "id": "FSM",
+    "nombre": "Micronesia",
+    "continente": "Oceanía",
+    "superficie": 702,
+    "rutaBandera": "assets/banderas/fm.svg",
+    "fronteras": [],
+    "latitud": 6.91666666,
+    "longitud": 158.25,
+    "translations": {
+      "de": "Mikronesien",
+      "pl": "Mikronezja",
+      "ru": "Федеративные Штаты Микронезии",
+      "pt": "Micronésia"
+    }
+  },
+  {
+    "id": "MDA",
+    "nombre": "Moldavia",
+    "continente": "Europa",
+    "superficie": 33847,
+    "rutaBandera": "assets/banderas/md.svg",
+    "fronteras": [
+      "ROU",
+      "UKR"
+    ],
+    "latitud": 47,
+    "longitud": 29,
+    "translations": {
+      "de": "Moldawien",
+      "pl": "Mołdawia",
+      "ru": "Молдавия",
+      "pt": "Moldávia"
+    }
+  },
+  {
+    "id": "MCO",
+    "nombre": "Mónaco",
+    "continente": "Europa",
+    "superficie": 2.02,
+    "rutaBandera": "assets/banderas/mc.svg",
+    "fronteras": [
+      "FRA"
+    ],
+    "latitud": 43.73333333,
+    "longitud": 7.4,
+    "translations": {
+      "de": "Monaco",
+      "pl": "Monako",
+      "ru": "Монако",
+      "pt": "Mónaco"
+    }
+  },
+  {
+    "id": "MNG",
+    "nombre": "Mongolia",
+    "continente": "Asia",
+    "superficie": 1564110,
+    "rutaBandera": "assets/banderas/mn.svg",
+    "fronteras": [
+      "CHN",
+      "RUS"
+    ],
+    "latitud": 46,
+    "longitud": 105,
+    "translations": {
+      "de": "Mongolei",
+      "pl": "Mongolia",
+      "ru": "Монголия",
+      "pt": "Mongólia"
+    }
+  },
+  {
+    "id": "MNE",
+    "nombre": "Montenegro",
+    "continente": "Europa",
+    "superficie": 13812,
+    "rutaBandera": "assets/banderas/me.svg",
+    "fronteras": [
+      "ALB",
+      "BIH",
+      "HRV",
+      "UNK",
+      "SRB"
+    ],
+    "latitud": 42.5,
+    "longitud": 19.3,
+    "translations": {
+      "de": "Montenegro",
+      "pl": "Czarnogóra",
+      "ru": "Черногория",
+      "pt": "Montenegro"
+    }
+  },
+  {
+    "id": "MSR",
+    "nombre": "Montserrat",
+    "continente": "América",
+    "superficie": 102,
+    "rutaBandera": "assets/banderas/ms.svg",
+    "fronteras": [],
+    "latitud": 16.75,
+    "longitud": -62.2,
+    "translations": {
+      "de": "Montserrat",
+      "pl": "Montserrat",
+      "ru": "Монтсеррат",
+      "pt": "Montserrat"
+    }
+  },
+  {
+    "id": "MOZ",
+    "nombre": "Mozambique",
+    "continente": "África",
+    "superficie": 801590,
+    "rutaBandera": "assets/banderas/mz.svg",
+    "fronteras": [
+      "MWI",
+      "ZAF",
+      "SWZ",
+      "TZA",
+      "ZMB",
+      "ZWE"
+    ],
+    "latitud": -18.25,
+    "longitud": 35,
+    "translations": {
+      "de": "Mosambik",
+      "pl": "Mozambik",
+      "ru": "Мозамбик",
+      "pt": "Moçambique"
+    }
+  },
+  {
+    "id": "MMR",
+    "nombre": "Myanmar",
+    "continente": "Asia",
+    "superficie": 676578,
+    "rutaBandera": "assets/banderas/mm.svg",
+    "fronteras": [
+      "BGD",
+      "CHN",
+      "IND",
+      "LAO",
+      "THA"
+    ],
+    "latitud": 22,
+    "longitud": 98,
+    "translations": {
+      "de": "Myanmar",
+      "pl": "Mjanma",
+      "ru": "Мьянма",
+      "pt": "Myanmar"
+    }
+  },
+  {
+    "id": "NAM",
+    "nombre": "Namibia",
+    "continente": "África",
+    "superficie": 825615,
+    "rutaBandera": "assets/banderas/na.svg",
+    "fronteras": [
+      "AGO",
+      "BWA",
+      "ZAF",
+      "ZMB"
+    ],
+    "latitud": -22,
+    "longitud": 17,
+    "translations": {
+      "de": "Namibia",
+      "pl": "Namibia",
+      "ru": "Намибия",
+      "pt": "Namíbia"
+    }
+  },
+  {
+    "id": "NRU",
+    "nombre": "Nauru",
+    "continente": "Oceanía",
+    "superficie": 21,
+    "rutaBandera": "assets/banderas/nr.svg",
+    "fronteras": [],
+    "latitud": -0.53333333,
+    "longitud": 166.91666666,
+    "translations": {
+      "de": "Nauru",
+      "pl": "Nauru",
+      "ru": "Науру",
+      "pt": "Nauru"
+    }
+  },
+  {
+    "id": "NPL",
+    "nombre": "Nepal",
+    "continente": "Asia",
+    "superficie": 147181,
+    "rutaBandera": "assets/banderas/np.svg",
+    "fronteras": [
+      "CHN",
+      "IND"
+    ],
+    "latitud": 28,
+    "longitud": 84,
+    "translations": {
+      "de": "Nepal",
+      "pl": "Nepal",
+      "ru": "Непал",
+      "pt": "Nepal"
+    }
+  },
+  {
+    "id": "NIC",
+    "nombre": "Nicaragua",
+    "continente": "América",
+    "superficie": 130373,
+    "rutaBandera": "assets/banderas/ni.svg",
+    "fronteras": [
+      "CRI",
+      "HND"
+    ],
+    "latitud": 13,
+    "longitud": -85,
+    "translations": {
+      "de": "Nicaragua",
+      "pl": "Nikaragua",
+      "ru": "Никарагуа",
+      "pt": "Nicarágua"
+    }
+  },
+  {
+    "id": "NER",
+    "nombre": "Níger",
+    "continente": "África",
+    "superficie": 1267000,
+    "rutaBandera": "assets/banderas/ne.svg",
+    "fronteras": [
+      "DZA",
+      "BEN",
+      "BFA",
+      "TCD",
+      "LBY",
+      "MLI",
+      "NGA"
+    ],
+    "latitud": 16,
+    "longitud": 8,
+    "translations": {
+      "de": "Niger",
+      "pl": "Niger",
+      "ru": "Нигер",
+      "pt": "Níger"
+    }
+  },
+  {
+    "id": "NGA",
+    "nombre": "Nigeria",
+    "continente": "África",
+    "superficie": 923768,
+    "rutaBandera": "assets/banderas/ng.svg",
+    "fronteras": [
+      "BEN",
+      "CMR",
+      "TCD",
+      "NER"
+    ],
+    "latitud": 10,
+    "longitud": 8,
+    "translations": {
+      "de": "Nigeria",
+      "pl": "Nigeria",
+      "ru": "Нигерия",
+      "pt": "Nigéria"
+    }
+  },
+  {
+    "id": "NIU",
+    "nombre": "Niue",
+    "continente": "Oceanía",
+    "superficie": 260,
+    "rutaBandera": "assets/banderas/nu.svg",
+    "fronteras": [],
+    "latitud": -19.03333333,
+    "longitud": -169.86666666,
+    "translations": {
+      "de": "Niue",
+      "pl": "Niue",
+      "ru": "Ниуэ",
+      "pt": "Niue"
+    }
+  },
+  {
+    "id": "NOR",
+    "nombre": "Noruega",
+    "continente": "Europa",
+    "superficie": 386224,
+    "rutaBandera": "assets/banderas/no.svg",
+    "fronteras": [
+      "FIN",
+      "SWE",
+      "RUS"
+    ],
+    "latitud": 62,
+    "longitud": 10,
+    "translations": {
+      "de": "Norwegen",
+      "pl": "Norwegia",
+      "ru": "Норвегия",
+      "pt": "Noruega"
+    }
+  },
+  {
+    "id": "NCL",
+    "nombre": "Nueva Caledonia",
+    "continente": "Oceanía",
+    "superficie": 18575,
+    "rutaBandera": "assets/banderas/nc.svg",
+    "fronteras": [],
+    "latitud": -21.5,
+    "longitud": 165.5,
+    "translations": {
+      "de": "Neukaledonien",
+      "pl": "Nowa Kaledonia",
+      "ru": "Новая Каледония",
+      "pt": "Nova Caledónia"
+    }
+  },
+  {
+    "id": "NZL",
+    "nombre": "Nueva Zelanda",
+    "continente": "Oceanía",
+    "superficie": 268838,
+    "rutaBandera": "assets/banderas/nz.svg",
+    "fronteras": [],
+    "latitud": -41,
+    "longitud": 174,
+    "translations": {
+      "de": "Neuseeland",
+      "pl": "Nowa Zelandia",
+      "ru": "Новая Зеландия",
+      "pt": "Nova Zelândia"
+    }
+  },
+  {
+    "id": "OMN",
+    "nombre": "Omán",
+    "continente": "Asia",
+    "superficie": 309500,
+    "rutaBandera": "assets/banderas/om.svg",
+    "fronteras": [
+      "SAU",
+      "ARE",
+      "YEM"
+    ],
+    "latitud": 21,
+    "longitud": 57,
+    "translations": {
+      "de": "Oman",
+      "pl": "Oman",
+      "ru": "Оман",
+      "pt": "Omã"
+    }
+  },
+  {
+    "id": "NLD",
+    "nombre": "Países Bajos",
+    "continente": "Europa",
+    "superficie": 41865,
+    "rutaBandera": "assets/banderas/nl.svg",
+    "fronteras": [
+      "BEL",
+      "DEU"
+    ],
+    "latitud": 52.5,
+    "longitud": 5.75,
+    "translations": {
+      "de": "Niederlande",
+      "pl": "Holandia",
+      "ru": "Нидерланды",
+      "pt": "Holanda"
+    }
+  },
+  {
+    "id": "PAK",
+    "nombre": "Pakistán",
+    "continente": "Asia",
+    "superficie": 796095,
+    "rutaBandera": "assets/banderas/pk.svg",
+    "fronteras": [
+      "AFG",
+      "CHN",
+      "IND",
+      "IRN"
+    ],
+    "latitud": 30,
+    "longitud": 70,
+    "translations": {
+      "de": "Pakistan",
+      "pl": "Pakistan",
+      "ru": "Пакистан",
+      "pt": "Paquistão"
+    }
+  },
+  {
+    "id": "PLW",
+    "nombre": "Palau",
+    "continente": "Oceanía",
+    "superficie": 459,
+    "rutaBandera": "assets/banderas/pw.svg",
+    "fronteras": [],
+    "latitud": 7.5,
+    "longitud": 134.5,
+    "translations": {
+      "de": "Palau",
+      "pl": "Palau",
+      "ru": "Палау",
+      "pt": "Palau"
+    }
+  },
+  {
+    "id": "PSE",
+    "nombre": "Palestina",
+    "continente": "Asia",
+    "superficie": 6220,
+    "rutaBandera": "assets/banderas/ps.svg",
+    "fronteras": [
+      "ISR",
+      "EGY",
+      "JOR"
+    ],
+    "latitud": 31.9,
+    "longitud": 35.2,
+    "translations": {
+      "de": "Palästina",
+      "pl": "Palestyna",
+      "ru": "Палестина",
+      "pt": "Palestina"
+    }
+  },
+  {
+    "id": "PAN",
+    "nombre": "Panamá",
+    "continente": "América",
+    "superficie": 75417,
+    "rutaBandera": "assets/banderas/pa.svg",
+    "fronteras": [
+      "COL",
+      "CRI"
+    ],
+    "latitud": 9,
+    "longitud": -80,
+    "translations": {
+      "de": "Panama",
+      "pl": "Panama",
+      "ru": "Панама",
+      "pt": "Panamá"
+    }
+  },
+  {
+    "id": "PNG",
+    "nombre": "Papúa Nueva Guinea",
+    "continente": "Oceanía",
+    "superficie": 462840,
+    "rutaBandera": "assets/banderas/pg.svg",
+    "fronteras": [
+      "IDN"
+    ],
+    "latitud": -6,
+    "longitud": 147,
+    "translations": {
+      "de": "Papua-Neuguinea",
+      "pl": "Papua-Nowa Gwinea",
+      "ru": "Папуа — Новая Гвинея",
+      "pt": "Papua Nova Guiné"
+    }
+  },
+  {
+    "id": "PRY",
+    "nombre": "Paraguay",
+    "continente": "América",
+    "superficie": 406752,
+    "rutaBandera": "assets/banderas/py.svg",
+    "fronteras": [
+      "ARG",
+      "BOL",
+      "BRA"
+    ],
+    "latitud": -23,
+    "longitud": -58,
+    "translations": {
+      "de": "Paraguay",
+      "pl": "Paragwaj",
+      "ru": "Парагвай",
+      "pt": "Paraguai"
+    }
+  },
+  {
+    "id": "PER",
+    "nombre": "Perú",
+    "continente": "América",
+    "superficie": 1285216,
+    "rutaBandera": "assets/banderas/pe.svg",
+    "fronteras": [
+      "BOL",
+      "BRA",
+      "CHL",
+      "COL",
+      "ECU"
+    ],
+    "latitud": -10,
+    "longitud": -76,
+    "translations": {
+      "de": "Peru",
+      "pl": "Peru",
+      "ru": "Перу",
+      "pt": "Perú"
+    }
+  },
+  {
+    "id": "PYF",
+    "nombre": "Polinesia Francesa",
+    "continente": "Oceanía",
+    "superficie": 4167,
+    "rutaBandera": "assets/banderas/pf.svg",
+    "fronteras": [],
+    "latitud": -17.6797,
+    "longitud": -149.4068,
+    "translations": {
+      "de": "Französisch-Polynesien",
+      "pl": "Polinezja Francuska",
+      "ru": "Французская Полинезия",
+      "pt": "Polinésia Francesa"
+    }
+  },
+  {
+    "id": "POL",
+    "nombre": "Polonia",
+    "continente": "Europa",
+    "superficie": 312679,
+    "rutaBandera": "assets/banderas/pl.svg",
+    "fronteras": [
+      "BLR",
+      "CZE",
+      "DEU",
+      "LTU",
+      "RUS",
+      "SVK",
+      "UKR"
+    ],
+    "latitud": 52,
+    "longitud": 20,
+    "translations": {
+      "de": "Polen",
+      "pl": "Polska",
+      "ru": "Польша",
+      "pt": "Polónia"
+    }
+  },
+  {
+    "id": "PRT",
+    "nombre": "Portugal",
+    "continente": "Europa",
+    "superficie": 92090,
+    "rutaBandera": "assets/banderas/pt.svg",
+    "fronteras": [
+      "ESP"
+    ],
+    "latitud": 39.5,
+    "longitud": -8,
+    "translations": {
+      "de": "Portugal",
+      "pl": "Portugalia",
+      "ru": "Португалия",
+      "pt": "Portugal"
+    }
+  },
+  {
+    "id": "PRI",
+    "nombre": "Puerto Rico",
+    "continente": "América",
+    "superficie": 8870,
+    "rutaBandera": "assets/banderas/pr.svg",
+    "fronteras": [],
+    "latitud": 18.25,
+    "longitud": -66.5,
+    "translations": {
+      "de": "Puerto Rico",
+      "pl": "Portoryko",
+      "ru": "Пуэрто-Рико",
+      "pt": "Porto Rico"
+    }
+  },
+  {
+    "id": "GBR",
+    "nombre": "Reino Unido",
+    "continente": "Europa",
+    "superficie": 244376,
+    "rutaBandera": "assets/banderas/gb.svg",
+    "fronteras": [
+      "IRL"
+    ],
+    "latitud": 54,
+    "longitud": -2,
+    "translations": {
+      "de": "Vereinigtes Königreich",
+      "pl": "Zjednoczone Królestwo",
+      "ru": "Великобритания",
+      "pt": "Reino Unido"
+    }
+  },
+  {
+    "id": "CAF",
+    "nombre": "República Centroafricana",
+    "continente": "África",
+    "superficie": 622984,
+    "rutaBandera": "assets/banderas/cf.svg",
+    "fronteras": [
+      "CMR",
+      "TCD",
+      "COD",
+      "COG",
+      "SSD",
+      "SDN"
+    ],
+    "latitud": 7,
+    "longitud": 21,
+    "translations": {
+      "de": "Zentralafrikanische Republik",
+      "pl": "Republika Środkowoafrykańska",
+      "ru": "Центральноафриканская Республика",
+      "pt": "República Centro-Africana"
+    }
+  },
+  {
+    "id": "DOM",
+    "nombre": "República Dominicana",
+    "continente": "América",
+    "superficie": 48671,
+    "rutaBandera": "assets/banderas/do.svg",
+    "fronteras": [
+      "HTI"
+    ],
+    "latitud": 19,
+    "longitud": -70.66666666,
+    "translations": {
+      "de": "Dominikanische Republik",
+      "pl": "Dominikana",
+      "ru": "Доминиканская Республика",
+      "pt": "República Dominicana"
+    }
+  },
+  {
+    "id": "SVK",
+    "nombre": "República Eslovaca",
+    "continente": "Europa",
+    "superficie": 49037,
+    "rutaBandera": "assets/banderas/sk.svg",
+    "fronteras": [
+      "AUT",
+      "CZE",
+      "HUN",
+      "POL",
+      "UKR"
+    ],
+    "latitud": 48.66666666,
+    "longitud": 19.5,
+    "translations": {
+      "de": "Slowakei",
+      "pl": "Słowacja",
+      "ru": "Словакия",
+      "pt": "Eslováquia"
+    }
+  },
+  {
+    "id": "REU",
+    "nombre": "Reunión",
+    "continente": "África",
+    "superficie": 2511,
+    "rutaBandera": "assets/banderas/re.svg",
+    "fronteras": [],
+    "latitud": -21.15,
+    "longitud": 55.5,
+    "translations": {
+      "de": "Réunion",
+      "pl": "Reunion",
+      "ru": "Реюньон",
+      "pt": "Reunião"
+    }
+  },
+  {
+    "id": "RWA",
+    "nombre": "Ruanda",
+    "continente": "África",
+    "superficie": 26338,
+    "rutaBandera": "assets/banderas/rw.svg",
+    "fronteras": [
+      "BDI",
+      "COD",
+      "TZA",
+      "UGA"
+    ],
+    "latitud": -2,
+    "longitud": 30,
+    "translations": {
+      "de": "Ruanda",
+      "pl": "Rwanda",
+      "ru": "Руанда",
+      "pt": "Ruanda"
+    }
+  },
+  {
+    "id": "ROU",
+    "nombre": "Rumania",
+    "continente": "Europa",
+    "superficie": 238391,
+    "rutaBandera": "assets/banderas/ro.svg",
+    "fronteras": [
+      "BGR",
+      "HUN",
+      "MDA",
+      "SRB",
+      "UKR"
+    ],
+    "latitud": 46,
+    "longitud": 25,
+    "translations": {
+      "de": "Rumänien",
+      "pl": "Rumunia",
+      "ru": "Румыния",
+      "pt": "Roménia"
+    }
+  },
+  {
+    "id": "RUS",
+    "nombre": "Rusia",
+    "continente": "Europa",
+    "superficie": 17098246,
+    "rutaBandera": "assets/banderas/ru.svg",
+    "fronteras": [
+      "AZE",
+      "BLR",
+      "CHN",
+      "EST",
+      "FIN",
+      "GEO",
+      "KAZ",
+      "PRK",
+      "LVA",
+      "LTU",
+      "MNG",
+      "NOR",
+      "POL",
+      "UKR"
+    ],
+    "latitud": 60,
+    "longitud": 100,
+    "translations": {
+      "de": "Russland",
+      "pl": "Rosja",
+      "ru": "Россия",
+      "pt": "Rússia"
+    }
+  },
+  {
+    "id": "ESH",
+    "nombre": "Sahara Occidental",
+    "continente": "África",
+    "superficie": 266000,
+    "rutaBandera": "assets/banderas/eh.svg",
+    "fronteras": [
+      "DZA",
+      "MRT",
+      "MAR"
+    ],
+    "latitud": 24.5,
+    "longitud": -13,
+    "translations": {
+      "de": "Westsahara",
+      "pl": "Sahara Zachodnia",
+      "ru": "Западная Сахара",
+      "pt": "Saara Ocidental"
+    }
+  },
+  {
+    "id": "MAF",
+    "nombre": "Saint Martin",
+    "continente": "América",
+    "superficie": 53,
+    "rutaBandera": "assets/banderas/mf.svg",
+    "fronteras": [
+      "SXM"
+    ],
+    "latitud": 18.0708,
+    "longitud": -63.0501,
+    "translations": {
+      "de": "Saint-Martin",
+      "pl": "Saint-Martin",
+      "ru": "Сен-Мартен",
+      "pt": "São Martinho"
+    }
+  },
+  {
+    "id": "WSM",
+    "nombre": "Samoa",
+    "continente": "Oceanía",
+    "superficie": 2842,
+    "rutaBandera": "assets/banderas/ws.svg",
+    "fronteras": [],
+    "latitud": -13.58333333,
+    "longitud": -172.33333333,
+    "translations": {
+      "de": "Samoa",
+      "pl": "Samoa",
+      "ru": "Самоа",
+      "pt": "Samoa"
+    }
+  },
+  {
+    "id": "ASM",
+    "nombre": "Samoa Americana",
+    "continente": "Oceanía",
+    "superficie": 199,
+    "rutaBandera": "assets/banderas/as.svg",
+    "fronteras": [],
+    "latitud": -14.33333333,
+    "longitud": -170,
+    "translations": {
+      "de": "Amerikanisch-Samoa",
+      "pl": "Samoa Amerykańskie",
+      "ru": "Американское Самоа",
+      "pt": "Samoa Americana"
+    }
+  },
+  {
+    "id": "BLM",
+    "nombre": "San Bartolomé",
+    "continente": "América",
+    "superficie": 21,
+    "rutaBandera": "assets/banderas/bl.svg",
+    "fronteras": [],
+    "latitud": 18.5,
+    "longitud": -63.41666666,
+    "translations": {
+      "de": "Saint-Barthélemy",
+      "pl": "Saint-Barthélemy",
+      "ru": "Сен-Бартелеми",
+      "pt": "São Bartolomeu"
+    }
+  },
+  {
+    "id": "KNA",
+    "nombre": "San Cristóbal y Nieves",
+    "continente": "América",
+    "superficie": 261,
+    "rutaBandera": "assets/banderas/kn.svg",
+    "fronteras": [],
+    "latitud": 17.33333333,
+    "longitud": -62.75,
+    "translations": {
+      "de": "St. Kitts und Nevis",
+      "pl": "Saint Kitts i Nevis",
+      "ru": "Сент-Китс и Невис",
+      "pt": "São Cristóvão e Nevis"
+    }
+  },
+  {
+    "id": "SMR",
+    "nombre": "San Marino",
+    "continente": "Europa",
+    "superficie": 61,
+    "rutaBandera": "assets/banderas/sm.svg",
+    "fronteras": [
+      "ITA"
+    ],
+    "latitud": 43.76666666,
+    "longitud": 12.41666666,
+    "translations": {
+      "de": "San Marino",
+      "pl": "San Marino",
+      "ru": "Сан-Марино",
+      "pt": "San Marino"
+    }
+  },
+  {
+    "id": "SPM",
+    "nombre": "San Pedro y Miquelón",
+    "continente": "América",
+    "superficie": 242,
+    "rutaBandera": "assets/banderas/pm.svg",
+    "fronteras": [],
+    "latitud": 46.83333333,
+    "longitud": -56.33333333,
+    "translations": {
+      "de": "St. Pierre und Miquelon",
+      "pl": "Saint-Pierre i Miquelon",
+      "ru": "Сен-Пьер и Микелон",
+      "pt": "Saint-Pierre e Miquelon"
+    }
+  },
+  {
+    "id": "VCT",
+    "nombre": "San Vicente y Granadinas",
+    "continente": "América",
+    "superficie": 389,
+    "rutaBandera": "assets/banderas/vc.svg",
+    "fronteras": [],
+    "latitud": 13.25,
+    "longitud": -61.2,
+    "translations": {
+      "de": "St. Vincent und die Grenadinen",
+      "pl": "Saint Vincent i Grenadyny",
+      "ru": "Сент-Винсент и Гренадины",
+      "pt": "São Vincente e Granadinas"
+    }
+  },
+  {
+    "id": "SHN",
+    "nombre": "Santa Elena, Ascensión y Tristán de Acuña",
+    "continente": "África",
+    "superficie": 394,
+    "rutaBandera": "assets/banderas/sh.svg",
+    "fronteras": [],
+    "latitud": -15.95,
+    "longitud": -5.72,
+    "translations": {
+      "de": "St. Helena, Ascension und Tristan da Cunha",
+      "pl": "Wyspa Świętej Heleny, Wyspa Wniebowstąpienia i Tristan da Cunha",
+      "ru": "Острова Святой Елены, Вознесения и Тристан-да-Кунья",
+      "pt": "Santa Helena, Ascensão e Tristão da Cunha"
+    }
+  },
+  {
+    "id": "LCA",
+    "nombre": "Santa Lucía",
+    "continente": "América",
+    "superficie": 616,
+    "rutaBandera": "assets/banderas/lc.svg",
+    "fronteras": [],
+    "latitud": 13.88333333,
+    "longitud": -60.96666666,
+    "translations": {
+      "de": "St. Lucia",
+      "pl": "Saint Lucia",
+      "ru": "Сент-Люсия",
+      "pt": "Santa Lúcia"
+    }
+  },
+  {
+    "id": "STP",
+    "nombre": "Santo Tomé y Príncipe",
+    "continente": "África",
+    "superficie": 964,
+    "rutaBandera": "assets/banderas/st.svg",
+    "fronteras": [],
+    "latitud": 1,
+    "longitud": 7,
+    "translations": {
+      "de": "São Tomé und Príncipe",
+      "pl": "Wyspy Świętego Tomasza i Książęca",
+      "ru": "Сан-Томе и Принсипи",
+      "pt": "São Tomé e Príncipe"
+    }
+  },
+  {
+    "id": "SEN",
+    "nombre": "Senegal",
+    "continente": "África",
+    "superficie": 196722,
+    "rutaBandera": "assets/banderas/sn.svg",
+    "fronteras": [
+      "GMB",
+      "GIN",
+      "GNB",
+      "MLI",
+      "MRT"
+    ],
+    "latitud": 14,
+    "longitud": -14,
+    "translations": {
+      "de": "Senegal",
+      "pl": "Senegal",
+      "ru": "Сенегал",
+      "pt": "Senegal"
+    }
+  },
+  {
+    "id": "SRB",
+    "nombre": "Serbia",
+    "continente": "Europa",
+    "superficie": 77589,
+    "rutaBandera": "assets/banderas/rs.svg",
+    "fronteras": [
+      "BIH",
+      "BGR",
+      "HRV",
+      "HUN",
+      "UNK",
+      "MKD",
+      "MNE",
+      "ROU"
+    ],
+    "latitud": 44,
+    "longitud": 21,
+    "translations": {
+      "de": "Serbien",
+      "pl": "Serbia",
+      "ru": "Сербия",
+      "pt": "Sérvia"
+    }
+  },
+  {
+    "id": "SYC",
+    "nombre": "Seychelles",
+    "continente": "África",
+    "superficie": 452,
+    "rutaBandera": "assets/banderas/sc.svg",
+    "fronteras": [],
+    "latitud": -4.58333333,
+    "longitud": 55.66666666,
+    "translations": {
+      "de": "Seychellen",
+      "pl": "Seszele",
+      "ru": "Сейшельские Острова",
+      "pt": "Seicheles"
+    }
+  },
+  {
+    "id": "SLE",
+    "nombre": "Sierra Leone",
+    "continente": "África",
+    "superficie": 71740,
+    "rutaBandera": "assets/banderas/sl.svg",
+    "fronteras": [
+      "GIN",
+      "LBR"
+    ],
+    "latitud": 8.5,
+    "longitud": -11.5,
+    "translations": {
+      "de": "Sierra Leone",
+      "pl": "Sierra Leone",
+      "ru": "Сьерра-Леоне",
+      "pt": "Serra Leoa"
+    }
+  },
+  {
+    "id": "SGP",
+    "nombre": "Singapur",
+    "continente": "Asia",
+    "superficie": 710,
+    "rutaBandera": "assets/banderas/sg.svg",
+    "fronteras": [],
+    "latitud": 1.36666666,
+    "longitud": 103.8,
+    "translations": {
+      "de": "Singapur",
+      "pl": "Singapur",
+      "ru": "Сингапур",
+      "pt": "Singapura"
+    }
+  },
+  {
+    "id": "SXM",
+    "nombre": "Sint Maarten",
+    "continente": "América",
+    "superficie": 34,
+    "rutaBandera": "assets/banderas/sx.svg",
+    "fronteras": [
+      "MAF"
+    ],
+    "latitud": 18.033333,
+    "longitud": -63.05,
+    "translations": {
+      "de": "Sint Maarten",
+      "pl": "Sint Maarten",
+      "ru": "Синт-Мартен",
+      "pt": "São Martinho"
+    }
+  },
+  {
+    "id": "SYR",
+    "nombre": "Siria",
+    "continente": "Asia",
+    "superficie": 185180,
+    "rutaBandera": "assets/banderas/sy.svg",
+    "fronteras": [
+      "IRQ",
+      "ISR",
+      "JOR",
+      "LBN",
+      "TUR"
+    ],
+    "latitud": 35,
+    "longitud": 38,
+    "translations": {
+      "de": "Syrien",
+      "pl": "Syria",
+      "ru": "Сирия",
+      "pt": "Síria"
+    }
+  },
+  {
+    "id": "SOM",
+    "nombre": "Somalia",
+    "continente": "África",
+    "superficie": 637657,
+    "rutaBandera": "assets/banderas/so.svg",
+    "fronteras": [
+      "DJI",
+      "ETH",
+      "KEN"
+    ],
+    "latitud": 10,
+    "longitud": 49,
+    "translations": {
+      "de": "Somalia",
+      "pl": "Somalia",
+      "ru": "Сомали",
+      "pt": "Somália"
+    }
+  },
+  {
+    "id": "LKA",
+    "nombre": "Sri Lanka",
+    "continente": "Asia",
+    "superficie": 65610,
+    "rutaBandera": "assets/banderas/lk.svg",
+    "fronteras": [],
+    "latitud": 7,
+    "longitud": 81,
+    "translations": {
+      "de": "Sri Lanka",
+      "pl": "Sri Lanka",
+      "ru": "Шри-Ланка",
+      "pt": "Sri Lanka"
+    }
+  },
+  {
+    "id": "SWZ",
+    "nombre": "Suazilandia",
+    "continente": "África",
+    "superficie": 17364,
+    "rutaBandera": "assets/banderas/sz.svg",
+    "fronteras": [
+      "MOZ",
+      "ZAF"
+    ],
+    "latitud": -26.5,
+    "longitud": 31.5,
+    "translations": {
+      "de": "Swasiland",
+      "pl": "Suazi",
+      "ru": "Свазиленд",
+      "pt": "Suazilândia"
+    }
+  },
+  {
+    "id": "ZAF",
+    "nombre": "Sudáfrica",
+    "continente": "África",
+    "superficie": 1221037,
+    "rutaBandera": "assets/banderas/za.svg",
+    "fronteras": [
+      "BWA",
+      "LSO",
+      "MOZ",
+      "NAM",
+      "SWZ",
+      "ZWE"
+    ],
+    "latitud": -29,
+    "longitud": 24,
+    "translations": {
+      "de": "Südafrika",
+      "pl": "Południowa Afryka",
+      "ru": "Южная Африка",
+      "pt": "África do Sul"
+    }
+  },
+  {
+    "id": "SDN",
+    "nombre": "Sudán",
+    "continente": "África",
+    "superficie": 1886068,
+    "rutaBandera": "assets/banderas/sd.svg",
+    "fronteras": [
+      "CAF",
+      "TCD",
+      "EGY",
+      "ERI",
+      "ETH",
+      "LBY",
+      "SSD"
+    ],
+    "latitud": 15,
+    "longitud": 30,
+    "translations": {
+      "de": "Sudan",
+      "pl": "Sudan",
+      "ru": "Судан",
+      "pt": "Sudão"
+    }
+  },
+  {
+    "id": "SSD",
+    "nombre": "Sudán del Sur",
+    "continente": "África",
+    "superficie": 619745,
+    "rutaBandera": "assets/banderas/ss.svg",
+    "fronteras": [
+      "CAF",
+      "COD",
+      "ETH",
+      "KEN",
+      "SDN",
+      "UGA"
+    ],
+    "latitud": 7,
+    "longitud": 30,
+    "translations": {
+      "de": "Südsudan",
+      "pl": "Sudan",
+      "ru": "Южный Судан",
+      "pt": "Sudão do Sul"
+    }
+  },
+  {
+    "id": "SWE",
+    "nombre": "Suecia",
+    "continente": "Europa",
+    "superficie": 450295,
+    "rutaBandera": "assets/banderas/se.svg",
+    "fronteras": [
+      "FIN",
+      "NOR"
+    ],
+    "latitud": 62,
+    "longitud": 15,
+    "translations": {
+      "de": "Schweden",
+      "pl": "Szwecja",
+      "ru": "Швеция",
+      "pt": "Suécia"
+    }
+  },
+  {
+    "id": "CHE",
+    "nombre": "Suiza",
+    "continente": "Europa",
+    "superficie": 41284,
+    "rutaBandera": "assets/banderas/ch.svg",
+    "fronteras": [
+      "AUT",
+      "FRA",
+      "ITA",
+      "LIE",
+      "DEU"
+    ],
+    "latitud": 47,
+    "longitud": 8,
+    "translations": {
+      "de": "Schweiz",
+      "pl": "Szwajcaria",
+      "ru": "Швейцария",
+      "pt": "Suíça"
+    }
+  },
+  {
+    "id": "SUR",
+    "nombre": "Surinam",
+    "continente": "América",
+    "superficie": 163820,
+    "rutaBandera": "assets/banderas/sr.svg",
+    "fronteras": [
+      "BRA",
+      "GUF",
+      "GUY"
+    ],
+    "latitud": 4,
+    "longitud": -56,
+    "translations": {
+      "de": "Suriname",
+      "pl": "Surinam",
+      "ru": "Суринам",
+      "pt": "Suriname"
+    }
+  },
+  {
+    "id": "THA",
+    "nombre": "Tailandia",
+    "continente": "Asia",
+    "superficie": 513120,
+    "rutaBandera": "assets/banderas/th.svg",
+    "fronteras": [
+      "MMR",
+      "KHM",
+      "LAO",
+      "MYS"
+    ],
+    "latitud": 15,
+    "longitud": 100,
+    "translations": {
+      "de": "Thailand",
+      "pl": "Tajlandia",
+      "ru": "Таиланд",
+      "pt": "Tailândia"
+    }
+  },
+  {
+    "id": "TWN",
+    "nombre": "Taiwán",
+    "continente": "Asia",
+    "superficie": 36197,
+    "rutaBandera": "assets/banderas/tw.svg",
+    "fronteras": [],
+    "latitud": 23.5,
+    "longitud": 121,
+    "translations": {
+      "de": "Taiwan",
+      "pl": "Tajwan",
+      "ru": "Тайвань",
+      "pt": "Ilha Formosa"
+    }
+  },
+  {
+    "id": "TZA",
+    "nombre": "Tanzania",
+    "continente": "África",
+    "superficie": 947303,
+    "rutaBandera": "assets/banderas/tz.svg",
+    "fronteras": [
+      "BDI",
+      "COD",
+      "KEN",
+      "MWI",
+      "MOZ",
+      "RWA",
+      "UGA",
+      "ZMB"
+    ],
+    "latitud": -6,
+    "longitud": 35,
+    "translations": {
+      "de": "Tansania",
+      "pl": "Tanzania",
+      "ru": "Танзания",
+      "pt": "Tanzânia"
+    }
+  },
+  {
+    "id": "TJK",
+    "nombre": "Tayikistán",
+    "continente": "Asia",
+    "superficie": 143100,
+    "rutaBandera": "assets/banderas/tj.svg",
+    "fronteras": [
+      "AFG",
+      "CHN",
+      "KGZ",
+      "UZB"
+    ],
+    "latitud": 39,
+    "longitud": 71,
+    "translations": {
+      "de": "Tadschikistan",
+      "pl": "Tadżykistan",
+      "ru": "Таджикистан",
+      "pt": "Tajiquistão"
+    }
+  },
+  {
+    "id": "IOT",
+    "nombre": "Territorio Británico del Océano Índico",
+    "continente": "Asia",
+    "superficie": 60,
+    "rutaBandera": "assets/banderas/io.svg",
+    "fronteras": [],
+    "latitud": -6,
+    "longitud": 71.5,
+    "translations": {
+      "de": "Britisches Territorium im Indischen Ozean",
+      "pl": "Brytyjskie Terytorium Oceanu Indyjskiego",
+      "ru": "Британская территория в Индийском океане",
+      "pt": "Território Britânico do Oceano Índico"
+    }
+  },
+  {
+    "id": "ATF",
+    "nombre": "Tierras Australes y Antárticas Francesas",
+    "continente": "Antártida",
+    "superficie": 7747,
+    "rutaBandera": "assets/banderas/tf.svg",
+    "fronteras": [],
+    "latitud": -49.25,
+    "longitud": 69.167,
+    "translations": {
+      "de": "Französische Süd- und Antarktisgebiete",
+      "pl": "Francuskie Terytoria Południowe i Antarktyczne",
+      "ru": "Французские Южные и Антарктические территории",
+      "pt": "Terras Austrais e Antárticas Francesas"
+    }
+  },
+  {
+    "id": "TLS",
+    "nombre": "Timor Oriental",
+    "continente": "Oceanía",
+    "superficie": 14874,
+    "rutaBandera": "assets/banderas/tl.svg",
+    "fronteras": [
+      "IDN"
+    ],
+    "latitud": -8.83333333,
+    "longitud": 125.91666666,
+    "translations": {
+      "de": "Osttimor",
+      "pl": "Timor Wschodni",
+      "ru": "Восточный Тимор",
+      "pt": "Timor-Leste"
+    }
+  },
+  {
+    "id": "TGO",
+    "nombre": "Togo",
+    "continente": "África",
+    "superficie": 56785,
+    "rutaBandera": "assets/banderas/tg.svg",
+    "fronteras": [
+      "BEN",
+      "BFA",
+      "GHA"
+    ],
+    "latitud": 8,
+    "longitud": 1.16666666,
+    "translations": {
+      "de": "Togo",
+      "pl": "Togo",
+      "ru": "Того",
+      "pt": "Togo"
+    }
+  },
+  {
+    "id": "TON",
+    "nombre": "Tonga",
+    "continente": "Oceanía",
+    "superficie": 747,
+    "rutaBandera": "assets/banderas/to.svg",
+    "fronteras": [],
+    "latitud": -20,
+    "longitud": -175,
+    "translations": {
+      "de": "Tonga",
+      "pl": "Tonga",
+      "ru": "Тонга",
+      "pt": "Tonga"
+    }
+  },
+  {
+    "id": "TTO",
+    "nombre": "Trinidad y Tobago",
+    "continente": "América",
+    "superficie": 5130,
+    "rutaBandera": "assets/banderas/tt.svg",
+    "fronteras": [],
+    "latitud": 10.6918,
+    "longitud": -61.2225,
+    "translations": {
+      "de": "Trinidad und Tobago",
+      "pl": "Trynidad i Tobago",
+      "ru": "Тринидад и Тобаго",
+      "pt": "Trinidade e Tobago"
+    }
+  },
+  {
+    "id": "TUN",
+    "nombre": "Túnez",
+    "continente": "África",
+    "superficie": 163610,
+    "rutaBandera": "assets/banderas/tn.svg",
+    "fronteras": [
+      "DZA",
+      "LBY"
+    ],
+    "latitud": 34,
+    "longitud": 9,
+    "translations": {
+      "de": "Tunesien",
+      "pl": "Tunezja",
+      "ru": "Тунис",
+      "pt": "Tunísia"
+    }
+  },
+  {
+    "id": "TKM",
+    "nombre": "Turkmenistán",
+    "continente": "Asia",
+    "superficie": 488100,
+    "rutaBandera": "assets/banderas/tm.svg",
+    "fronteras": [
+      "AFG",
+      "IRN",
+      "KAZ",
+      "UZB"
+    ],
+    "latitud": 40,
+    "longitud": 60,
+    "translations": {
+      "de": "Turkmenistan",
+      "pl": "Turkmenistan",
+      "ru": "Туркмения",
+      "pt": "Turquemenistão"
+    }
+  },
+  {
+    "id": "TUR",
+    "nombre": "Turquía",
+    "continente": "Europa",
+    "superficie": 783562,
+    "rutaBandera": "assets/banderas/tr.svg",
+    "fronteras": [
+      "ARM",
+      "AZE",
+      "BGR",
+      "GEO",
+      "GRC",
+      "IRN",
+      "IRQ",
+      "SYR"
+    ],
+    "latitud": 39,
+    "longitud": 35,
+    "translations": {
+      "de": "Türkei",
+      "pl": "Turcja",
+      "ru": "Турция",
+      "pt": "Turquia"
+    }
+  },
+  {
+    "id": "TUV",
+    "nombre": "Tuvalu",
+    "continente": "Oceanía",
+    "superficie": 26,
+    "rutaBandera": "assets/banderas/tv.svg",
+    "fronteras": [],
+    "latitud": -8,
+    "longitud": 178,
+    "translations": {
+      "de": "Tuvalu",
+      "pl": "Tuvalu",
+      "ru": "Тувалу",
+      "pt": "Tuvalu"
+    }
+  },
+  {
+    "id": "UKR",
+    "nombre": "Ucrania",
+    "continente": "Europa",
+    "superficie": 603550,
+    "rutaBandera": "assets/banderas/ua.svg",
+    "fronteras": [
+      "BLR",
+      "HUN",
+      "MDA",
+      "POL",
+      "ROU",
+      "RUS",
+      "SVK"
+    ],
+    "latitud": 49,
+    "longitud": 32,
+    "translations": {
+      "de": "Ukraine",
+      "pl": "Ukraina",
+      "ru": "Украина",
+      "pt": "Ucrânia"
+    }
+  },
+  {
+    "id": "UGA",
+    "nombre": "Uganda",
+    "continente": "África",
+    "superficie": 241550,
+    "rutaBandera": "assets/banderas/ug.svg",
+    "fronteras": [
+      "COD",
+      "KEN",
+      "RWA",
+      "SSD",
+      "TZA"
+    ],
+    "latitud": 1,
+    "longitud": 32,
+    "translations": {
+      "de": "Uganda",
+      "pl": "Uganda",
+      "ru": "Уганда",
+      "pt": "Uganda"
+    }
+  },
+  {
+    "id": "URY",
+    "nombre": "Uruguay",
+    "continente": "América",
+    "superficie": 181034,
+    "rutaBandera": "assets/banderas/uy.svg",
+    "fronteras": [
+      "ARG",
+      "BRA"
+    ],
+    "latitud": -33,
+    "longitud": -56,
+    "translations": {
+      "de": "Uruguay",
+      "pl": "Urugwaj",
+      "ru": "Уругвай",
+      "pt": "Uruguai"
+    }
+  },
+  {
+    "id": "UZB",
+    "nombre": "Uzbekistán",
+    "continente": "Asia",
+    "superficie": 447400,
+    "rutaBandera": "assets/banderas/uz.svg",
+    "fronteras": [
+      "AFG",
+      "KAZ",
+      "KGZ",
+      "TJK",
+      "TKM"
+    ],
+    "latitud": 41,
+    "longitud": 64,
+    "translations": {
+      "de": "Usbekistan",
+      "pl": "Uzbekistan",
+      "ru": "Узбекистан",
+      "pt": "Uzbequistão"
+    }
+  },
+  {
+    "id": "VUT",
+    "nombre": "Vanuatu",
+    "continente": "Oceanía",
+    "superficie": 12189,
+    "rutaBandera": "assets/banderas/vu.svg",
+    "fronteras": [],
+    "latitud": -16,
+    "longitud": 167,
+    "translations": {
+      "de": "Vanuatu",
+      "pl": "Vanuatu",
+      "ru": "Вануату",
+      "pt": "Vanuatu"
+    }
+  },
+  {
+    "id": "VEN",
+    "nombre": "Venezuela",
+    "continente": "América",
+    "superficie": 916445,
+    "rutaBandera": "assets/banderas/ve.svg",
+    "fronteras": [
+      "BRA",
+      "COL",
+      "GUY"
+    ],
+    "latitud": 8,
+    "longitud": -66,
+    "translations": {
+      "de": "Venezuela",
+      "pl": "Wenezuela",
+      "ru": "Венесуэла",
+      "pt": "Venezuela"
+    }
+  },
+  {
+    "id": "VNM",
+    "nombre": "Vietnam",
+    "continente": "Asia",
+    "superficie": 331212,
+    "rutaBandera": "assets/banderas/vn.svg",
+    "fronteras": [
+      "KHM",
+      "CHN",
+      "LAO"
+    ],
+    "latitud": 16.16666666,
+    "longitud": 107.83333333,
+    "translations": {
+      "de": "Vietnam",
+      "pl": "Wietnam",
+      "ru": "Вьетнам",
+      "pt": "Vietname"
+    }
+  },
+  {
+    "id": "WLF",
+    "nombre": "Wallis y Futuna",
+    "continente": "Oceanía",
+    "superficie": 142,
+    "rutaBandera": "assets/banderas/wf.svg",
+    "fronteras": [],
+    "latitud": -13.3,
+    "longitud": -176.2,
+    "translations": {
+      "de": "Wallis und Futuna",
+      "pl": "Wallis i Futuna",
+      "ru": "Уоллис и Футуна",
+      "pt": "Wallis e Futuna"
+    }
+  },
+  {
+    "id": "YEM",
+    "nombre": "Yemen",
+    "continente": "Asia",
+    "superficie": 527968,
+    "rutaBandera": "assets/banderas/ye.svg",
+    "fronteras": [
+      "OMN",
+      "SAU"
+    ],
+    "latitud": 15,
+    "longitud": 48,
+    "translations": {
+      "de": "Jemen",
+      "pl": "Jemen",
+      "ru": "Йемен",
+      "pt": "Iémen"
+    }
+  },
+  {
+    "id": "ZMB",
+    "nombre": "Zambia",
+    "continente": "África",
+    "superficie": 752612,
+    "rutaBandera": "assets/banderas/zm.svg",
+    "fronteras": [
+      "AGO",
+      "BWA",
+      "COD",
+      "MWI",
+      "MOZ",
+      "NAM",
+      "TZA",
+      "ZWE"
+    ],
+    "latitud": -15,
+    "longitud": 30,
+    "translations": {
+      "de": "Sambia",
+      "pl": "Zambia",
+      "ru": "Замбия",
+      "pt": "Zâmbia"
+    }
+  },
+  {
+    "id": "ZWE",
+    "nombre": "Zimbabue",
+    "continente": "África",
+    "superficie": 390757,
+    "rutaBandera": "assets/banderas/zw.svg",
+    "fronteras": [
+      "BWA",
+      "MOZ",
+      "ZAF",
+      "ZMB"
+    ],
+    "latitud": -20,
+    "longitud": 30,
+    "translations": {
+      "de": "Simbabwe",
+      "pl": "Zimbabwe",
+      "ru": "Зимбабве",
+      "pt": "Zimbabwe"
+    }
+  }
+]

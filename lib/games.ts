@@ -35,6 +35,52 @@ export const gamesList: GameInfo[] = [
         playable: true,
         icon: "Palette",
         accentColor: "from-pink-400 to-rose-500",
+    }, {
+        id: "banderadle",
+        name: {
+            es: "Banderadle",
+            de: "Banderadle",
+            pl: "Banderadle",
+            ru: "Banderadle",
+            pt: "Banderadle",
+            la: "Banderadle",
+        },
+        description: {
+            es: "Adivina el país secreto a partir de pistas de sus atributos y el mosaico de su bandera.",
+            de: "Errate das geheime Land anhand von Hinweisen zu seinen Merkmalen und dem Mosaik seiner Flagge.",
+            pl: "Odgadnij tajemniczy kraj na podstawie wskazówek dotyczących jego cech i mozaiki jego flagi.",
+            ru: "Угадайте загадочную страну по подсказкам о её характеристиках и мозаике её флага.",
+            pt: "Adivinhe o país secreto a partir de pistas sobre seus atributos e do mosaico de sua bandeira.",
+            la: "Conice patriam arcanam ex indiciis proprietatum eius atque e musivo vexilli eius.",
+        },
+        categoryKey: "categoryLogic",
+        path: "/banderadle",
+        playable: true,
+        icon: "Globe",
+        accentColor: "from-emerald-400 to-cyan-500",
+    }, {
+        id: "sudoku",
+        name: {
+            es: "Sudoku",
+            de: "Sudoku",
+            pl: "Sudoku",
+            ru: "Судоку",
+            pt: "Sudoku",
+            la: "Sudoku",
+        },
+        description: {
+            es: "Clásico juego de lógica donde debes completar la cuadrícula con números del 1 al 9, asegurando que cada número aparezca solo una vez en cada fila, columna y subcuadrícula.",
+            de: "Klassisches Logikspiel, bei dem du das Gitter mit Zahlen von 1 bis 9 füllen musst, wobei jede Zahl nur einmal in jeder Zeile, Spalte und jedem Unterquadrat vorkommen darf.",
+            pl: "Klasyczna gra logiczna, w której musisz wypełnić siatkę cyframi od 1 do 9, dbając o to, aby każda cyfra pojawiła się tylko raz w każdym wierszu, kolumnie i podkwadracie.",
+            ru: "Классическая логическая игра, в которой вы должны заполнить сетку числами от 1 до 9, следя за тем, чтобы каждая цифра появлялась только один раз в каждой строке, столбце и подквадрате.",
+            pt: "Clássico jogo de lógica onde você deve completar a grade com números de 1 a 9, garantindo que cada número apareça apenas uma vez em cada linha, coluna e subgrade.",
+            la: "Ludus classicus logicae ubi reticulum impleas numeris ab 1 ad 9, ita ut quaelibet numerus solum semel in quoque ordine, columna et subquadrato appareat.",
+        },
+        categoryKey: "categoryLogic",
+        path: "/sudoku",
+        playable: false,
+        icon: "Grid",
+        accentColor: "from-emerald-400 to-cyan-500",
     },
-
 ];
+

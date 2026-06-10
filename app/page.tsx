@@ -16,7 +16,8 @@ import {
   Sparkles,
   ArrowRight,
   Play,
-  Lock
+  Lock,
+  Globe
 } from "lucide-react";
 
 // Mapeador de iconos de Lucide para renderizar dinámicamente según la config del juego
@@ -26,6 +27,7 @@ const iconMap: Record<string, React.ComponentType<React.ComponentProps<"svg">>> 
   Type,
   Grid,
   Castle,
+  Globe,
 };
 
 export default function GameLauncherPage() {
