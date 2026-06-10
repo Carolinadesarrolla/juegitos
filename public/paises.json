@@ -2555,7 +2555,7 @@
     "nombre": "Kosovo",
     "continente": "Europa",
     "superficie": 10908,
-    "rutaBandera": "https://flagcdn.com/xk.svg",
+    "rutaBandera": "assets/banderas/xk.svg",
     "fronteras": [
       "ALB",
       "MKD",

@@ -52,6 +52,7 @@ export default function GameLauncherPage() {
       categoryLogic: t.categoryLogic,
       categoryStrategy: t.categoryStrategy,
       categoryPuzzle: t.categoryPuzzle,
+      categoryGeografia: t.categoryGeografia,
     };
     return mapping[categoryKey] || categoryKey;
   };

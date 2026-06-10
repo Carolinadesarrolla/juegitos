@@ -54,6 +54,7 @@ export default function Header() {
         { code: "pl", name: "Polski", flag: "🇵🇱" },
         { code: "ru", name: "русский", flag: "🇷🇺" },
         { code: "pt", name: "Português", flag: "🇵🇹" },
+        { code: "uk", name: "Українська", flag: "🇺🇦" },
         { code: "la", name: "Latina", flag: "🏛️" },
     ];
 
