@@ -78,9 +78,9 @@ export const gamesList: GameInfo[] = [
         },
         categoryKey: "categoryLogic",
         path: "/sudoku",
-        playable: false,
+        playable: true,
         icon: "Grid",
-        accentColor: "from-emerald-400 to-cyan-500",
+        accentColor: "from-indigo-400 to-purple-500", // Giving Sudoku a distinct premium indigo/purple accent gradient
     },
 ];
 
