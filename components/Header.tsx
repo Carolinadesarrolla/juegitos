@@ -48,13 +48,13 @@ export default function Header() {
         };
     }, []);
 
-    const languages: { code: GameLanguage; name: string; flag: string; }[] = [
-        { code: "es", name: "Español", flag: "🇪🇸" },
-        { code: "de", name: "Deutsch", flag: "🇩🇪" },
-        { code: "pl", name: "Polski", flag: "🇵🇱" },
-        { code: "ru", name: "русский", flag: "🇷🇺" },
-        { code: "pt", name: "Português", flag: "🇵🇹" },
-        { code: "uk", name: "Українська", flag: "🇺🇦" },
+    const languages: { code: GameLanguage; name: string; flag: string; isSvg?: boolean; }[] = [
+        { code: "es", name: "Español", flag: "/assets/banderas/es.svg", isSvg: true },
+        { code: "de", name: "Deutsch", flag: "/assets/banderas/de.svg", isSvg: true },
+        { code: "pl", name: "Polski", flag: "/assets/banderas/pl.svg", isSvg: true },
+        { code: "ru", name: "русский", flag: "/assets/banderas/ru.svg", isSvg: true },
+        { code: "pt", name: "Português", flag: "/assets/banderas/pt.svg", isSvg: true },
+        { code: "uk", name: "Українська", flag: "/assets/banderas/ua.svg", isSvg: true },
         { code: "la", name: "Latina", flag: "🏛️" },
     ];
 
@@ -178,7 +178,11 @@ export default function Header() {
                         className="flex items-center gap-1.5 p-2 sm:px-3 sm:py-2 rounded-xl border shadow-sm transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer text-xs sm:text-sm font-bold"
                     >
                         <Globe className="w-4 h-4 opacity-70" style={{ color: activeStyle.accent }} />
-                        <span className="text-base leading-none">{currentLangObj.flag}</span>
+                        {currentLangObj.isSvg ? (
+                            <img src={currentLangObj.flag} alt={currentLangObj.name} className="w-4.5 h-3 object-cover rounded border border-black/10 shadow-xs shrink-0" />
+                        ) : (
+                            <span className="text-base leading-none">{currentLangObj.flag}</span>
+                        )}
                         <span className="hidden md:inline uppercase text-xs tracking-wider">{currentLangObj.code}</span>
                         <ChevronDown className={`w-3.5 h-3.5 opacity-60 transition-transform duration-300 ${showLangMenu ? "rotate-180" : ""}`} />
                     </button>
@@ -210,7 +214,11 @@ export default function Header() {
                                             className="flex items-center justify-between px-3 py-2 text-xs sm:text-sm font-bold hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-left w-full cursor-pointer"
                                         >
                                             <span className="flex items-center gap-2">
-                                                <span className="text-lg leading-none">{lang.flag}</span>
+                                                {lang.isSvg ? (
+                                                    <img src={lang.flag} alt={lang.name} className="w-5 h-3.5 object-cover rounded border border-black/10 shadow-xs shrink-0" />
+                                                ) : (
+                                                    <span className="text-lg leading-none">{lang.flag}</span>
+                                                )}
                                                 <span>{lang.name}</span>
                                             </span>
                                             {isSelected && <Check className="w-4 h-4 shrink-0" />}
@@ -306,7 +314,11 @@ export default function Header() {
                                                 }}
                                                 className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border text-xxs font-extrabold hover:bg-black/5 dark:hover:bg-white/5 transition-all text-left cursor-pointer"
                                             >
-                                                <span className="text-sm leading-none">{lang.flag}</span>
+                                                {lang.isSvg ? (
+                                                    <img src={lang.flag} alt={lang.name} className="w-4 h-2.5 object-cover rounded border border-black/10 shadow-xs shrink-0" />
+                                                ) : (
+                                                    <span className="text-sm leading-none shrink-0">{lang.flag}</span>
+                                                )}
                                                 <span className="truncate">{lang.name}</span>
                                             </button>
                                         );

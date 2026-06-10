@@ -20,6 +20,7 @@ interface Country {
         pl?: string;
         ru?: string;
         pt?: string;
+        uk?: string;
     };
 }
 
@@ -673,6 +674,11 @@ export default function BanderadlePage() {
             {/* Autocomplete Input Submission */}
             {gameStatus === "playing" && (
                 <div className="w-full max-w-lg flex flex-col gap-3 z-30 my-3">
+                    {gameLang === "uk" && (
+                        <div className="p-3.5 rounded-2xl border text-center text-xs font-bold bg-amber-500/10 border-amber-500/30 text-amber-600 dark:text-amber-400 leading-relaxed shadow-xs">
+                            ⚠️ Через зовнішні обмеження пошук країн можливий лише іспанською або англійською мовами.
+                        </div>
+                    )}
                     <div
                         ref={autocompleteContainerRef}
                         className="relative w-full"

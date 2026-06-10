@@ -60,7 +60,8 @@ async function rebuild() {
           de: c.translations?.deu?.common || c.name?.common || "",
           pl: c.translations?.pol?.common || c.name?.common || "",
           ru: c.translations?.rus?.common || c.name?.common || "",
-          pt: c.translations?.por?.common || c.name?.common || ""
+          pt: c.translations?.por?.common || c.name?.common || "",
+          uk: c.translations?.ukr?.common || c.name?.common || ""
         }
       });
     }
