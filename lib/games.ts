@@ -87,6 +87,31 @@ export const gamesList: GameInfo[] = [
         playable: true,
         icon: "Grid",
         accentColor: "from-indigo-400 to-purple-500", // Giving Sudoku a distinct premium indigo/purple accent gradient
+    }, {
+        id: "cazafonos",
+        name: {
+            es: "Cazafonos",
+            de: "Phonjäger",
+            pl: "Łowca Fonemów",
+            ru: "Охотник на фонемы",
+            pt: "Caçador de Fonemas",
+            la: "Cazafonos",
+            uk: "Мисливець на фонеми",
+        },
+        description: {
+            es: "Adivina los rasgos articulatorios del fono del Alfabeto Fonético Internacional (AFI) presentado en la pantalla.",
+            de: "Errate die artikulatorischen Merkmale des auf dem Bildschirm dargestellten IPA-Lautes.",
+            pl: "Odgadnij cechy artykulacyjne głoski IPA prezentowanej na ekranie.",
+            ru: "Угадайте артикуляционные признаки звука МФА, показанного на экране.",
+            pt: "Adivinhe os traços articulatórios do fono do Alfabeto Fonético Internacional (AFI) apresentado no ecrã.",
+            la: "Divina proprietates articulationis phoni ex Abecedario Phonetico Internationali (API) in scrinio picti.",
+            uk: "Вгадай артикуляційні ознаки звуку МФА, показаного на екрані.",
+        },
+        categoryKey: "categoryWord",
+        path: "/cazafonos",
+        playable: false,
+        icon: "Type",
+        accentColor: "from-violet-400 to-fuchsia-500",
     },
 ];
 

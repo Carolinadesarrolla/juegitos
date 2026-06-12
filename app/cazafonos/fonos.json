@@ -1,0 +1,73 @@
+{
+  "consonantes": [
+    {
+      "fono": "[m]",
+      "tipo": "Consonante",
+      "mecanismo_corriente_aire": "Pulmonar egresivo (espirado)",
+      "estado_glotis_fonacion": "Sonoro",
+      "accion_velo_paladar": "Nasal",
+      "punto_articulacion": "Bilabial",
+      "modo_articulacion": "Nasal"
+    },
+    {
+      "fono": "[p]",
+      "tipo": "Consonante",
+      "mecanismo_corriente_aire": "Pulmonar egresivo (espirado)",
+      "estado_glotis_fonacion": "Sordo",
+      "accion_velo_paladar": "Oral (o bucal)",
+      "punto_articulacion": "Bilabial",
+      "modo_articulacion": "Oclusiva (o explosiva)"
+    },
+    {
+      "fono": "[]",
+      "tipo": "Consonante",
+      "mecanismo_corriente_aire": "",
+      "estado_glotis_fonacion": "",
+      "accion_velo_paladar": "",
+      "punto_articulacion": "",
+      "modo_articulacion": ""
+    }
+  ],
+  "vocales": [
+    {
+      "fono": "[i]",
+      "tipo": "Vocal",
+      "mecanismo_corriente_aire": "Pulmonar egresivo (espirado)",
+      "modo_articulacion_abertura": "Alta o cerrada",
+      "punto_articulacion_localizacion": "Anterior o palatal",
+      "accion_labios_redondeamiento": "No redondeada (o no labializada)",
+      "accion_velo_paladar_nasalizacion": "Oral",
+      "estado_cuerdas_vocales_fonacion": "Sonora"
+    },
+    {
+      "fono": "[o]",
+      "tipo": "Vocal",
+      "mecanismo_corriente_aire": "Pulmonar egresivo (espirado)",
+      "modo_articulacion_abertura": "Media o intermedia",
+      "punto_articulacion_localizacion": "Posterior o velar",
+      "accion_labios_redondeamiento": "Redondeada (o labializada)",
+      "accion_velo_paladar_nasalizacion": "Oral",
+      "estado_cuerdas_vocales_fonacion": "Sonora"
+    },
+    {
+      "fono": "[a]",
+      "tipo": "Vocal",
+      "mecanismo_corriente_aire": "Pulmonar egresivo (espirado)",
+      "modo_articulacion_abertura": "Baja o abierta",
+      "punto_articulacion_localizacion": "Central",
+      "accion_labios_redondeamiento": "No redondeada (o no labializada)",
+      "accion_velo_paladar_nasalizacion": "Oral",
+      "estado_cuerdas_vocales_fonacion": "Sonora"
+    },
+    {
+      "fono": "[e]",
+      "tipo": "Vocal",
+      "mecanismo_corriente_aire": "Pulmonar egresivo (espirado)",
+      "modo_articulacion_abertura": "Media o intermedia",
+      "punto_articulacion_localizacion": "Anterior o palatal",
+      "accion_labios_redondeamiento": "No redondeada (o no labializada)",
+      "accion_velo_paladar_nasalizacion": "Oral",
+      "estado_cuerdas_vocales_fonacion": "Sonora"
+    }
+  ]
+}
