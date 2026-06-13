@@ -4,14 +4,14 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useGameConfig } from "@/components/GameConfigContext";
 import { useLanguage } from "@/components/LanguageProvider";
-import { 
-  Maximize2, 
-  Minimize2, 
-  RefreshCw, 
-  ArrowLeft, 
-  Sparkles, 
-  Info, 
-  Check 
+import {
+  Maximize2,
+  Minimize2,
+  RefreshCw,
+  ArrowLeft,
+  Sparkles,
+  Info,
+  Check
 } from "lucide-react";
 
 // Local translations for the lava lamp page to maintain support for all launcher languages
@@ -289,8 +289,8 @@ const colorThemes: Record<string, {
 
 // Helper builder function for single dynamic wax pieces (All pools removed for realistic thermodynamics)
 const createBlob = (
-  width: number, 
-  height: number, 
+  width: number,
+  height: number,
   type: "dynamic",
   size: number,
   theme: string
@@ -298,10 +298,10 @@ const createBlob = (
   const { hue, color } = colorThemes[theme].getRandomColor();
   const phaseOffset = Math.random() * Math.PI * 2;
   const speedMultiplier = 0.85 + Math.random() * 0.3; // Speed deviation (+/- 15%)
-  
+
   // WIDER SIZE DIVERSITY: Range 0.45 to 1.50 times baseSize
   const rad = size * (0.45 + Math.random() * 1.05);
-  
+
   // Spawn completely off-screen at the bottom to rise organically, or scattered at initialization
   const x = rad + Math.random() * (width - rad * 2);
   const y = Math.random() * (height + rad * 1.5) - (rad * 0.5);
@@ -320,7 +320,7 @@ const createBlob = (
     type,
     phaseOffset,
     speedMultiplier,
-    
+
     // Branch A (starts offset left/up to break symmetry)
     satXA1: x - 1,
     satYA1: y - 1,
@@ -330,7 +330,7 @@ const createBlob = (
     satYA2: y - 2,
     satVxA2: 0,
     satVyA2: 0,
-    
+
     // Branch B (starts offset right/down to break symmetry)
     satXB1: x + 1,
     satYB1: y + 1,
@@ -346,22 +346,22 @@ const createBlob = (
 export default function LavaLampAnimationPage() {
   const { activeStyle, setActiveGameName } = useGameConfig();
   const { gameLang } = useLanguage();
-  
+
   // Localized texts matching translation provider
   const lang = localT[gameLang] || localT["es"];
 
   // Config UI states
-  const [speed, setSpeed] = useState<number>(1.0);
-  const [count, setCount] = useState<number>(10);
-  const [baseSize, setBaseSize] = useState<number>(65);
-  const [viscosity, setViscosity] = useState<number>(20); // blur radius
-  const [irregularity, setIrregularity] = useState<number>(0.3); // squash & stretch factor
+  const [speed, setSpeed] = useState<number>(0.6);
+  const [count, setCount] = useState<number>(15);
+  const [baseSize, setBaseSize] = useState<number>(90);
+  const [viscosity, setViscosity] = useState<number>(35); // blur radius
+  const [irregularity, setIrregularity] = useState<number>(1.0); // squash & stretch factor
   const [pureBlackBg, setPureBlackBg] = useState<boolean>(false);
   const [noBorderGlow, setNoBorderGlow] = useState<boolean>(false);
-  const [cursorInteractive, setCursorInteractive] = useState<boolean>(true);
+  const [cursorInteractive, setCursorInteractive] = useState<boolean>(false);
   const [cursorForce, setCursorForce] = useState<"repel" | "attract">("repel");
-  const [paletteId, setPaletteId] = useState<string>("retro");
-  
+  const [paletteId, setPaletteId] = useState<string>("deepOcean");
+
   // UI Panels
   const [showControls, setShowControls] = useState<boolean>(true);
   const [isFullscreen, setIsFullscreen] = useState<boolean>(false);
@@ -369,7 +369,7 @@ export default function LavaLampAnimationPage() {
   // References for Canvas and Physics Loop (avoids state delays at 60fps)
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const blobsRef = useRef<LavaBlob[]>([]);
-  const mouseRef = useRef<{ x: number; y: number; onScreen: boolean }>({ x: -9999, y: -9999, onScreen: false });
+  const mouseRef = useRef<{ x: number; y: number; onScreen: boolean; }>({ x: -9999, y: -9999, onScreen: false });
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const frameRef = useRef<number | null>(null);
 
@@ -432,7 +432,7 @@ export default function LavaLampAnimationPage() {
         // Buoyancy/Gravity calculations based on temperature
         const buoyancy = b.temp * 0.09 * speedFactor;
         const gravity = (1.0 - b.temp) * 0.075 * speedFactor;
-        
+
         b.vy -= buoyancy;
         b.vy += gravity;
 
@@ -469,7 +469,7 @@ export default function LavaLampAnimationPage() {
           b.vy = 0;
           b.vx = 0;
           b.temp += (1.0 - b.temp) * 0.035 * speedFactor;
-          
+
           // Launch upward once heated
           if (b.temp > 0.88 && Math.random() < 0.012) {
             b.vy = -0.5 - Math.random() * 0.8;
@@ -875,7 +875,7 @@ export default function LavaLampAnimationPage() {
               type: "dynamic",
               phaseOffset: Math.random() * Math.PI * 2,
               speedMultiplier: 0.85 + Math.random() * 0.3,
-              
+
               // Branch A Satellites (Starts offset to left/up)
               satXA1: b.x + 7,
               satYA1: b.y - 1,
@@ -925,7 +925,7 @@ export default function LavaLampAnimationPage() {
       // 6. RENDER PIECES (Dual-branch multi-node rendering for complex curves & glows)
       filteredBlobs.forEach((b) => {
         if (b.radius < 0.2) return;
-        
+
         // Dynamic radii for satellite nodes
         const r0 = b.radius * 0.82;
         const rA1 = b.radius * 0.55;
@@ -936,7 +936,7 @@ export default function LavaLampAnimationPage() {
         // Interpolate satellite coordinates depending on irregularity slider setting
         const x0 = b.x;
         const y0 = b.y;
-        
+
         const xA1 = b.x + (b.satXA1 - b.x) * config.irregularity;
         const yA1 = b.y + (b.satYA1 - b.y) * config.irregularity;
 
@@ -951,7 +951,7 @@ export default function LavaLampAnimationPage() {
 
         const drawNode = (nx: number, ny: number, nr: number, isMain: boolean) => {
           if (nr < 0.5) return;
-          
+
           if (config.noBorderGlow) {
             // Draw soft radial gradients for border-less glow clouds
             const grad = ctx.createRadialGradient(nx, ny, 0, nx, ny, nr);
@@ -1013,7 +1013,7 @@ export default function LavaLampAnimationPage() {
   const resetSimulation = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    
+
     const initialBlobs: LavaBlob[] = [];
     const width = canvas.width;
     const height = canvas.height;
@@ -1029,7 +1029,7 @@ export default function LavaLampAnimationPage() {
   // Click handler: Spawn wax blob at specific point
   const handleCanvasClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
     if (!configRef.current.cursorInteractive) return;
-    
+
     // Cancel action if click was on config menu (stops bubble propagation)
     const target = e.target as HTMLElement;
     if (target.closest(".controls-panel")) return;
@@ -1045,7 +1045,7 @@ export default function LavaLampAnimationPage() {
     const { hue, color } = colorThemes[configRef.current.paletteId].getRandomColor();
     const rad = configRef.current.baseSize * (0.8 + Math.random() * 0.5);
     const speedMultiplier = 0.85 + Math.random() * 0.3;
-    
+
     const newBlob: LavaBlob = {
       x: clickX,
       y: clickY,
@@ -1060,7 +1060,7 @@ export default function LavaLampAnimationPage() {
       type: "dynamic",
       phaseOffset: Math.random() * Math.PI * 2,
       speedMultiplier,
-      
+
       // Branch A (starts offset left/up to break symmetry)
       satXA1: clickX - 1,
       satYA1: clickY - 1,
@@ -1070,7 +1070,7 @@ export default function LavaLampAnimationPage() {
       satYA2: clickY - 2,
       satVxA2: 0,
       satVyA2: 0,
-      
+
       // Branch B (starts offset right/down to break symmetry)
       satXB1: clickX + 1,
       satYB1: clickY + 1,
@@ -1157,7 +1157,7 @@ export default function LavaLampAnimationPage() {
     if (!canvasRef.current) return;
     const canvas = canvasRef.current;
     const blobs = blobsRef.current;
-    
+
     // Filter dynamic blobs currently active
     const activeBlobs = blobs.filter(b => b.targetRadius > 0);
     const diff = count - activeBlobs.length;
@@ -1270,10 +1270,9 @@ export default function LavaLampAnimationPage() {
   const canvasBlur = noBorderGlow ? viscosity * 0.35 : viscosity;
 
   return (
-    <div 
-      className={`relative w-screen h-screen overflow-hidden select-none transition-all duration-1000 ${
-        pureBlackBg ? "bg-black" : `bg-gradient-to-b ${activeBackground}`
-      }`}
+    <div
+      className={`relative w-screen h-screen overflow-hidden select-none transition-all duration-1000 ${pureBlackBg ? "bg-black" : `bg-gradient-to-b ${activeBackground}`
+        }`}
       onMouseMove={(e) => {
         resetActivityTimer();
         const canvas = canvasRef.current;
@@ -1323,12 +1322,11 @@ export default function LavaLampAnimationPage() {
       </div>
 
       {/* Floating glassmorphic controls panel */}
-      <div 
-        className={`controls-panel absolute top-6 right-6 w-[330px] rounded-3xl p-5 border shadow-2xl transition-all duration-500 ease-out z-40 max-h-[85vh] overflow-y-auto scrollbar-none flex flex-col gap-4.5 ${
-          showControls 
-            ? "opacity-100 translate-y-0 scale-100" 
+      <div
+        className={`controls-panel absolute top-6 right-6 w-[330px] rounded-3xl p-5 border shadow-2xl transition-all duration-500 ease-out z-40 max-h-[85vh] overflow-y-auto scrollbar-none flex flex-col gap-4.5 ${showControls
+            ? "opacity-100 translate-y-0 scale-100"
             : "opacity-0 -translate-y-4 scale-95 pointer-events-none"
-        }`}
+          }`}
         style={{
           backgroundColor: `${activeStyle.card}22`, // glassmorphic transparent
           borderColor: `${activeStyle.border}35`,
@@ -1357,18 +1355,18 @@ export default function LavaLampAnimationPage() {
 
         {/* Configurations List */}
         <div className="flex flex-col gap-4 text-xs font-semibold">
-          
+
           {/* SPEED SLIDER */}
           <div className="flex flex-col gap-1.5">
             <div className="flex justify-between items-center opacity-85">
               <span>{lang.speed}</span>
               <span className="font-mono text-xxs font-bold bg-white/10 px-1.5 py-0.5 rounded-sm">{speed.toFixed(1)}x</span>
             </div>
-            <input 
-              type="range" 
-              min="0.2" 
-              max="2.5" 
-              step="0.1" 
+            <input
+              type="range"
+              min="0.2"
+              max="2.5"
+              step="0.1"
               value={speed}
               onChange={(e) => setSpeed(parseFloat(e.target.value))}
               className="w-full accent-current cursor-ew-resize h-1 bg-white/20 rounded-lg appearance-none"
@@ -1382,11 +1380,11 @@ export default function LavaLampAnimationPage() {
               <span>{lang.count}</span>
               <span className="font-mono text-xxs font-bold bg-white/10 px-1.5 py-0.5 rounded-sm">{count}</span>
             </div>
-            <input 
-              type="range" 
-              min="4" 
-              max="20" 
-              step="1" 
+            <input
+              type="range"
+              min="4"
+              max="20"
+              step="1"
               value={count}
               onChange={(e) => setCount(parseInt(e.target.value))}
               className="w-full accent-current cursor-ew-resize h-1 bg-white/20 rounded-lg appearance-none"
@@ -1400,11 +1398,11 @@ export default function LavaLampAnimationPage() {
               <span>{lang.size}</span>
               <span className="font-mono text-xxs font-bold bg-white/10 px-1.5 py-0.5 rounded-sm">{baseSize}px</span>
             </div>
-            <input 
-              type="range" 
-              min="30" 
-              max="110" 
-              step="5" 
+            <input
+              type="range"
+              min="30"
+              max="110"
+              step="5"
               value={baseSize}
               onChange={(e) => setBaseSize(parseInt(e.target.value))}
               className="w-full accent-current cursor-ew-resize h-1 bg-white/20 rounded-lg appearance-none"
@@ -1418,11 +1416,11 @@ export default function LavaLampAnimationPage() {
               <span>{lang.viscosity}</span>
               <span className="font-mono text-xxs font-bold bg-white/10 px-1.5 py-0.5 rounded-sm">{viscosity}px</span>
             </div>
-            <input 
-              type="range" 
-              min="10" 
-              max="35" 
-              step="1" 
+            <input
+              type="range"
+              min="10"
+              max="35"
+              step="1"
               value={viscosity}
               onChange={(e) => setViscosity(parseInt(e.target.value))}
               className="w-full accent-current cursor-ew-resize h-1 bg-white/20 rounded-lg appearance-none"
@@ -1436,11 +1434,11 @@ export default function LavaLampAnimationPage() {
               <span>{lang.irregularity}</span>
               <span className="font-mono text-xxs font-bold bg-white/10 px-1.5 py-0.5 rounded-sm">{(irregularity * 100).toFixed(0)}%</span>
             </div>
-            <input 
-              type="range" 
-              min="0" 
-              max="1" 
-              step="0.05" 
+            <input
+              type="range"
+              min="0"
+              max="1"
+              step="0.05"
               value={irregularity}
               onChange={(e) => setIrregularity(parseFloat(e.target.value))}
               className="w-full accent-current cursor-ew-resize h-1 bg-white/20 rounded-lg appearance-none"
@@ -1451,17 +1449,16 @@ export default function LavaLampAnimationPage() {
           {/* NO BORDER GLOW TOGGLE */}
           <div className="flex justify-between items-center py-0.5">
             <span className="opacity-85">{lang.noBorderGlow}</span>
-            <button 
+            <button
               onClick={() => setNoBorderGlow(!noBorderGlow)}
               className="w-10 h-5.5 rounded-full p-0.5 transition-colors duration-300 focus:outline-none cursor-pointer"
               style={{
                 backgroundColor: noBorderGlow ? activeStyle.accent : "rgba(255,255,255,0.15)"
               }}
             >
-              <div 
-                className={`w-4.5 h-4.5 bg-white rounded-full shadow-md transform transition-transform duration-300 ${
-                  noBorderGlow ? "translate-x-4.5" : "translate-x-0"
-                }`} 
+              <div
+                className={`w-4.5 h-4.5 bg-white rounded-full shadow-md transform transition-transform duration-300 ${noBorderGlow ? "translate-x-4.5" : "translate-x-0"
+                  }`}
               />
             </button>
           </div>
@@ -1469,17 +1466,16 @@ export default function LavaLampAnimationPage() {
           {/* PURE BLACK BACKGROUND TOGGLE */}
           <div className="flex justify-between items-center py-0.5">
             <span className="opacity-85">{lang.pureBlackBg}</span>
-            <button 
+            <button
               onClick={() => setPureBlackBg(!pureBlackBg)}
               className="w-10 h-5.5 rounded-full p-0.5 transition-colors duration-300 focus:outline-none cursor-pointer"
               style={{
                 backgroundColor: pureBlackBg ? activeStyle.accent : "rgba(255,255,255,0.15)"
               }}
             >
-              <div 
-                className={`w-4.5 h-4.5 bg-white rounded-full shadow-md transform transition-transform duration-300 ${
-                  pureBlackBg ? "translate-x-4.5" : "translate-x-0"
-                }`} 
+              <div
+                className={`w-4.5 h-4.5 bg-white rounded-full shadow-md transform transition-transform duration-300 ${pureBlackBg ? "translate-x-4.5" : "translate-x-0"
+                  }`}
               />
             </button>
           </div>
@@ -1488,21 +1484,20 @@ export default function LavaLampAnimationPage() {
           <div className="flex flex-col gap-2">
             <div className="flex justify-between items-center">
               <span className="opacity-85">{lang.interactivity}</span>
-              <button 
+              <button
                 onClick={() => setCursorInteractive(!cursorInteractive)}
                 className="w-10 h-5.5 rounded-full p-0.5 transition-colors duration-300 focus:outline-none cursor-pointer"
                 style={{
                   backgroundColor: cursorInteractive ? activeStyle.accent : "rgba(255,255,255,0.15)"
                 }}
               >
-                <div 
-                  className={`w-4.5 h-4.5 bg-white rounded-full shadow-md transform transition-transform duration-300 ${
-                    cursorInteractive ? "translate-x-4.5" : "translate-x-0"
-                  }`} 
+                <div
+                  className={`w-4.5 h-4.5 bg-white rounded-full shadow-md transform transition-transform duration-300 ${cursorInteractive ? "translate-x-4.5" : "translate-x-0"
+                    }`}
                 />
               </button>
             </div>
-            
+
             {/* CURSOR FORCE TYPE (Attract / Repel) */}
             {cursorInteractive && (
               <div className="flex flex-col gap-1 mt-1 pl-2 border-l border-white/10 animate-fade-in">
@@ -1510,17 +1505,15 @@ export default function LavaLampAnimationPage() {
                 <div className="grid grid-cols-2 gap-2 p-1 bg-white/5 rounded-xl border border-white/5">
                   <button
                     onClick={() => setCursorForce("repel")}
-                    className={`py-1 px-2.5 rounded-lg text-[10px] font-bold text-center transition-all cursor-pointer ${
-                      cursorForce === "repel" ? "bg-white/15 shadow-sm text-white" : "opacity-50 hover:opacity-100 text-current"
-                    }`}
+                    className={`py-1 px-2.5 rounded-lg text-[10px] font-bold text-center transition-all cursor-pointer ${cursorForce === "repel" ? "bg-white/15 shadow-sm text-white" : "opacity-50 hover:opacity-100 text-current"
+                      }`}
                   >
                     {lang.repel}
                   </button>
                   <button
                     onClick={() => setCursorForce("attract")}
-                    className={`py-1 px-2.5 rounded-lg text-[10px] font-bold text-center transition-all cursor-pointer ${
-                      cursorForce === "attract" ? "bg-white/15 shadow-sm text-white" : "opacity-50 hover:opacity-100 text-current"
-                    }`}
+                    className={`py-1 px-2.5 rounded-lg text-[10px] font-bold text-center transition-all cursor-pointer ${cursorForce === "attract" ? "bg-white/15 shadow-sm text-white" : "opacity-50 hover:opacity-100 text-current"
+                      }`}
                   >
                     {lang.attract}
                   </button>
@@ -1594,7 +1587,7 @@ export default function LavaLampAnimationPage() {
         </div>
 
         {/* Tip text at the bottom */}
-        <div 
+        <div
           className="flex items-start gap-1.5 p-2.5 rounded-2xl border text-[10px] font-bold leading-normal mt-1 opacity-70"
           style={{
             backgroundColor: "rgba(255,255,255,0.02)",
@@ -1607,9 +1600,9 @@ export default function LavaLampAnimationPage() {
       </div>
 
       {/* Subtle bottom indicator when controls fade out */}
-      <div 
+      <div
         className="absolute bottom-6 left-1/2 -translate-x-1/2 font-bold text-xxs tracking-widest uppercase opacity-40 transition-opacity duration-700 pointer-events-none z-10"
-        style={{ 
+        style={{
           opacity: showControls ? 0 : 0.4,
           color: activeStyle.text,
           textShadow: "0 2px 4px rgba(0,0,0,0.5)"
