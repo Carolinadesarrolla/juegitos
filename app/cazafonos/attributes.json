@@ -3,56 +3,146 @@
     "mecanismo_corriente_aire": {
       "label": "Mecanismo de corriente de aire",
       "options": [
-        { "label": "Pulmonar egresivo (espirado)", "value": "Pulmonar egresivo (espirado)" },
-        { "label": "Glotal (eyectivos, inyectivos)", "value": "Glotal (eyectivos, inyectivos)" },
-        { "label": "Velar (clicks)", "value": "Velar (clicks)" }
+        {
+          "label": "Pulmonar egresivo (espirado)",
+          "value": "Pulmonar egresivo (espirado)"
+        },
+        {
+          "label": "Glotal (eyectivos, inyectivos)",
+          "value": "Glotal (eyectivos, inyectivos)"
+        },
+        {
+          "label": "Velar (clicks)",
+          "value": "Velar (clicks)"
+        }
       ]
     },
     "estado_glotis_fonacion": {
       "label": "Estado de la glotis / Modos de fonación",
       "options": [
-        { "label": "Sordos", "value": "Sordo" },
-        { "label": "Sonoros", "value": "Sonoro" },
-        { "label": "Whisper (susurrado)", "value": "Whisper (susurrado)" },
-        { "label": "Creaky voice (laringealizado)", "value": "Creaky voice (sonido roto/laringealizado)" },
-        { "label": "Breathy voice (murmurado)", "value": "Breathy voice (murmurado)" }
+        {
+          "label": "Sordos",
+          "value": "Sordo"
+        },
+        {
+          "label": "Sonoros",
+          "value": "Sonoro"
+        },
+        {
+          "label": "Whisper (susurrado)",
+          "value": "Whisper (susurrado)"
+        },
+        {
+          "label": "Creaky voice (laringealizado)",
+          "value": "Creaky voice (sonido roto/laringealizado)"
+        },
+        {
+          "label": "Breathy voice (murmurado)",
+          "value": "Breathy voice (murmurado)"
+        }
       ]
     },
     "accion_velo_paladar": {
       "label": "Acción del velo del paladar",
       "options": [
-        { "label": "Orales (o bucales)", "value": "Oral (o bucal)" },
-        { "label": "Nasales", "value": "Nasal" },
-        { "label": "Oronasales (o nasales combinadas)", "value": "Oronasales (o nasales combinadas)" }
+        {
+          "label": "Orales (o bucales)",
+          "value": "Oral (o bucal)"
+        },
+        {
+          "label": "Nasales",
+          "value": "Nasal"
+        },
+        {
+          "label": "Oronasales (o nasales combinadas)",
+          "value": "Oronasales (o nasales combinadas)"
+        }
       ]
     },
     "punto_articulacion": {
       "label": "Punto de articulación",
       "options": [
-        { "label": "Bilabiales", "value": "Bilabial" },
-        { "label": "Labiodentales", "value": "Labiodental" },
-        { "label": "Interdentales", "value": "Interdental" },
-        { "label": "Dentales", "value": "Dental" },
-        { "label": "Alveolares", "value": "Alveolar" },
-        { "label": "Prepalatales", "value": "Prepalatal" },
-        { "label": "Palatales", "value": "Palatal" },
-        { "label": "Velares", "value": "Velar" },
-        { "label": "Dentointerdentales", "value": "Dentointerdentales" }
+        {
+          "label": "Bilabiales",
+          "value": "Bilabial"
+        },
+        {
+          "label": "Labiodentales",
+          "value": "Labiodental"
+        },
+        {
+          "label": "Interdentales",
+          "value": "Interdental"
+        },
+        {
+          "label": "Dentales",
+          "value": "Dental"
+        },
+        {
+          "label": "Alveolares",
+          "value": "Alveolar"
+        },
+        {
+          "label": "Prepalatales",
+          "value": "Prepalatal"
+        },
+        {
+          "label": "Palatales",
+          "value": "Palatal"
+        },
+        {
+          "label": "Velares",
+          "value": "Velar"
+        },
+        {
+          "label": "Dentointerdentales",
+          "value": "Dentointerdentales"
+        }
       ]
     },
     "modo_articulacion": {
       "label": "Modo de articulación",
       "options": [
-        { "label": "Oclusivas (o explosivas)", "value": "Oclusiva (o explosiva)" },
-        { "label": "Fricativas", "value": "Fricativa" },
-        { "label": "Africadas", "value": "Africada" },
-        { "label": "Aproximantes", "value": "Aproximante" },
-        { "label": "Nasales", "value": "Nasal" },
-        { "label": "Líquidas laterales", "value": "Líquida lateral" },
-        { "label": "Líquidas vibrantes simples", "value": "Líquidas vibrantes (o róticas) simples" },
-        { "label": "Líquidas vibrantes múltiples", "value": "Líquidas vibrantes (o róticas) múltiples" },
-        { "label": "Centrales", "value": "Central" },
-        { "label": "Laterales", "value": "Lateral" }
+        {
+          "label": "Oclusivas (o explosivas)",
+          "value": "Oclusiva (o explosiva)"
+        },
+        {
+          "label": "Fricativas",
+          "value": "Fricativa"
+        },
+        {
+          "label": "Africadas",
+          "value": "Africada"
+        },
+        {
+          "label": "Aproximantes",
+          "value": "Aproximante"
+        },
+        {
+          "label": "Nasales",
+          "value": "Nasal"
+        },
+        {
+          "label": "Líquidas laterales",
+          "value": "Líquida lateral"
+        },
+        {
+          "label": "Líquidas vibrantes simples",
+          "value": "Líquidas vibrantes (o róticas) simples"
+        },
+        {
+          "label": "Líquidas vibrantes múltiples",
+          "value": "Líquidas vibrantes (o róticas) múltiples"
+        },
+        {
+          "label": "Centrales",
+          "value": "Central"
+        },
+        {
+          "label": "Laterales",
+          "value": "Lateral"
+        }
       ]
     }
   },
@@ -60,43 +150,79 @@
     "mecanismo_corriente_aire": {
       "label": "Mecanismo de corriente de aire",
       "options": [
-        { "label": "Pulmonar egresivo (espirado)", "value": "Pulmonar egresivo (espirado)" }
+        {
+          "label": "Pulmonar egresivo (espirado)",
+          "value": "Pulmonar egresivo (espirado)"
+        }
       ]
     },
     "modo_articulacion_abertura": {
       "label": "Modo de articulación / Abertura relativa",
       "options": [
-        { "label": "Altas o cerradas", "value": "Alta o cerrada" },
-        { "label": "Medias o intermedias", "value": "Media o intermedia" },
-        { "label": "Bajas o abiertas", "value": "Baja o abierta" }
+        {
+          "label": "Altas o cerradas",
+          "value": "Alta o cerrada"
+        },
+        {
+          "label": "Medias o intermedias",
+          "value": "Media o intermedia"
+        },
+        {
+          "label": "Bajas o abiertas",
+          "value": "Baja o abierta"
+        }
       ]
     },
     "punto_articulacion_localizacion": {
       "label": "Punto o zona de articulación / Localización",
       "options": [
-        { "label": "Anteriores o palatales", "value": "Anterior o palatal" },
-        { "label": "Centrales", "value": "Central" },
-        { "label": "Posteriores o velares", "value": "Posterior o velar" }
+        {
+          "label": "Anteriores o palatales",
+          "value": "Anterior o palatal"
+        },
+        {
+          "label": "Centrales",
+          "value": "Central"
+        },
+        {
+          "label": "Posteriores o velares",
+          "value": "Posterior o velar"
+        }
       ]
     },
     "accion_labios_redondeamiento": {
       "label": "Acción de los labios / Redondeamiento (Labialización)",
       "options": [
-        { "label": "Redondeadas (o labializadas)", "value": "Redondeada (o labializada)" },
-        { "label": "No redondeadas (o no labializadas)", "value": "No redondeada (o no labializada)" }
+        {
+          "label": "Redondeadas (o labializadas)",
+          "value": "Redondeada (o labializada)"
+        },
+        {
+          "label": "No redondeadas (o no labializadas)",
+          "value": "No redondeada (o no labializada)"
+        }
       ]
     },
     "accion_velo_paladar_nasalizacion": {
       "label": "Acción del velo del paladar (Nasalización)",
       "options": [
-        { "label": "Orales", "value": "Oral" },
-        { "label": "Nasales (o nasalizadas)", "value": "Nasal (o nasalizada)" }
+        {
+          "label": "Orales",
+          "value": "Oral"
+        },
+        {
+          "label": "Nasales (o nasalizadas)",
+          "value": "Nasal (o nasalizada)"
+        }
       ]
     },
     "estado_cuerdas_vocales_fonacion": {
       "label": "Estado de las cuerdas vocales (Fonación)",
       "options": [
-        { "label": "Sonoras", "value": "Sonora" }
+        {
+          "label": "Sonoras",
+          "value": "Sonora"
+        }
       ]
     }
   }

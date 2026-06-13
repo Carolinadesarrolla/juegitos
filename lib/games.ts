@@ -112,6 +112,31 @@ export const gamesList: GameInfo[] = [
         playable: false,
         icon: "Type",
         accentColor: "from-violet-400 to-fuchsia-500",
+    }, {
+        id: "lava",
+        name: {
+            es: "Lámpara de Lava",
+            de: "Lavalampe",
+            pl: "Lampa Lawa",
+            ru: "Лавовая Лампа",
+            pt: "Lâmpada de Lava",
+            la: "Lampas Lavae",
+            uk: "Лавова Лампа",
+        },
+        description: {
+            es: "Una animación relajante e infinita de una lámpara de lava con física de fluidos interactiva.",
+            de: "Eine entspannende und unendliche Animation einer Lavalampe mit interaktiver Fluidphysik.",
+            pl: "Relaksująca i nieskończona animacja lampy lawowej z interaktywną fizyką płynów.",
+            ru: "Расслабряющая и бесконечная анимация лавовой лампы с интерактивной физикой жидкости.",
+            pt: "Uma animação relaxante e infinita de uma lâmpada de lava com física de fluidos interativa.",
+            la: "Animatio relaxans et infinita lampadis lavae cum physica fluidorum interactiva.",
+            uk: "Розслаблююча та нескінченна анімація лавової лампи з інтерактивною фізикою рідини.",
+        },
+        categoryKey: "categoryColor",
+        path: "/lava",
+        playable: true,
+        icon: "Sparkles",
+        accentColor: "from-orange-400 to-red-500",
     },
 ];
 

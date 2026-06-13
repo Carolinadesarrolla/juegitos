@@ -2,11 +2,14 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useGameConfig, themeStyles } from "./GameConfigContext";
 import { useLanguage, PastelTheme, GameLanguage, themeNames } from "./LanguageProvider";
 import { Sun, Moon, Globe, Palette, Check, ChevronDown, Gamepad2, Settings } from "lucide-react";
 
 export default function Header() {
+    const pathname = usePathname();
+
     const {
         themeColor,
         setThemeColor,
@@ -59,6 +62,10 @@ export default function Header() {
     ];
 
     const themes: PastelTheme[] = ["pink", "blue", "yellow", "green", "violet", "orange", "mint", "coral", "lavender", "gray"];
+
+    if (pathname === "/lava") {
+        return null;
+    }
 
     const currentLangObj = languages.find((l) => l.code === gameLang) || languages[0];
 
@@ -263,7 +270,7 @@ export default function Header() {
                             <div className="flex flex-col gap-2">
                                 <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider opacity-60">
                                     <Palette className="w-3.5 h-3.5" />
-                                    <span>{gameLang === "la" ? "Themata" : gameLang === "de" ? "Themes" : "Temas"}</span>
+                                    <span>{gameLang === "la" ? "Themata" : gameLang === "de" ? "Farben" : gameLang === "es" ? "Temas" : gameLang === "pl" ? "Wygląd" : gameLang === "pt" ? "Temas" : gameLang === "ru" ? "Темы" : gameLang === "uk" ? "Теми" : "Temas"}</span>
                                 </div>
                                 <div className="grid grid-cols-5 gap-2">
                                     {themes.map((col) => {
@@ -295,7 +302,7 @@ export default function Header() {
                             <div className="flex flex-col gap-2">
                                 <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider opacity-60">
                                     <Globe className="w-3.5 h-3.5" />
-                                    <span>{gameLang === "la" ? "Linguae" : gameLang === "de" ? "Sprachen" : "Idiomas"}</span>
+                                    <span>{gameLang === "la" ? "Linguae" : gameLang === "de" ? "Sprachen" : gameLang === "es" ? "Idiomas" : gameLang === "pl" ? "Języki" : gameLang === "pt" ? "Línguas" : gameLang === "ru" ? "Языки" : gameLang === "uk" ? "Мови" : "Idiomas"}</span>
                                 </div>
                                 <div className="grid grid-cols-2 gap-1.5">
                                     {languages.map((lang) => {
