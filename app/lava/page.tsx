@@ -360,7 +360,7 @@ export default function LavaLampAnimationPage() {
   const [noBorderGlow, setNoBorderGlow] = useState<boolean>(false);
   const [cursorInteractive, setCursorInteractive] = useState<boolean>(false);
   const [cursorForce, setCursorForce] = useState<"repel" | "attract">("repel");
-  const [paletteId, setPaletteId] = useState<string>("deepOcean");
+  const [paletteId, setPaletteId] = useState<string>("ocean");
 
   // UI Panels
   const [showControls, setShowControls] = useState<boolean>(true);
