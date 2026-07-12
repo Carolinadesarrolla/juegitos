@@ -550,6 +550,18 @@ export default function ColorlePage() {
             {/* Canvas para el confeti */}
             <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-50 w-full h-full" />
 
+            {/* Contenido Superior (Título y Descripción adaptados dinámicamente) */}
+            <header className={`w-full max-w-xl flex flex-col items-center mb-2 mt-1 xl:mb-4 xl:mt-2 ${slideClass}`} key={`header-${gameMode}-${targetColor}`}>
+                <div className="text-center">
+                    <h1 className="text-3xl sm:text-6xl font-bold tracking-tight select-none">
+                        {gameMode === "ojo-de-aguila" ? t.titleEagleEye : t.titleClassic}
+                    </h1>
+                    <p style={{ color: activeStyle.textMuted }} className="text-xs sm:text-lg font-medium max-w-lg text-center mt-1 mx-auto leading-relaxed px-2">
+                        {gameMode === "ojo-de-aguila" ? t.subtitleEagleEye : t.subtitleClassic}
+                    </p>
+                </div>
+            </header>
+
             {/* Contenedor responsivo superior para Controles (Flujo vertical en móvil, absoluto en desktop) */}
             <div className="w-full max-w-xl flex flex-col items-center gap-2.5 mt-1 mb-2 xl:mb-0 xl:contents">
                 {/* Selector de Modo de Juego */}
@@ -640,18 +652,6 @@ export default function ColorlePage() {
                     </div>
                 </div>
             </div>
-
-            {/* Contenido Superior (Título y Descripción adaptados dinámicamente) */}
-            <header className={`w-full max-w-xl flex flex-col items-center mb-2 mt-1 xl:mb-4 xl:mt-2 ${slideClass}`} key={`header-${gameMode}-${targetColor}`}>
-                <div className="text-center">
-                    <h1 className="text-3xl sm:text-6xl font-bold tracking-tight select-none">
-                        {gameMode === "ojo-de-aguila" ? t.titleEagleEye : t.titleClassic}
-                    </h1>
-                    <p style={{ color: activeStyle.textMuted }} className="text-xs sm:text-lg font-medium max-w-lg text-center mt-1 mx-auto leading-relaxed px-2">
-                        {gameMode === "ojo-de-aguila" ? t.subtitleEagleEye : t.subtitleClassic}
-                    </p>
-                </div>
-            </header>
 
             {/* Modo Ojo de Águila: Cajas de color de comparación arriba del tablero */}
             {gameMode === "ojo-de-aguila" && (

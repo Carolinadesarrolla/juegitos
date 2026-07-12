@@ -8,7 +8,7 @@ import { useLanguage } from "@/components/LanguageProvider";
 // Difficulty levels mapping
 type Difficulty = "facil" | "medio" | "dificil" | "experto" | "maestro" | "extremo";
 
-const DIFFICULTY_PRESETS: Record<Difficulty, { clues: number; nameKey: "difficultyEasy" | "difficultyMedium" | "difficultyHard" | "difficultyExpert" | "difficultyMaster" | "difficultyExtreme" }> = {
+const DIFFICULTY_PRESETS: Record<Difficulty, { clues: number; nameKey: "difficultyEasy" | "difficultyMedium" | "difficultyHard" | "difficultyExpert" | "difficultyMaster" | "difficultyExtreme"; }> = {
     facil: { clues: 38, nameKey: "difficultyEasy" },
     medio: { clues: 32, nameKey: "difficultyMedium" },
     dificil: { clues: 27, nameKey: "difficultyHard" },
@@ -127,70 +127,93 @@ const isValid = (grid: number[][], row: number, col: number, num: number): boole
     return true;
 };
 
+// OPTIMIZADO: Resolvedor backtracking indexado (Forward-scanning)
 const solveSudokuRandom = (grid: number[][]): boolean => {
-    for (let row = 0; row < 9; row++) {
-        for (let col = 0; col < 9; col++) {
-            if (grid[row][col] === 0) {
-                const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-                for (let i = numbers.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [numbers[i], numbers[j]] = [numbers[j], numbers[i]];
-                }
-                for (const num of numbers) {
-                    if (isValid(grid, row, col, num)) {
-                        grid[row][col] = num;
-                        if (solveSudokuRandom(grid)) {
-                            return true;
-                        }
-                        grid[row][col] = 0;
-                    }
-                }
-                return false;
+    const emptyCells: { r: number; c: number; }[] = [];
+    for (let r = 0; r < 9; r++) {
+        for (let c = 0; c < 9; c++) {
+            if (grid[r][c] === 0) {
+                emptyCells.push({ r, c });
             }
         }
     }
-    return true;
-};
 
-const countSolutions = (grid: number[][], limit: number = 2): number => {
-    let count = 0;
-    const check = (): boolean => {
-        for (let row = 0; row < 9; row++) {
-            for (let col = 0; col < 9; col++) {
-                if (grid[row][col] === 0) {
-                    for (let num = 1; num <= 9; num++) {
-                        if (isValid(grid, row, col, num)) {
-                            grid[row][col] = num;
-                            if (check()) {
-                                // Keep going
-                            }
-                            grid[row][col] = 0;
-                            if (count >= limit) return true;
-                        }
-                    }
-                    return false;
+    const solve = (index: number): boolean => {
+        if (index === emptyCells.length) {
+            return true;
+        }
+
+        const { r, c } = emptyCells[index];
+        const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        // Fisher-Yates Shuffle
+        for (let i = numbers.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [numbers[i], numbers[j]] = [numbers[j], numbers[i]];
+        }
+
+        for (const num of numbers) {
+            if (isValid(grid, r, c, num)) {
+                grid[r][c] = num;
+                if (solve(index + 1)) {
+                    return true;
                 }
+                grid[r][c] = 0;
             }
         }
-        count++;
-        return count >= limit;
+        return false;
     };
-    check();
+
+    return solve(0);
+};
+
+// OPTIMIZADO: Contador de soluciones indexado (Forward-scanning)
+const countSolutions = (grid: number[][], limit: number = 2): number => {
+    let count = 0;
+    const emptyCells: { r: number; c: number; }[] = [];
+    for (let r = 0; r < 9; r++) {
+        for (let c = 0; c < 9; c++) {
+            if (grid[r][c] === 0) {
+                emptyCells.push({ r, c });
+            }
+        }
+    }
+
+    const check = (index: number): boolean => {
+        if (index === emptyCells.length) {
+            count++;
+            return count >= limit;
+        }
+
+        const { r, c } = emptyCells[index];
+        for (let num = 1; num <= 9; num++) {
+            if (isValid(grid, r, c, num)) {
+                grid[r][c] = num;
+                if (check(index + 1)) {
+                    grid[r][c] = 0;
+                    return true;
+                }
+                grid[r][c] = 0;
+            }
+        }
+        return false;
+    };
+
+    check(0);
     return count;
 };
 
-const generateSudokuBoard = (targetClues: number): { solution: number[][]; puzzle: number[][] } => {
+const generateSudokuBoard = (targetClues: number): { solution: number[][]; puzzle: number[][]; } => {
     let bestPuzzle: number[][] = [];
     let bestCluesCount = 81;
     let finalSolution: number[][] = [];
 
-    // Run up to 3 generation attempts to get as close to targetClues as possible
+    // Intentos de generación
     for (let attempt = 0; attempt < 3; attempt++) {
         const solution: number[][] = Array.from({ length: 9 }, () => Array(9).fill(0));
         solveSudokuRandom(solution);
 
         const puzzle: number[][] = solution.map(row => [...row]);
-        const positions: { r: number; c: number }[] = [];
+        const positions: { r: number; c: number; }[] = [];
         for (let r = 0; r < 9; r++) {
             for (let c = 0; c < 9; c++) {
                 positions.push({ r, c });
@@ -229,7 +252,7 @@ const generateSudokuBoard = (targetClues: number): { solution: number[][]; puzzl
     return { solution: finalSolution, puzzle: bestPuzzle };
 };
 
-// Pure helper to extract random element, defined outside the component to avoid react purity compiler lints
+// Pure helper to extract random element
 const getRandomElement = <T,>(array: T[]): T => {
     return array[Math.floor(Math.random() * array.length)];
 };
@@ -242,14 +265,14 @@ export default function SudokuPage() {
     // Game states
     const [difficulty, setDifficulty] = useState<Difficulty>("facil");
     const [slideDirection, setSlideDirection] = useState<"left" | "right" | "none">("none");
-    
+
     const [initialGrid, setInitialGrid] = useState<number[][]>(() => Array.from({ length: 9 }, () => Array(9).fill(0)));
     const [currentGrid, setCurrentGrid] = useState<number[][]>(() => Array.from({ length: 9 }, () => Array(9).fill(0)));
     const [solutionGrid, setSolutionGrid] = useState<number[][]>(() => Array.from({ length: 9 }, () => Array(9).fill(0)));
     const [pencilNotes, setPencilNotes] = useState<number[][][]>(() => Array.from({ length: 9 }, () => Array.from({ length: 9 }, () => [])));
     const [hintCells, setHintCells] = useState<boolean[][]>(() => Array.from({ length: 9 }, () => Array(9).fill(false)));
 
-    const [selectedCell, setSelectedCell] = useState<{ r: number; c: number } | null>(null);
+    const [selectedCell, setSelectedCell] = useState<{ r: number; c: number; } | null>(null);
     const [pencilMode, setPencilMode] = useState<boolean>(false);
     const [hintsLeft, setHintsLeft] = useState<number>(3);
     const [gameStatus, setGameStatus] = useState<"playing" | "won">("playing");
@@ -258,7 +281,7 @@ export default function SudokuPage() {
     const [timeElapsed, setTimeElapsed] = useState<number>(0);
     const [timerActive, setTimerActive] = useState<boolean>(false);
     const timerIntervalRef = useRef<NodeJS.Timeout | null>(null);
-    const timerStartedRef = useRef<boolean>(false); // Ensures we start timer exactly on the first numeric/note input
+    const timerStartedRef = useRef<boolean>(false);
 
     // Modals
     const [showHelp, setShowHelp] = useState<boolean>(false);
@@ -323,11 +346,11 @@ export default function SudokuPage() {
         setSolutionGrid(solution);
         setPencilNotes(Array.from({ length: 9 }, () => Array.from({ length: 9 }, () => [])));
         setHintCells(Array.from({ length: 9 }, () => Array(9).fill(false)));
-        
+
         setSelectedCell(null);
         setHintsLeft(3);
         setGameStatus("playing");
-        
+
         // Reset timer
         setTimeElapsed(0);
         setTimerActive(false);
@@ -348,11 +371,10 @@ export default function SudokuPage() {
     // Input actions
     function handleCellInput(r: number, c: number, val: number) {
         if (initialGrid[r][c] !== 0 || gameStatus !== "playing") return;
-        
+
         startTimerIfNeeded();
 
         if (pencilMode) {
-            // Notes mode: toggle the note digit and erase any existing main value
             setCurrentGrid(prev => {
                 const next = prev.map(row => [...row]);
                 next[r][c] = 0;
@@ -369,15 +391,14 @@ export default function SudokuPage() {
                 return next;
             });
         } else {
-            // Normal input mode: set the value, clear its own notes, and clean conflicts in same row/col/box
             setPencilNotes(prev => {
-                return prev.map((row, curR) => 
+                return prev.map((row, curR) =>
                     row.map((cellNotes, curC) => {
                         if (curR === r && curC === c) return [];
 
                         const sameRow = curR === r;
                         const sameCol = curC === c;
-                        
+
                         const sRow = r - r % 3;
                         const sCol = c - c % 3;
                         const curSRow = curR - curR % 3;
@@ -391,8 +412,8 @@ export default function SudokuPage() {
                     })
                 );
             });
-            
-            const newGrid = currentGrid.map((row, curR) => 
+
+            const newGrid = currentGrid.map((row, curR) =>
                 row.map((cell, curC) => (curR === r && curC === c ? val : cell))
             );
             setCurrentGrid(newGrid);
@@ -420,7 +441,6 @@ export default function SudokuPage() {
     }
 
     function checkWinState(grid: number[][]) {
-        // Complete check: all cells are filled, match solution grid exactly
         for (let r = 0; r < 9; r++) {
             for (let c = 0; c < 9; c++) {
                 if (grid[r][c] !== solutionGrid[r][c]) {
@@ -433,7 +453,7 @@ export default function SudokuPage() {
         setGameStatus("won");
         setTimerActive(false);
         recordStats();
-        
+
         setTimeout(() => {
             setShowResultModal(true);
             if (canvasRef.current) {
@@ -444,16 +464,15 @@ export default function SudokuPage() {
 
     function revealCellHint(r: number, c: number) {
         const correctVal = solutionGrid[r][c];
-        
-        // Put correct value and clear notes (cleaning conflicts in row, col, and subgrid)
+
         setPencilNotes(prev => {
-            return prev.map((row, curR) => 
+            return prev.map((row, curR) =>
                 row.map((cellNotes, curC) => {
                     if (curR === r && curC === c) return [];
 
                     const sameRow = curR === r;
                     const sameCol = curC === c;
-                    
+
                     const sRow = r - r % 3;
                     const sCol = c - c % 3;
                     const curSRow = curR - curR % 3;
@@ -477,8 +496,6 @@ export default function SudokuPage() {
         setCurrentGrid(prev => {
             const next = prev.map(row => [...row]);
             next[r][c] = correctVal;
-            
-            // Check win with these modifications
             checkWinState(next);
             return next;
         });
@@ -495,7 +512,6 @@ export default function SudokuPage() {
 
         startTimerIfNeeded();
 
-        // 1. If we have a cell selected and it is empty or has a wrong value, solve it!
         if (selectedCell) {
             const { r, c } = selectedCell;
             if (initialGrid[r][c] === 0 && currentGrid[r][c] !== solutionGrid[r][c]) {
@@ -504,8 +520,7 @@ export default function SudokuPage() {
             }
         }
 
-        // 2. Otherwise, find a random empty cell or a cell with incorrect number
-        const candidates: { r: number; c: number }[] = [];
+        const candidates: { r: number; c: number; }[] = [];
         for (let r = 0; r < 9; r++) {
             for (let c = 0; c < 9; c++) {
                 if (initialGrid[r][c] === 0 && currentGrid[r][c] !== solutionGrid[r][c]) {
@@ -534,7 +549,6 @@ export default function SudokuPage() {
                 diffStats.maxStreak = diffStats.currentStreak;
             }
 
-            // Save best time & accumulate total time
             diffStats.totalTime += timeElapsed;
             if (diffStats.bestTime === null || timeElapsed < diffStats.bestTime) {
                 diffStats.bestTime = timeElapsed;
@@ -554,14 +568,12 @@ export default function SudokuPage() {
         }
     }
 
-    // Shared summary builder
     function handleShareResult() {
         const formattedTime = formatTime(timeElapsed);
         const diffName = t[DIFFICULTY_PRESETS[difficulty].nameKey];
-        
+
         let text = `Sudoku (${diffName}) - ${formattedTime} ⏱️\n\n`;
-        
-        // Build a little grid representation to share
+
         for (let r = 0; r < 9; r++) {
             let rowText = "";
             for (let c = 0; c < 9; c++) {
@@ -579,7 +591,7 @@ export default function SudokuPage() {
             text += rowText + "\n";
             if (r === 2 || r === 5) text += "\n";
         }
-        
+
         text += `\nJuega aquí: ${window.location.href}`;
 
         navigator.clipboard.writeText(text).then(() => {
@@ -600,15 +612,13 @@ export default function SudokuPage() {
         return count === 9;
     };
 
-    // Statistics helpers
     function getActiveStats(): DifficultyStats {
         if (!stats) return createDefaultDifficultyStats();
-        
+
         if (statsTab !== "global") {
             return stats[statsTab];
         }
 
-        // Global stats aggregation
         const allKeys = Object.keys(stats) as Difficulty[];
         const aggregated = createDefaultDifficultyStats();
         const validBestTimes: number[] = [];
@@ -634,14 +644,13 @@ export default function SudokuPage() {
 
     const activeStats = getActiveStats();
     const winRate = activeStats.played > 0 ? Math.round((activeStats.won / activeStats.played) * 100) : 0;
-    
+
     const formatTime = (secs: number): string => {
         const m = Math.floor(secs / 60);
         const s = secs % 60;
         return `${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
     };
 
-    // Grid rendering styles
     const getCellStyles = (r: number, c: number) => {
         const styles: React.CSSProperties = {
             borderStyle: "solid",
@@ -666,12 +675,10 @@ export default function SudokuPage() {
         return selectedCell?.r === r && selectedCell?.c === c;
     };
 
-    // Highlight row, column and 3x3 box
     const isCellHighlighted = (r: number, c: number): boolean => {
         if (!selectedCell) return false;
         if (selectedCell.r === r || selectedCell.c === c) return true;
-        
-        // Same 3x3 block check
+
         const sRow = selectedCell.r - selectedCell.r % 3;
         const sCol = selectedCell.c - selectedCell.c % 3;
         const cRow = r - r % 3;
@@ -679,7 +686,6 @@ export default function SudokuPage() {
         return sRow === cRow && sCol === cCol;
     };
 
-    // Highlight other cells with the same number
     const isCellSameNumber = (r: number, c: number): boolean => {
         if (!selectedCell) return false;
         const selectedVal = currentGrid[selectedCell.r][selectedCell.c];
@@ -687,28 +693,24 @@ export default function SudokuPage() {
         return currentGrid[r][c] === selectedVal;
     };
 
-    // Check conflicts (duplicate numbers in rows, columns, or 3x3 blocks)
     const conflicts = Array.from({ length: 9 }, () => Array(9).fill(false));
     for (let r = 0; r < 9; r++) {
         for (let c = 0; c < 9; c++) {
             const val = currentGrid[r][c];
             if (val === 0) continue;
 
-            // Row conflicts
             for (let c2 = 0; c2 < 9; c2++) {
                 if (c2 !== c && currentGrid[r][c2] === val) {
                     conflicts[r][c] = true;
                     conflicts[r][c2] = true;
                 }
             }
-            // Column conflicts
             for (let r2 = 0; r2 < 9; r2++) {
                 if (r2 !== r && currentGrid[r2][c] === val) {
                     conflicts[r][c] = true;
                     conflicts[r2][c] = true;
                 }
             }
-            // Subgrid 3x3 conflicts
             const startR = r - r % 3;
             const startC = c - c % 3;
             for (let i = 0; i < 3; i++) {
@@ -724,14 +726,10 @@ export default function SudokuPage() {
         }
     }
 
-    // Effect hooks placed at the bottom to ensure all functions are already defined when bound
-
-    // Load statistics on mount
     useEffect(() => {
         const savedStatsStr = localStorage.getItem("sudoku-game-stats");
         if (savedStatsStr) {
             try {
-                // eslint-disable-next-line react-hooks/set-state-in-effect
                 setStats(JSON.parse(savedStatsStr));
             } catch (e) {
                 console.error("Error parsing stats", e);
@@ -740,13 +738,10 @@ export default function SudokuPage() {
         } else {
             setStats(createDefaultStats());
         }
-        
-        // Load initial game
         startNewGame("facil", false);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    // Timer logic
     useEffect(() => {
         if (timerActive) {
             timerIntervalRef.current = setInterval(() => {
@@ -765,12 +760,10 @@ export default function SudokuPage() {
         };
     }, [timerActive]);
 
-    // Keyboard controls
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
             if (gameStatus !== "playing" || showHelp || showResultModal || showStats) return;
 
-            // Arrow Navigation
             if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) {
                 e.preventDefault();
                 let nextRow = selectedCell ? selectedCell.r : 4;
@@ -790,28 +783,21 @@ export default function SudokuPage() {
                 return;
             }
 
-            // Input values
             if (selectedCell) {
                 const { r, c } = selectedCell;
-                
-                // If it is a starting fixed value, we do not allow edits
                 if (initialGrid[r][c] !== 0) return;
 
-                // Numbers 1-9
                 if (/^[1-9]$/.test(e.key)) {
                     const val = parseInt(e.key);
                     if (isNumberCompleted(val)) return;
                     handleCellInput(r, c, val);
                 }
-                // Backspace/Delete/Space/0 to clear
                 else if (["Backspace", "Delete", "0", " "].includes(e.key)) {
                     handleClearCell(r, c);
                 }
-                // Pencil mode toggle (Key N)
                 else if (e.key.toLowerCase() === "n") {
                     setPencilMode(prev => !prev);
                 }
-                // Hint (Key H)
                 else if (e.key.toLowerCase() === "h") {
                     triggerHint();
                 }
@@ -833,14 +819,29 @@ export default function SudokuPage() {
             }}
             className="min-h-[calc(100vh-65px)] pt-6 xl:pt-10 px-4 sm:px-6 pb-8 transition-colors duration-500 relative flex flex-col items-center justify-between"
         >
-            {/* Confetti canvas */}
             <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-50 w-full h-full" />
 
-            {/* Desktop and mobile action/selector layout wrapper */}
+            <header className={`w-full max-w-xl flex flex-col items-center mb-2 mt-1 xl:mb-3 xl:mt-2 ${slideClass}`} key={`header-${difficulty}`}>
+                <div className="text-center flex flex-col items-center">
+                    <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight select-none">
+                        {t.title}
+                    </h1>
+                    <p style={{ color: activeStyle.textMuted }} className="text-xxs sm:text-sm font-medium max-w-sm mt-0.5 mb-1 px-2 leading-relaxed">
+                        {t.subtitle}
+                    </p>
+
+                    <div
+                        style={{ backgroundColor: activeStyle.card, borderColor: activeStyle.border }}
+                        className="flex items-center gap-2 px-3 py-1 rounded-full border shadow-sm text-xs sm:text-sm font-semibold select-none animate-soft-pulse mt-0.5"
+                    >
+                        <Clock className="w-3.5 h-3.5 opacity-75" />
+                        <span>{t.timeLabel}: <span className="font-bold tabular-nums">{formatTime(timeElapsed)}</span></span>
+                    </div>
+                </div>
+            </header>
+
             <div className="w-full max-w-xl flex flex-col items-center gap-2.5 mt-1 mb-2 xl:mb-0 xl:contents">
-                {/* Selector of difficulty */}
                 <div className="xl:absolute xl:top-6 xl:left-6 z-40 w-full xl:w-auto flex flex-col items-center xl:items-start gap-1.5" ref={diffMenuRef}>
-                    {/* Dropdown in mobile/tablet (< xl) */}
                     <div className="relative xl:hidden w-full max-w-[220px]">
                         <button
                             onClick={() => setShowDiffMenu(!showDiffMenu)}
@@ -888,7 +889,6 @@ export default function SudokuPage() {
                         )}
                     </div>
 
-                    {/* Classic buttons for desktop (>= xl) */}
                     <div className="hidden xl:flex xl:flex-col gap-1.5 w-full">
                         {(Object.keys(DIFFICULTY_PRESETS) as Difficulty[]).map((diff) => {
                             const isCurrent = difficulty === diff;
@@ -902,9 +902,8 @@ export default function SudokuPage() {
                                         color: isCurrent ? activeStyle.btnText : activeStyle.text,
                                         borderColor: activeStyle.border,
                                     }}
-                                    className={`px-3.5 py-2 rounded-xl border text-xs font-bold shadow-sm transition-all duration-300 hover:scale-102 active:scale-98 text-left cursor-pointer ${
-                                        isCurrent ? "shadow-md" : "hover:bg-opacity-90"
-                                    }`}
+                                    className={`px-3.5 py-2 rounded-xl border text-xs font-bold shadow-sm transition-all duration-300 hover:scale-102 active:scale-98 text-left cursor-pointer ${isCurrent ? "shadow-md" : "hover:bg-opacity-90"
+                                        }`}
                                 >
                                     {label}
                                 </button>
@@ -913,7 +912,6 @@ export default function SudokuPage() {
                     </div>
                 </div>
 
-                {/* Helper info options button */}
                 <div className="xl:absolute xl:top-6 xl:right-6 flex flex-col items-center xl:items-end gap-2.5 z-40 w-full xl:w-auto">
                     <div className="flex items-center gap-2">
                         <button
@@ -947,35 +945,12 @@ export default function SudokuPage() {
                 </div>
             </div>
 
-            {/* Header section with Timer info */}
-            <header className={`w-full max-w-xl flex flex-col items-center mb-2 mt-1 xl:mb-3 xl:mt-2 ${slideClass}`} key={`header-${difficulty}`}>
-                <div className="text-center flex flex-col items-center">
-                    <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight select-none">
-                        {t.title}
-                    </h1>
-                    <p style={{ color: activeStyle.textMuted }} className="text-xxs sm:text-sm font-medium max-w-sm mt-0.5 mb-1 px-2 leading-relaxed">
-                        {t.subtitle}
-                    </p>
-
-                    {/* Timer visualization */}
-                    <div
-                        style={{ backgroundColor: activeStyle.card, borderColor: activeStyle.border }}
-                        className="flex items-center gap-2 px-3 py-1 rounded-full border shadow-sm text-xs sm:text-sm font-semibold select-none animate-soft-pulse mt-0.5"
-                    >
-                        <Clock className="w-3.5 h-3.5 opacity-75" />
-                        <span>{t.timeLabel}: <span className="font-bold tabular-nums">{formatTime(timeElapsed)}</span></span>
-                    </div>
-                </div>
-            </header>
-
-            {/* Sudoku 9x9 Board */}
-            <main 
-                className={`w-full max-w-[450px] aspect-square p-1 rounded-2xl border-2 shadow-lg mb-6 flex flex-col justify-between overflow-hidden transition-transform duration-300 ${
-                    shakeBoard ? "animate-shake" : ""
-                }`}
-                style={{ 
-                    backgroundColor: activeStyle.card, 
-                    borderColor: activeStyle.text 
+            <main
+                className={`w-full max-w-[450px] aspect-square p-1 rounded-2xl border-2 shadow-lg mb-6 flex flex-col justify-between overflow-hidden transition-transform duration-300 ${shakeBoard ? "animate-shake" : ""
+                    }`}
+                style={{
+                    backgroundColor: activeStyle.card,
+                    borderColor: activeStyle.text
                 }}
             >
                 <div className="grid grid-cols-9 grid-rows-9 gap-0 h-full w-full">
@@ -991,26 +966,29 @@ export default function SudokuPage() {
                                 const isHint = hintCells[r][c];
                                 const notes = pencilNotes[r][c];
 
+                                // CORRECCIÓN: Comprobar si el valor colocado por el usuario es incorrecto respecto a la solución única
+                                const isIncorrect = !isOriginal && val !== 0 && val !== solutionGrid[r][c];
+
                                 // Dynamic cells backgrounds
                                 let cellBg = activeStyle.card;
                                 if (isSelected) {
-                                    cellBg = activeStyle.accent + "45"; // accent opacity 27%
+                                    cellBg = activeStyle.accent + "45";
                                 } else if (isSameNumber) {
-                                    cellBg = activeStyle.accent + "30"; // accent opacity 18%
-                                } else if (isConflict) {
-                                    cellBg = themeMode === "light" ? "#FFECEC" : "#552226"; // red conflict highlighting
+                                    cellBg = activeStyle.accent + "30";
+                                } else if (isConflict || isIncorrect) {
+                                    cellBg = themeMode === "light" ? "#FFECEC" : "#552226"; // Resaltar errores en rojo suave
                                 } else if (isHighlighted) {
-                                    cellBg = activeStyle.accent + "12"; // accent opacity 7%
+                                    cellBg = activeStyle.accent + "12";
                                 }
 
                                 // Text color
                                 let cellColor = activeStyle.text;
-                                if (isConflict) {
-                                    cellColor = "#E11D48"; // Rose 600 red
+                                if (isConflict || isIncorrect) {
+                                    cellColor = "#E11D48"; // Rose 600 red para errores de conflicto o número equivocado
                                 } else if (isHint) {
-                                    cellColor = themeMode === "light" ? "#4F46E5" : "#818CF8"; // Hint blue indigo
+                                    cellColor = themeMode === "light" ? "#4F46E5" : "#818CF8";
                                 } else if (!isOriginal && val !== 0) {
-                                    cellColor = activeStyle.accent; // Accent colored user values
+                                    cellColor = activeStyle.accent; // Accent colored para números introducidos correctamente
                                 }
 
                                 return (
@@ -1026,18 +1004,15 @@ export default function SudokuPage() {
                                             backgroundColor: cellBg,
                                             color: cellColor,
                                         }}
-                                        className={`relative aspect-square flex items-center justify-center font-semibold cursor-pointer select-none transition-all duration-200 ${
-                                            isSelected ? "ring-2 ring-inset ring-offset-1 ring-offset-white dark:ring-offset-black" : ""
-                                        }`}
+                                        className={`relative aspect-square flex items-center justify-center font-semibold cursor-pointer select-none transition-all duration-200 ${isSelected ? "ring-2 ring-inset ring-offset-1 ring-offset-white dark:ring-offset-black" : ""
+                                            }`}
                                     >
                                         {val !== 0 ? (
-                                            <span className={`text-base sm:text-2xl ${
-                                                isOriginal ? "font-extrabold" : "font-medium"
-                                            }`}>
+                                            <span className={`text-base sm:text-2xl ${isOriginal ? "font-extrabold" : "font-medium"
+                                                }`}>
                                                 {val}
                                             </span>
                                         ) : (
-                                            /* Render Pencil Notes */
                                             notes.length > 0 && (
                                                 <div className="grid grid-cols-3 grid-rows-3 h-full w-full p-0.5 sm:p-1 text-[7px] sm:text-[9px] leading-none opacity-80 select-none">
                                                     {Array.from({ length: 9 }).map((_, i) => {
@@ -1059,9 +1034,7 @@ export default function SudokuPage() {
                 </div>
             </main>
 
-            {/* Controller Action Pad and Digit Pad */}
             <footer className="w-full max-w-md flex flex-col gap-2 sm:gap-3.5 mt-auto">
-                {/* Control Panel (Pencil Mode, Hint, Erase) */}
                 <div className="grid grid-cols-3 gap-1.5 sm:gap-3">
                     <button
                         onClick={() => setPencilMode(prev => !prev)}
@@ -1083,9 +1056,8 @@ export default function SudokuPage() {
                             color: activeStyle.text,
                             borderColor: activeStyle.border,
                         }}
-                        className={`py-2 sm:py-3.5 rounded-xl sm:rounded-2xl border font-bold text-xs sm:text-sm shadow-sm transition-all duration-200 flex items-center justify-center gap-1 sm:gap-1.5 cursor-pointer hover:scale-102 active:scale-98 ${
-                            hintsLeft <= 0 ? "opacity-50" : ""
-                        }`}
+                        className={`py-2 sm:py-3.5 rounded-xl sm:rounded-2xl border font-bold text-xs sm:text-sm shadow-sm transition-all duration-200 flex items-center justify-center gap-1 sm:gap-1.5 cursor-pointer hover:scale-102 active:scale-98 ${hintsLeft <= 0 ? "opacity-50" : ""
+                            }`}
                     >
                         <Lightbulb className="w-4 h-4 text-amber-500 shrink-0" />
                         <span className="truncate">{t.hintsLabel} ({hintsLeft})</span>
@@ -1109,7 +1081,6 @@ export default function SudokuPage() {
                     </button>
                 </div>
 
-                {/* Numerical inputs 1-9 */}
                 <div
                     style={{ backgroundColor: activeStyle.card, borderColor: activeStyle.border }}
                     className="p-2 sm:p-4.5 rounded-2xl sm:rounded-3xl border shadow-sm flex flex-col gap-1.5 sm:gap-2.5 select-none"
@@ -1131,11 +1102,10 @@ export default function SudokuPage() {
                                         color: completed ? activeStyle.textMuted : activeStyle.text,
                                         borderColor: completed ? "transparent" : activeStyle.border,
                                     }}
-                                    className={`py-2 sm:py-3.5 rounded-xl sm:rounded-2xl font-bold text-base sm:text-lg transition-all duration-200 shadow-sm ${
-                                        completed 
-                                            ? "opacity-35 cursor-not-allowed pointer-events-none border border-dashed" 
-                                            : "hover:scale-105 active:scale-95 hover:bg-opacity-80 active:shadow-inner cursor-pointer"
-                                    }`}
+                                    className={`py-2 sm:py-3.5 rounded-xl sm:rounded-2xl font-bold text-base sm:text-lg transition-all duration-200 shadow-sm ${completed
+                                        ? "opacity-35 cursor-not-allowed pointer-events-none border border-dashed"
+                                        : "hover:scale-105 active:scale-95 hover:bg-opacity-80 active:shadow-inner cursor-pointer"
+                                        }`}
                                 >
                                     {num}
                                 </button>
@@ -1159,11 +1129,10 @@ export default function SudokuPage() {
                                         color: completed ? activeStyle.textMuted : activeStyle.text,
                                         borderColor: completed ? "transparent" : activeStyle.border,
                                     }}
-                                    className={`py-2 sm:py-3.5 rounded-xl sm:rounded-2xl font-bold text-base sm:text-lg transition-all duration-200 shadow-sm ${
-                                        completed 
-                                            ? "opacity-35 cursor-not-allowed pointer-events-none border border-dashed" 
-                                            : "hover:scale-105 active:scale-95 hover:bg-opacity-80 active:shadow-inner cursor-pointer"
-                                    }`}
+                                    className={`py-2 sm:py-3.5 rounded-xl sm:rounded-2xl font-bold text-base sm:text-lg transition-all duration-200 shadow-sm ${completed
+                                        ? "opacity-35 cursor-not-allowed pointer-events-none border border-dashed"
+                                        : "hover:scale-105 active:scale-95 hover:bg-opacity-80 active:shadow-inner cursor-pointer"
+                                        }`}
                                 >
                                     {num}
                                 </button>
@@ -1171,9 +1140,8 @@ export default function SudokuPage() {
                         })}
                     </div>
                 </div>
-            </footer >
+            </footer>
 
-            {/* Help/Tutorial Modal */}
             {showHelp && (
                 <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
                     <div
@@ -1208,7 +1176,6 @@ export default function SudokuPage() {
                 </div>
             )}
 
-            {/* Statistics Modal */}
             {showStats && (
                 <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
                     <div
@@ -1227,7 +1194,6 @@ export default function SudokuPage() {
                             <span>{t.stats}</span>
                         </h2>
 
-                        {/* Tabs by Difficulty */}
                         <div className="flex flex-wrap gap-1 justify-center border-b pb-2.5">
                             <button
                                 onClick={() => setStatsTab("global")}
@@ -1254,7 +1220,6 @@ export default function SudokuPage() {
                             ))}
                         </div>
 
-                        {/* Aggregate Statistics Render */}
                         {activeStats.played > 0 ? (
                             <div className="flex flex-col gap-4 sm:gap-6 py-1">
                                 <div className="grid grid-cols-3 gap-1.5 sm:gap-2.5 text-center">
@@ -1313,7 +1278,6 @@ export default function SudokuPage() {
                 </div>
             )}
 
-            {/* Winning results summary / Sharing modal */}
             {showResultModal && (
                 <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
                     <div
@@ -1330,12 +1294,11 @@ export default function SudokuPage() {
                         <h2 className="text-xl sm:text-4xl font-extrabold text-indigo-500 mt-2 select-none">
                             {t.winTitle}
                         </h2>
-                        
+
                         <p style={{ color: activeStyle.textMuted }} className="text-xs sm:text-base">
                             {t.winDesc(t[DIFFICULTY_PRESETS[difficulty].nameKey])}
                         </p>
 
-                        {/* Completed score statistics overview card */}
                         <div style={{ backgroundColor: activeStyle.keyBg }} className="p-3.5 sm:p-5 rounded-2xl border flex flex-col gap-2.5 sm:gap-3 my-1.5 text-left shadow-xs">
                             <div className="flex justify-between items-center text-xs sm:text-sm font-bold">
                                 <span>{t.timeSpent}</span>
@@ -1347,7 +1310,6 @@ export default function SudokuPage() {
                             </div>
                         </div>
 
-                        {/* Actions block */}
                         <div className="flex flex-col gap-2 mt-1 sm:mt-2">
                             <button
                                 onClick={handleShareResult}

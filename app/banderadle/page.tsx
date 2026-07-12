@@ -530,6 +530,16 @@ export default function BanderadlePage() {
             {/* Confetti Canvas */}
             <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-50 w-full h-full" />
 
+            {/* Header titles */}
+            <header className={`w-full max-w-xl flex flex-col items-center mb-4 mt-2 text-center ${slideClass}`} key={`header-${gameMode}-${targetCountry.id}`}>
+                <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight select-none">
+                    {gameMode === "easy" ? t.titleEasy : t.titleNormal}
+                </h1>
+                <p style={{ color: activeStyle.textMuted }} className="text-sm sm:text-base font-medium max-w-lg mt-2 mx-auto leading-relaxed px-2">
+                    {gameMode === "easy" ? t.subtitleEasy : t.subtitleNormal}
+                </p>
+            </header>
+
             {/* Corner menus (Absolute on Desktop, flow on Mobile) */}
             <div className="w-full max-w-xl xl:max-w-5xl flex flex-col items-center gap-4 mt-2 mb-4 xl:contents">
                 {/* Select Mode */}
@@ -620,16 +630,6 @@ export default function BanderadlePage() {
                     </div>
                 </div>
             </div>
-
-            {/* Header titles */}
-            <header className={`w-full max-w-xl flex flex-col items-center mb-4 mt-2 text-center ${slideClass}`} key={`header-${gameMode}-${targetCountry.id}`}>
-                <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight select-none">
-                    {gameMode === "easy" ? t.titleEasy : t.titleNormal}
-                </h1>
-                <p style={{ color: activeStyle.textMuted }} className="text-sm sm:text-base font-medium max-w-lg mt-2 mx-auto leading-relaxed px-2">
-                    {gameMode === "easy" ? t.subtitleEasy : t.subtitleNormal}
-                </p>
-            </header>
 
             {/* Easy mode flag mosaic view */}
             {gameMode === "easy" && (

@@ -113,6 +113,31 @@ export const gamesList: GameInfo[] = [
         icon: "Type",
         accentColor: "from-violet-400 to-fuchsia-500",
     }, {
+        id: "ruso",
+        name: {
+            es: "Alfabeto Ruso",
+            de: "Russisches Alphabet",
+            pl: "Rosyjski Alfabet",
+            ru: "Русский Алфавит",
+            pt: "Alfabeto Russo",
+            la: "Abecedarium Russicum",
+            uk: "Російський Алфавіт",
+        },
+        description: {
+            es: "Aprende y memoriza el alfabeto cirílico ruso con un sistema adaptativo de pesos y varios modos de juego.",
+            de: "Lerne und merke dir das russische kyrillische Alphabet mit einem adaptiven Gewichtungssystem und verschiedenen Spielmodi.",
+            pl: "Ucz się i zapamiętuj rosyjski alfabet cyrylicki dzięki adaptacyjnemu systemowi wag i różnym trybom gry.",
+            ru: "Изучайте и запоминайте русский кириллический алфавит с адаптивной системой весов и различными режимами игры.",
+            pt: "Aprenda e memorize o alfabeto cirílico russo con um sistema adaptativo de pesos e vários modos de juego.",
+            la: "Disce ac memoriae manda abecedarium Russicum cum systemate adaptivo ponderum et variis modis ludendi.",
+            uk: "Вивчайте та запам'ятовуйте російську кирилицю з адаптивною системою ваг та різними режимами гри.",
+        },
+        categoryKey: "categoryWord",
+        path: "/ruso",
+        playable: true,
+        icon: "Type",
+        accentColor: "from-blue-400 via-sky-400 to-red-500",
+    }, {
         id: "lava",
         name: {
             es: "Lámpara de Lava",
