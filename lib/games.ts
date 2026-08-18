@@ -138,6 +138,31 @@ export const gamesList: GameInfo[] = [
         icon: "Type",
         accentColor: "from-blue-400 via-sky-400 to-red-500",
     }, {
+        id: "arabe",
+        name: {
+            es: "Alfabeto Árabe",
+            de: "Arabisches Alphabet",
+            pl: "Arabski Alfabet",
+            ru: "Арабский Алфавит",
+            pt: "Alfabeto Árabe",
+            la: "Alfabeto Árabe", // Fallback to Spanish (no traduzcas a latín)
+            uk: "Арабський Алфавіт",
+        },
+        description: {
+            es: "Aprende y memoriza el alfabeto árabe y sus 4 formas contextuales con un sistema adaptativo de pesos.",
+            de: "Lerne und merke dir das arabische Alphabet und seine 4 kontextuellen Formen mit einem adaptiven Gewichtungssystem.",
+            pl: "Ucz się i zapamiętuj arabski alfabet i jego 4 formy kontekstowe dzięki adaptacyjnemu systemowi wag.",
+            ru: "Изучайте и запоминайте арабский алфавит и его 4 контекстные формы с адаптивной системой весов.",
+            pt: "Aprenda e memorize o alfabeto árabe e as suas 4 formas contextuais com um sistema adaptativo de pesos.",
+            la: "Aprende y memoriza el alfabeto árabe y sus 4 formas contextuales con un sistema adaptativo de pesos.", // Fallback to Spanish
+            uk: "Вивчайте та запам'ятовуйте арабський алфавіт та його 4 контекстні форми з адаптивною системою ваг.",
+        },
+        categoryKey: "categoryWord",
+        path: "/arabe",
+        playable: true,
+        icon: "Type",
+        accentColor: "from-emerald-400 via-teal-400 to-amber-500",
+    }, {
         id: "lava",
         name: {
             es: "Lámpara de Lava",
