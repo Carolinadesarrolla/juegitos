@@ -786,12 +786,12 @@ export default function RusoGamePage() {
                             {/* CARÁCTER O PALABRA CENTRAL */}
                             <div className="my-4 text-center">
                                 {activeMode === "letras" && currentLetter && (
-                                    <h2 className="text-7xl sm:text-8xl font-black tracking-tight" style={{ fontFamily: "'PTSans', var(--font-montserrat-alternates), sans-serif" }}>
+                                    <h2 className="text-7xl sm:text-8xl font-black tracking-tight">
                                         {currentDirection === "cyr-to-lat" ? currentLetter.cirilicUpper : currentLetter.latin}
                                     </h2>
                                 )}
                                 {activeMode === "palabras" && currentWord && (
-                                    <h2 className={`${getWordFontSizeClass(currentWord.word)} font-black tracking-tight`} style={{ fontFamily: "'PTSans', var(--font-montserrat-alternates), sans-serif" }}>
+                                    <h2 className={`${getWordFontSizeClass(currentWord.word)} font-black tracking-tight`}>
                                         {currentWord.word}
                                     </h2>
                                 )}
